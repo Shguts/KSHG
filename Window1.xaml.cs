@@ -31,6 +31,8 @@ namespace KSHG
         private void Reg_Click(object sender, RoutedEventArgs e)
         { 
                 Close();
+                Close();
+
         }
     }
 }
