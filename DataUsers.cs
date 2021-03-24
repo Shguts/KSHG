@@ -17,7 +17,9 @@ namespace KSHG
         public string LoginUs { get; set; }
         public string PasswordUs { get; set; }
         public int IDUser { get; set; }
-    
+
+        //изменено тут
+        private string PROV1, PROV2, PROV3, PROV4, PROV5, PROV6;
         public virtual Users Users { get; set; }
     }
 }

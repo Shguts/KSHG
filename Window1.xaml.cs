@@ -25,14 +25,29 @@ namespace KSHG
         public Window1()
         {
             InitializeComponent();
-            this.PreviewKeyDown += new KeyEventHandler(Reg_Click);
+
         }
 
         private void Reg_Click(object sender, RoutedEventArgs e)
-        { 
-                Close();
-                Close();
+        {
+            string PROV1 = Name.Text.Trim();
+            string PROV2 = Last_name.Text.Trim();
+            string PROV3 = Second_name.Text.Trim();
+            string PROV4 = Date_of_birth.Text.Trim();
+            string PROV5 = Login.Text.Trim();
+            string PROV6 = Password.Password.Trim();
+            using (kursRabEntities db = new kursRabEntities())
+            {
+                DataUsers sourse1 = new DataUsers();
+                sourse1.IDUser = 2;
+                sourse1.LoginUs = PROV5;
+                sourse1.PasswordUs = PROV6;
+                db.DataUsers.Add(sourse1);
+                db.SaveChanges();
 
+            }
+            MessageBox.Show("Красавелла брателла");
+            Close();
         }
     }
 }

@@ -27,26 +27,26 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <StackPanel Orientation="Horizontal" Margin="70,106,451,279">
-            <TextBox Margin=" 0" materialDesign:HintAssist.Hint="Имя" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616"/>
+        <StackPanel Orientation="Horizontal" Margin="70,111,451,258">
+            <TextBox x:Name="Name" materialDesign:HintAssist.Hint="Имя" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="0,0,0,10"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="70,169,451,217">
-            <TextBox materialDesign:HintAssist.Hint="Фамилия" Foreground="Orange" Width="272" RenderTransformOrigin="0.597,0.616"/>
+        <StackPanel Orientation="Horizontal" Margin="70,173,451,201">
+            <TextBox x:Name="Last_name" materialDesign:HintAssist.Hint="Фамилия" Foreground="Orange" Width="272" RenderTransformOrigin="0.597,0.616"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="70,227,451,153">
-            <TextBox materialDesign:HintAssist.Hint="Отчество" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616"/>
+            <TextBox x:Name="Second_name" materialDesign:HintAssist.Hint="Отчество" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="70,284,451,99">
-            <TextBox Margin=" 0" materialDesign:HintAssist.Hint="Дата рождения" Foreground="Orange" Width="271" RenderTransformOrigin="0.597,0.616"/>
+        <StackPanel Orientation="Horizontal" Margin="70,284,451,85">
+            <TextBox x:Name="Date_of_birth" Margin=" 0" materialDesign:HintAssist.Hint="Дата рождения" Foreground="Orange" Width="271" RenderTransformOrigin="0.597,0.616"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="381,106,140,279">
-            <TextBox materialDesign:HintAssist.Hint="Логин" Foreground="Orange" Width="278" RenderTransformOrigin="0.597,0.616"/>
+        <StackPanel Orientation="Horizontal" Margin="381,111,140,241">
+            <TextBox x:Name="Login" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="Orange" Width="278" RenderTransformOrigin="0.597,0.616" Margin="0,0,0,10"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="381,169,140,206">
-            <TextBox materialDesign:HintAssist.Hint="Пароль" Foreground="Orange" Width="278" RenderTransformOrigin="0.597,0.616" Height="34" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" Margin="381,173,140,185">
+            <PasswordBox x:Name="Password" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Foreground="Orange" Width="278" RenderTransformOrigin="0.597,0.616" Height="47" VerticalAlignment="Top"/>
         </StackPanel>
         <TextBlock Text="Registration" Margin="297,16,313,349" Foreground="Yellow" TextAlignment="Center" FontSize="38" FontFamily="Brush Script MT" RenderTransformOrigin="0.5,0.5"/>
-        <Button Margin="412,231,140,129" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+        <Button Margin="412,261,140,99" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="Reg_Click" FontSize="20">Зарегистрироваться</Button>
     </Grid>
 </Window>
