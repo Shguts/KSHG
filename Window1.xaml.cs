@@ -20,6 +20,7 @@ namespace KSHG
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
+    /// 
     public partial class Window1 : Window
     {
         public Window1()
@@ -39,14 +40,13 @@ namespace KSHG
             using (kursRabEntities db = new kursRabEntities())
             {
                 DataUsers sourse1 = new DataUsers();
-                sourse1.IDUser = 2;
                 sourse1.LoginUs = PROV5;
                 sourse1.PasswordUs = PROV6;
                 db.DataUsers.Add(sourse1);
                 db.SaveChanges();
 
             }
-            MessageBox.Show("Красавелла брателла");
+            MessageBox.Show("NICE");
             Close();
         }
     }

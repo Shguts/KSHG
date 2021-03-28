@@ -14,13 +14,19 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.Entity;
 namespace KSHG
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    ///  internal class ApplicationContext
     public partial class MainWindow : Window
     {
+        public class ApplicationContext : DbContext
+        {
+            public DbSet<DataUsers> INFORMATION { get; set; }
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +38,14 @@ namespace KSHG
         }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            string provlogin = LOG.Text.Trim();
+            string provpassw = PASSW.Text.Trim();
+            DataUsers us = null;
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                
 
+            }
         }
         private void BtgRegistr_Click(object sender, RoutedEventArgs e)
         {
@@ -41,4 +54,5 @@ namespace KSHG
 
         }
     }
+
 }
