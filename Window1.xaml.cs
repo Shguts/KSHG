@@ -42,6 +42,7 @@ namespace KSHG
                 DataUsers sourse1 = new DataUsers();
                 sourse1.LoginUs = PROV5;
                 sourse1.PasswordUs = PROV6;
+                sourse1.IDUser = 1;
                 db.DataUsers.Add(sourse1);
                 db.SaveChanges();
 

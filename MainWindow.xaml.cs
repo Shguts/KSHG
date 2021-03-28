@@ -25,12 +25,14 @@ namespace KSHG
     {
         public class ApplicationContext : DbContext
         {
+            public ApplicationContext(): base("kursRabEntities") { }
             public DbSet<DataUsers> INFORMATION { get; set; }
         }
+        ApplicationContext db;
         public MainWindow()
         {
             InitializeComponent();
-
+            db = new ApplicationContext();
         }
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
@@ -41,11 +43,15 @@ namespace KSHG
             string provlogin = LOG.Text.Trim();
             string provpassw = PASSW.Text.Trim();
             DataUsers us = null;
-            using (ApplicationContext db = new ApplicationContext())
+            using (ApplicationContext context = new ApplicationContext())
             {
-                
+                us = context.INFORMATION.Where(l => l.LoginUs == provlogin && l.PasswordUs == provpassw).FirstOrDefault();
 
             }
+            if (us != null)
+                MessageBox.Show("Вы авторизованы");
+            else
+                MessageBox.Show("Вы ввели некорректные данные");
         }
         private void BtgRegistr_Click(object sender, RoutedEventArgs e)
         {
