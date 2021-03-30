@@ -17,7 +17,7 @@ namespace KSHG
         public string LoginUs { get; set; }
         public string PasswordUs { get; set; }
         public int IDUser { get; set; }
-
+    
         public virtual Users Users { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="34afc84037d946e98828831f0a71a239" Name="Diagram1">
+      <Diagram DiagramId="0e0c01bf6ee2429888ce74605b460a84" Name="Diagram1">
         <EntityTypeShape EntityType="kursRabModel.Administrators" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="kursRabModel.BALLS" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="kursRabModel.Countries" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
@@ -15,13 +15,13 @@
         <EntityTypeShape EntityType="kursRabModel.roleofactor" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="kursRabModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="kursRabModel.Users" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
-        <AssociationConnector Association="kursRabModel.FK__BALLS__IDFilm__35A7EF71" ManuallyRouted="false" />
-        <AssociationConnector Association="kursRabModel.FK__BALLS__IDUser__34B3CB38" ManuallyRouted="false" />
-        <AssociationConnector Association="kursRabModel.FK__Films__IDCountry__2942188C" ManuallyRouted="false" />
-        <AssociationConnector Association="kursRabModel.FK__roleofact__IDCre__2E06CDA9" ManuallyRouted="false" />
-        <AssociationConnector Association="kursRabModel.FK__DataUsers__IDUse__247D636F" ManuallyRouted="false" />
-        <AssociationConnector Association="kursRabModel.FK__Films__IDgenre__284DF453" ManuallyRouted="false" />
-        <AssociationConnector Association="kursRabModel.FK__roleofact__IDFil__2EFAF1E2" ManuallyRouted="false" />
+        <AssociationConnector Association="kursRabModel.FK__BALLS__IDFilm__76A18A26" ManuallyRouted="false" />
+        <AssociationConnector Association="kursRabModel.FK__BALLS__IDUser__75AD65ED" ManuallyRouted="false" />
+        <AssociationConnector Association="kursRabModel.FK__Films__IDCountry__6A3BB341" ManuallyRouted="false" />
+        <AssociationConnector Association="kursRabModel.FK__roleofact__IDCre__6F00685E" ManuallyRouted="false" />
+        <AssociationConnector Association="kursRabModel.FK__DataUsers__IDUse__6576FE24" ManuallyRouted="false" />
+        <AssociationConnector Association="kursRabModel.FK__Films__IDgenre__69478F08" ManuallyRouted="false" />
+        <AssociationConnector Association="kursRabModel.FK__roleofact__IDFil__6FF48C97" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

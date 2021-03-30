@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:KSHG"
         mc:Ignorable="d"
-        Title="Window2" Height="450" Width="800">
+        Title="Window1" Height="450" Width="800">
     <Grid Visibility="Visible">
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
@@ -28,12 +28,12 @@
             </Border.RenderTransform>
         </Border>
         <Button Margin="299,58,295,339" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnLogin_Click">Добавить фильм</Button>
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" >Добавить фильм</Button>
         <Button Margin="299,132,295,265" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnLogin_Click">Фильмы</Button>
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" >Фильмы</Button>
         <Button Margin="46,61,590,342" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnLogin_Click">Перейти в Профиль</Button>
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" >Перейти в Профиль</Button>
         <Button Margin="299,208,295,189" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnLogin_Click">Поиск фильмов</Button>
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" >Поиск фильмов</Button>
     </Grid>
 </Page>

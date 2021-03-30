@@ -28,7 +28,7 @@
             </Border.RenderTransform>
         </Border>
         <Button Margin="542,68,71,338" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnLogin_Click">Изменить данные</Button>
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White">Изменить данные</Button>
         <StackPanel>
             
         </StackPanel>

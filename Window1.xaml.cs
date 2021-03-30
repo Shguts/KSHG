@@ -44,6 +44,7 @@ namespace KSHG
                 sourse1.PasswordUs = PROV6;
                 sourse1.IDUser = 1;
                 db.DataUsers.Add(sourse1);
+                var TEST=db.DataUsers.Where(x => x.LoginUs == PROV5).Select(X => X.IDUser);
                 db.SaveChanges();
 
             }

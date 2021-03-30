@@ -28,7 +28,6 @@ namespace KSHG
         public int rating { get; set; }
         public int IDgenre { get; set; }
         public System.DateTime DateofCreate { get; set; }
-        public string Poster { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BALLS> BALLS { get; set; }

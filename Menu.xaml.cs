@@ -18,9 +18,9 @@ namespace KSHG
     /// <summary>
     /// Логика взаимодействия для Page2.xaml
     /// </summary>
-    public partial class Page2 : Page
+    public partial class Menu : Page
     {
-        public Page2()
+        public Menu()
         {
             InitializeComponent();
         }

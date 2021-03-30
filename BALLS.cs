@@ -16,7 +16,7 @@ namespace KSHG
     {
         public int IDUser { get; set; }
         public int IDFilm { get; set; }
-        public Nullable<int> Mark { get; set; }
+        public int Mark { get; set; }
         public string Comment { get; set; }
     
         public virtual Films Films { get; set; }
