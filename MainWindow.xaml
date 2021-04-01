@@ -71,7 +71,7 @@
                     </TransformGroup>
                 </materialDesign:PackIcon.RenderTransform>
             </materialDesign:PackIcon>
-            <TextBox x:Name="PASSW" Margin="10 0" materialDesign:HintAssist.Hint="Password" Foreground="Orange" Width="251" RenderTransformOrigin="0.597,0.616"/>
+            <PasswordBox x:Name="PASSW" Margin="10 0" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Foreground="Orange" Width="251" RenderTransformOrigin="0.597,0.616"/>
         </StackPanel>
         <Button Margin="213,256,453,125" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnLogin_Click">Вход</Button>

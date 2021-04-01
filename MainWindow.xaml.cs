@@ -34,7 +34,7 @@ namespace KSHG
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string provlogin = LOG.Text.Trim();
-            string provpassw = PASSW.Text.Trim();
+            string provpassw = PASSW.Password.Trim();
             DataUsers us = null;
             using (kursRabEntities context = new kursRabEntities())
             {
@@ -48,7 +48,7 @@ namespace KSHG
         }
         private void BtgRegistr_Click(object sender, RoutedEventArgs e)
         {
-            Window1 taskWindow = new Window1();
+             Window1 taskWindow = new Window1();
             taskWindow.Show();
 
         }
