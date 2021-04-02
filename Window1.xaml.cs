@@ -63,20 +63,17 @@ namespace KSHG
                     case 4: break;
                     default: { sourse2.DateofBirth = Convert.ToDateTime(PROV4);break;};
                 }
-                db.Users.Add(sourse2);
-                db.SaveChanges();
-
-            }           
-            using (kursRabEntities db = new kursRabEntities())
-            {
+                int t = db.Users.OrderByDescending(x => x.IDUser).Select(x=>x.IDUser).FirstOrDefault();
                 DataUsers sourse1 = new DataUsers();
                 Users sourse3 = new Users();
                 sourse1.LoginUs = PROV5;
                 sourse1.PasswordUs = PROV6;
-                var TEST1= db.DataUsers.Where(x => x.LoginUs == PROV5).Select(X => X.IDUser).FirstOrDefault(); 
-                sourse1.IDUser = TEST1;
+                sourse1.IDUser = t+1;
+                var TEST1= db.DataUsers.Where(x => x.LoginUs == PROV5).Select(X => X.IDUser).FirstOrDefault();
+                //sourse1.IDUser = TEST1;
                 //var TEST1 = db.DataUsers.Where(x => x.LoginUs == PROV5).Select(X => X.IDUser);
                 //sourse1.IDUser = Convert.ToInt32(TEST1);
+                db.Users.Add(sourse2);
                 db.DataUsers.Add(sourse1);
                 db.SaveChanges();
 
