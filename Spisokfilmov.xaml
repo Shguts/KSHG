@@ -15,15 +15,17 @@
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Pink"/>
                     <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="NameofFilm"/>
-                <DataGridTextColumn Header="IDCountry"/>
-                <DataGridTextColumn Header="AgeRestriction"/>
-                <DataGridTextColumn Header="rating"/>
-                <DataGridTextColumn Header="IDgenre"/>
-                <DataGridTextColumn Header="DateofCreate"/>
+                <DataGridTextColumn Header="   NameofFilm"/>
+                <DataGridTextColumn Header="   IDCountry"/>
+                <DataGridTextColumn Header="   AgeRestriction"/>
+                <DataGridTextColumn Header="   rating"/>
+                <DataGridTextColumn Header="   IDgenre"/>
+                <DataGridTextColumn Header="   DateofCreate"/>
             </DataGrid.Columns>
         </DataGrid>
 
