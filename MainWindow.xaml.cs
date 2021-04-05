@@ -26,35 +26,7 @@ namespace KSHG
         public MainWindow()
         {
             InitializeComponent();
-        }
-        private void btnExit_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            string provlogin = LOG.Text.Trim();
-            string provpassw = PASSW.Password.Trim();
-            DataUsers us = null;
-            using (kursRabEntities context = new kursRabEntities())
-            {
-                us = context.DataUsers.Where(l => l.LoginUs == provlogin && l.PasswordUs == provpassw).FirstOrDefault();
-
-            }
-            if (us != null)
-            {
-                MessageBox.Show("Вы авторизованы");
-                
-            } 
-            else
-                MessageBox.Show("Вы ввели некорректные данные");
-
-        }
-        private void BtgRegistr_Click(object sender, RoutedEventArgs e)
-        {
-             Window1 taskWindow = new Window1();
-            taskWindow.Show();
-
+            MAINW.Content = new AUTH();
         }
     }
 

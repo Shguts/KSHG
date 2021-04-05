@@ -25,13 +25,20 @@ namespace KSHG
             InitializeComponent();
             using (kursRabEntities db = new kursRabEntities())
             {
-                var spisfilms = db.Films;
-                foreach (Films f in spisfilms)
-                {
-                    SPISOKF.Items.Add(f);
-                }
+                //string s1= db.Films.Select(x => x.NameofFilm).FirstOrDefault();
+
+                var spisfilms = db.Films.Select(x => x).ToList<Films>();
+                SPISOKF.ItemsSource = spisfilms;
+                //foreach (Films f in spisfilms)
+                //{
+                //   SPISOKF.Items.Add(f);
+                //}
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Menu());
+        }
     }
 }

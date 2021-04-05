@@ -68,7 +68,7 @@ namespace KSHG
                 DataUsers sourse1 = new DataUsers();
                 sourse1.LoginUs = PROV5;
                 sourse1.PasswordUs = PROV6;
-                int TEST1 = db.Users.OrderByDescending(x => x.IDUser).Select(X => X.IDUser).FirstOrDefault() + 1;
+                int TEST1 = db.Users.OrderByDescending(x => x.IDUser).Select(X => X.IDUser).FirstOrDefault();
                 sourse1.IDUser = TEST1;
                 db.DataUsers.Add(sourse1);
                 db.SaveChanges();

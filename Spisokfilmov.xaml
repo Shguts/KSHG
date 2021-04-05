@@ -9,7 +9,7 @@
       Title="Spisokfilmov">
 
     <Grid>
-        <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="430" Margin="10,10,0,0" VerticalAlignment="Top" Width="780" SelectionChanged="SPISOKF_SelectionChanged">
+        <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="430" AutoGenerateColumns="False" VerticalAlignment="Top" Width="581" Background="#FF83179B">
             <!--НЕНУЖНАЯ ФИГНЯ ПО СУТИ-->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -20,14 +20,15 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="   NameofFilm"/>
-                <DataGridTextColumn Header="   IDCountry"/>
-                <DataGridTextColumn Header="   AgeRestriction"/>
-                <DataGridTextColumn Header="   rating"/>
-                <DataGridTextColumn Header="   IDgenre"/>
-                <DataGridTextColumn Header="   DateofCreate"/>
+                <DataGridTextColumn Header="   NameofFilm " Binding="{Binding NameofFilm}"/>
+                <DataGridTextColumn Header="   IDCountry " Binding="{Binding IDCountry}"/>
+                <DataGridTextColumn Header="   AgeRestriction " Binding="{Binding AgeRestriction}"/>
+                <DataGridTextColumn Header="   rating " Binding="{Binding rating}"/>
+                <DataGridTextColumn Header="   IDgenre " Binding="{Binding IDgenre}"/>
+                <DataGridTextColumn Header="   DateofCreate " Binding="{Binding DateofCreate}"/>
             </DataGrid.Columns>
         </DataGrid>
-
+        <Button Content="Перейти в меню" HorizontalAlignment="Left" Margin="615,36,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Button_Click"/>
+        <Button Content="Добавить фильм" HorizontalAlignment="Left" Margin="615,124,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Button_Click"/>
     </Grid>
 </Page>

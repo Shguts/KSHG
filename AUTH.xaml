@@ -1,0 +1,104 @@
+﻿<Page x:Class="KSHG.AUTH"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:KSHG"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AUTH">
+
+    <Grid Visibility="Visible" RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-360.311"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                <GradientStop Color="#FF30E6DE" Offset="1"/>
+                <GradientStop Color="#FFFE04BA" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Height="417" VerticalAlignment="Top" CornerRadius="90 90 90 90" Background="#FF161221" Margin="19,4,32,-2" RenderTransformOrigin="0.527,0.429">
+            <Border.Effect>
+                <BlurEffect KernelType="Box" Radius="10"/>
+            </Border.Effect>
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1" ScaleX="-1"/>
+                    <SkewTransform AngleX="-1.124"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-41.786" Y="59.356"/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <StackPanel Margin="457,54,88,109" RenderTransformOrigin="0.5,0.5">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.265"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.599"/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
+            <Image Source="C:\Users\shgust\Pictures\mainpic.jpg" Height="293" Margin="0,0,-17,0" RenderTransformOrigin="0.501,0.624">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.126"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="123,128,384,272">
+            <materialDesign:PackIcon Kind="User" Width="36" Height="52" Foreground="#FF1EE41E" Margin="0,0,0,-2" RenderTransformOrigin="0.5,0.5">
+                <materialDesign:PackIcon.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.619"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </materialDesign:PackIcon.RenderTransform>
+            </materialDesign:PackIcon>
+            <TextBox x:Name="LOG" materialDesign:HintAssist.Hint="User Login" Foreground="Orange" Width="256" RenderTransformOrigin="0.597,0.616"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="123,183,384,220">
+            <materialDesign:PackIcon Kind="Key" Width="28" Height="52" Foreground="#FF1EE41E" Margin="0,0,0,-2" RenderTransformOrigin="0.5,0.5">
+                <materialDesign:PackIcon.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.619"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </materialDesign:PackIcon.RenderTransform>
+            </materialDesign:PackIcon>
+            <PasswordBox x:Name="PASSW" Margin="10,0" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Foreground="Orange" Width="251" RenderTransformOrigin="0.472,0.659"/>
+        </StackPanel>
+        <Button Margin="190,264,439,141" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnLogin_Click">Вход</Button>
+        <Button Margin="190,327,439,80" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="BtgRegistr_Click">Регистрация</Button>
+        <Button Margin="70,43,665,345" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" ToolTip="Close" x:Name="btnExit" Click="btnExit_Click" Height="Auto" Width="Auto">
+            <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30" />
+        </Button>
+        <TextBlock Text="Authorization" Margin="158,67,452,337" Foreground="Yellow" TextAlignment="Center" FontSize="38" FontFamily="Brush Script MT" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1" ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180.264"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+    </Grid>
+</Page>
