@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:KSHG"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Opacity="0.975">
+
     <Grid Visibility="Visible">
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">

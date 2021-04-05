@@ -42,9 +42,13 @@ namespace KSHG
 
             }
             if (us != null)
+            {
                 MessageBox.Show("Вы авторизованы");
+                
+            } 
             else
                 MessageBox.Show("Вы ввели некорректные данные");
+
         }
         private void BtgRegistr_Click(object sender, RoutedEventArgs e)
         {

@@ -118,6 +118,9 @@
     <Compile Include="roleofactor.cs">
       <DependentUpon>kursRabEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Spisokfilmov.xaml.cs">
+      <DependentUpon>Spisokfilmov.xaml</DependentUpon>
+    </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>kursRabEntities.tt</DependentUpon>
     </Compile>
@@ -150,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Profil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Spisokfilmov.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
