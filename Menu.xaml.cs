@@ -29,5 +29,10 @@ namespace KSHG
         {
             NavigationService.Navigate(new Spisokfilmov());
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

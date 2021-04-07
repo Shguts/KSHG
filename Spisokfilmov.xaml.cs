@@ -25,14 +25,25 @@ namespace KSHG
             InitializeComponent();
             using (kursRabEntities db = new kursRabEntities())
             {
-                //string s1= db.Films.Select(x => x.NameofFilm).FirstOrDefault();
 
                 var spisfilms = db.Films.Select(x => x).ToList<Films>();
                 SPISOKF.ItemsSource = spisfilms;
-                //foreach (Films f in spisfilms)
-                //{
-                //   SPISOKF.Items.Add(f);
-                //}
+            }
+            using (kursRabEntities db = new kursRabEntities())
+            {
+                var COMBOSPIS = db.GENRES.Select(x => x).ToList<GENRES>();
+                foreach (GENRES gen in COMBOSPIS)
+                {
+                    COMBOBOXGENRE.Items.Add(gen);
+                }
+            }
+            using (kursRabEntities db = new kursRabEntities())
+            {
+                var COMBOSPIS1 = db.Countries.Select(x => x).ToList();
+                foreach (Countries sen in COMBOSPIS1)
+                {
+                    COMBOBOXCOUNTRY.Items.Add(sen);
+                }
             }
         }
 

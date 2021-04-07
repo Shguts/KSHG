@@ -3,13 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:KSHG"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Spisokfilmov">
 
     <Grid>
-        <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="430" AutoGenerateColumns="False" VerticalAlignment="Top" Width="581" Background="#FF83179B">
+        <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="450" AutoGenerateColumns="False" VerticalAlignment="Top" Width="561" Background="#FF83179B">
             <!--НЕНУЖНАЯ ФИГНЯ ПО СУТИ-->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -29,6 +30,28 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Перейти в меню" HorizontalAlignment="Left" Margin="615,36,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Button_Click"/>
-        <Button Content="Добавить фильм" HorizontalAlignment="Left" Margin="615,124,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Button_Click"/>
+        <Button Content="Добавить фильм" HorizontalAlignment="Left" Margin="615,116,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Button_Click"/>
+        <TextBox x:Name="Name_of_Film" materialDesign:HintAssist.Hint="Название фильма" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="615,192,30,220">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.036"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox x:Name="DATEOC" materialDesign:HintAssist.Hint="Год создания" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="616,246,29,166">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.036"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <ComboBox SelectedValuePath="IDgenre" DisplayMemberPath="NameofGenre" x:Name="COMBOBOXGENRE" materialDesign:HintAssist.Hint="Выбор жанра" Foreground="Aqua" HorizontalAlignment="Left" Margin="615,305,0,0" VerticalAlignment="Top" Width="164" Height="31"/>
+        <ComboBox SelectedValuePath="IDCountry" DisplayMemberPath="NameofCountry" x:Name="COMBOBOXCOUNTRY" materialDesign:HintAssist.Hint="Выбор страны" Foreground="Aqua" HorizontalAlignment="Left" Margin="615,367,0,0" VerticalAlignment="Top" Width="164" Height="31"/>
     </Grid>
 </Page>
