@@ -10,11 +10,11 @@
       Title="Spisokfilmov">
 
     <Grid>
-        <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="450" AutoGenerateColumns="False" VerticalAlignment="Top" Width="561" Background="#FF83179B">
+        <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="450" AutoGenerateColumns="False" VerticalAlignment="Top" Width="561" Foreground="Aqua" Background="Black" FontWeight="Bold">
             <!--НЕНУЖНАЯ ФИГНЯ ПО СУТИ-->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="Pink"/>
+                    <Setter Property="Background" Value="#FF9C142C"/>
                     <Setter Property="FontWeight" Value="SemiBold"/>
                     <Setter Property="BorderThickness" Value="0,0,1,2"/>
                     <Setter Property="BorderBrush" Value="Black"/>
@@ -41,7 +41,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="DATEOC" materialDesign:HintAssist.Hint="Год создания" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="617,228,28,184">
+        <TextBox x:Name="DATEOC" materialDesign:HintAssist.Hint="Год создания" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="613,228,32,184">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -53,7 +53,7 @@
         </TextBox>
         <ComboBox SelectedValuePath="IDgenre" DisplayMemberPath="NameofGenre" x:Name="COMBOBOXGENRE" materialDesign:HintAssist.Hint="Выбор жанра" Foreground="Aqua" HorizontalAlignment="Left" Margin="615,286,0,0" VerticalAlignment="Top" Width="164" Height="30"/>
         <ComboBox SelectedValuePath="IDCountry" DisplayMemberPath="NameofCountry" x:Name="COMBOBOXCOUNTRY" materialDesign:HintAssist.Hint="Выбор страны" Foreground="Aqua" HorizontalAlignment="Left" Margin="615,342,0,0" VerticalAlignment="Top" Width="164" Height="30"/>
-        <TextBox x:Name="AGE" materialDesign:HintAssist.Hint="Возрастное ограничение" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="617,388,22,24">
+        <TextBox x:Name="AGE" materialDesign:HintAssist.Hint="Возрастное ограничение" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="614,392,25,20">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

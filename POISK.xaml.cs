@@ -16,28 +16,18 @@ using System.Windows.Shapes;
 namespace KSHG
 {
     /// <summary>
-    /// Логика взаимодействия для Page2.xaml
+    /// Логика взаимодействия для POISK.xaml
     /// </summary>
-    public partial class Menu : Page
+    public partial class POISK : Page
     {
-        public Menu()
+        public POISK()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Spisokfilmov());
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Poisk_click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new POISK());
         }
     }
 }

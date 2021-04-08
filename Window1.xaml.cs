@@ -37,46 +37,83 @@ namespace KSHG
             string PROV4 = Date_of_birth.Text.Trim();
             string PROV5 = Login.Text.Trim();
             string PROV6 = Password.Password.Trim();
+            bool necro = true;
             using (kursRabEntities db = new kursRabEntities())
             {
                 int n = 0;
                 Users sourse2 = new Users();
                 if (PROV1 != "")
                 {
-                    sourse2.UName = PROV1;
+                    if (PROV5 != "")
+                    {
+                        if (PROV3 != "")
+                        {
+                            try
+                            {
+                                sourse2.DateofBirth = Convert.ToDateTime(PROV4);
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Вы не верно ввели дату");
+                                necro = false;
+                            }
+                            if (necro)
+                            {
+                                sourse2.UName = PROV1;
+                                sourse2.USecondName = PROV3;
+                                sourse2.ULastName = PROV2;
+                                db.Users.Add(sourse2);
+                                db.SaveChanges();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Вы не ввели Отчество");
+                            necro = false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Вы не ввели фамилию");
+                        necro = false;
+                    }
                 }
-                else MessageBox.Show("Вы не ввели имя");
-                if (PROV5 != "")
+                else
                 {
-                    sourse2.ULastName = PROV2;
+                    MessageBox.Show("Вы не ввели имя");
+                    necro = false;
                 }
-                else MessageBox.Show("Вы не ввели фамилию");
-                if (PROV3 != "")
+                if (necro)
                 {
-                    sourse2.USecondName = PROV3;
-                }
-                switch (n)
-                {
-                    case 1: { break; }
-                    case 2: break;
-                    case 3: break;
-                    case 4: break;
-                    default: { sourse2.DateofBirth = Convert.ToDateTime(PROV4); break; };
-                }
-                db.Users.Add(sourse2);
-                db.SaveChanges();
-                DataUsers sourse1 = new DataUsers();
-                sourse1.LoginUs = PROV5;
-                sourse1.PasswordUs = PROV6;
-                int TEST1 = db.Users.OrderByDescending(x => x.IDUser).Select(X => X.IDUser).FirstOrDefault();
-                sourse1.IDUser = TEST1;
-                db.DataUsers.Add(sourse1);
-                db.SaveChanges();
-                //gre
-                
+                    DataUsers sourse1 = new DataUsers();
+                    if (PROV5==null)
+                    {
+                        MessageBox.Show("Вы не ввели логин");
+                        necro = false;
+                    }
+                    else
+                    {
+                        if ((PROV6 == null))
+                        {
+                            MessageBox.Show("Вы не ввели пароль");
+                            necro = false;
+                        }
+                        else
+                        {
+                            sourse1.LoginUs = PROV5;
+                            sourse1.PasswordUs = PROV6;
+                            int TEST1 = db.Users.OrderByDescending(x => x.IDUser).Select(X => X.IDUser).FirstOrDefault();
+                            sourse1.IDUser = TEST1;
+                            db.DataUsers.Add(sourse1);
+                            db.SaveChanges();
+                        }
+                    }
+                }          
             }
-            MessageBox.Show("NICE");
-            MessageBox.Show("vau");
+            if (necro)
+            {
+                MessageBox.Show("NICE");
+            } else { MessageBox.Show("so bad"); }
             Close();
         }
     }
