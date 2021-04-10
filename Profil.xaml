@@ -14,7 +14,7 @@
                 <GradientStop Color="#FFFE04BA" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="441" VerticalAlignment="Top" CornerRadius="90 90 90 90" Background="#FF161221" Margin="13,12,24,-3" RenderTransformOrigin="0.527,0.429">
+        <Border Height="441" VerticalAlignment="Top" CornerRadius="90 90 90 90" Background="#FF594299" Margin="13,12,24,-3" RenderTransformOrigin="0.527,0.429">
             <Border.Effect>
                 <BlurEffect KernelType="Box" Radius="10"/>
             </Border.Effect>
@@ -27,11 +27,28 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <Button Margin="542,68,71,338" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+        <Button Margin="108,336,506,70" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White">Изменить данные</Button>
         <StackPanel>
-            
-        </StackPanel>
 
+        </StackPanel>
+        <TextBox x:Name="Name" materialDesign:HintAssist.Hint="Имя" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,68,455,349"/>
+        <TextBox x:Name="Name1" materialDesign:HintAssist.Hint="Фамилия" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,197,455,220"/>
+        <TextBox x:Name="Name2" materialDesign:HintAssist.Hint="Отчество" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,130,455,288"/>
+        <TextBox x:Name="Name3" materialDesign:HintAssist.Hint="Дата рождения" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,262,455,156"/>
+        <Image Source="C:\Users\Shguts\Documents\kisspng-computer-icons-portable-network-graphics-user-icon-my-b-tab-svg-png-icon-free-download-8-584-onl-5bfa376045bc20.3622044515431248322856.jpg" Height="Auto" Margin="472,64,102,170" RenderTransformOrigin="0.501,0.624">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.126"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button Margin="492,296,122,110" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White">Загрузить фотографию</Button>
+        <Button Margin="492,353,122,53" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White">Перейти в меню</Button>
     </Grid>
 </Page>
