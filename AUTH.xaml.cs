@@ -20,6 +20,7 @@ namespace KSHG
     /// </summary>
     public partial class AUTH : Page
     {
+        public static string test;
         public AUTH()
         {
             InitializeComponent();
@@ -31,12 +32,12 @@ namespace KSHG
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string provlogin = LOG.Text.Trim();
+            test = LOG.Text;
             string provpassw = PASSW.Password.Trim();
             DataUsers us = null;
             using (kursRabEntities context = new kursRabEntities())
             {
                 us = context.DataUsers.Where(l => l.LoginUs == provlogin && l.PasswordUs == provpassw).FirstOrDefault();
-
             }
             if (us != null)
             {

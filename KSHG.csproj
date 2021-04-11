@@ -97,6 +97,9 @@
     <Compile Include="GENRES.cs">
       <DependentUpon>kursRabEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="INFOFILM.xaml.cs">
+      <DependentUpon>INFOFILM.xaml</DependentUpon>
+    </Compile>
     <Compile Include="kursRabEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -143,6 +146,10 @@
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="AUTH.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="INFOFILM.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

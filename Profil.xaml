@@ -7,6 +7,11 @@
         xmlns:local="clr-namespace:KSHG"
         mc:Ignorable="d"
         Title="Window2" Height="450" Width="800">
+    <Page.Resources>
+        <Style x:Key="ZXC" TargetType="{x:Type Image}">
+            <Setter Property="FlowDirection" Value="LeftToRight"/>
+        </Style>
+    </Page.Resources>
     <Grid Visibility="Visible">
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
@@ -28,15 +33,15 @@
             </Border.RenderTransform>
         </Border>
         <Button Margin="108,336,506,70" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White">Изменить данные</Button>
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="Change_data">Изменить данные</Button>
         <StackPanel>
 
         </StackPanel>
         <TextBox x:Name="Name" materialDesign:HintAssist.Hint="Имя" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,68,455,349"/>
         <TextBox x:Name="Name1" materialDesign:HintAssist.Hint="Фамилия" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,197,455,220"/>
         <TextBox x:Name="Name2" materialDesign:HintAssist.Hint="Отчество" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,130,455,288"/>
-        <TextBox x:Name="Name3" materialDesign:HintAssist.Hint="Дата рождения" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,262,455,156"/>
-        <Image Source="C:\Users\Shguts\Documents\kisspng-computer-icons-portable-network-graphics-user-icon-my-b-tab-svg-png-icon-free-download-8-584-onl-5bfa376045bc20.3622044515431248322856.jpg" Height="Auto" Margin="472,64,102,170" RenderTransformOrigin="0.501,0.624">
+        <TextBox x:Name="dATE" materialDesign:HintAssist.Hint="Дата рождения" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,262,455,156"/>
+        <Image Source="C:\Users\Shguts\Documents\kisspng-computer-icons-portable-network-graphics-user-icon-my-b-tab-svg-png-icon-free-download-8-584-onl-5bfa376045bc20.3622044515431248322856.jpg" Height="Auto" Margin="457,94,101,170" RenderTransformOrigin="0.501,0.624">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -46,9 +51,17 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button Margin="492,296,122,110" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White">Загрузить фотографию</Button>
-        <Button Margin="492,353,122,53" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White">Перейти в меню</Button>
+        <Image Source="C:\Users\shgust\Pictures\kisspng-computer-icons-user-profile-login-clip-art-my-account-icon-5adc5dd8d9ca10.9425519815243913848921.jpg" Height="Auto" Margin="466,105,103,161" RenderTransformOrigin="0.501,0.624" Style="{DynamicResource ZXC}">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.002"/>
+                    <RotateTransform Angle="0.126"/>
+                    <TranslateTransform Y="0.005"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button Margin="489,336,125,70" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="Backprofil">Перейти в меню</Button>
     </Grid>
 </Page>
