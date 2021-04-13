@@ -20,6 +20,12 @@ namespace KSHG
     /// </summary>
     public partial class POISK : Page
     {
+        public interface ICommand
+        {
+            event EventHandler CanExecuteChanged;
+            void Execute(object parameter);
+            bool CanExecute(object parameter);
+        }
         public int PEREDPOISK;
         public POISK()
         {
@@ -57,7 +63,7 @@ namespace KSHG
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            string qqq = PEREXOD.DataContext.ToString();
+            //string qqq = PEREXOD.DataContext.ToString();
             string PROV1 = VODPOISK.Text.Trim();
             using (kursRabEntities db = new kursRabEntities())
             {

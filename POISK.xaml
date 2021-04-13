@@ -15,7 +15,7 @@
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="Poisk_click" FontSize="20">Поиск</Button>
         <Button Margin="392,383,246,24" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="BackPoisk" FontSize="12">Перейти в меню</Button>
-        <DataGrid AutoGenerateColumns="False" x:Name="SPISOKPOISK" Margin="29,147,490,24">
+        <DataGrid AutoGenerateColumns="False" x:Name="SPISOKPOISK" Margin="29,147,490,24" ItemsSource="{Binding kursRabEntities}">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF9C142C"/>
@@ -23,18 +23,21 @@
                     <Setter Property="BorderThickness" Value="0,0,1,2"/>
                     <Setter Property="BorderBrush" Value="Black"/>
                 </Style>
+                <ContextMenu x:Key="RowMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+                    <MenuItem Header="Перейти к фильму" Command="{Binding PEREXOD}"/>
+                    <MenuItem Header="Удалить" Click="MenuItem_Click1"/>
+                    <MenuItem Header="Копировать" Click="MenuItem_Click2"/>
+                </ContextMenu>
             </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="ContextMenu" Value="{StaticResource RowMenu}" />
+                </Style>
+            </DataGrid.RowStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="   NameofFilm " Binding="{Binding NameofFilm}"/>
                 <DataGridTextColumn Header="   DateofCreate " Binding="{Binding DateofCreate}"/>
             </DataGrid.Columns>
-            <DataGrid.ContextMenu>
-                <ContextMenu>
-                    <MenuItem x:Name="PEREXOD" Header="Перейти к фильму" Click="MenuItem_Click"/>
-                    <MenuItem Header="Удалить" Click="MenuItem_Click1"/>
-                    <MenuItem Header="Копировать" Click="MenuItem_Click2"/>
-                </ContextMenu>
-            </DataGrid.ContextMenu>
         </DataGrid>
     </Grid>
 </Page>
