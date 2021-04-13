@@ -40,7 +40,6 @@ namespace KSHG
             bool necro = true;
             using (kursRabEntities db = new kursRabEntities())
             {
-                int n = 0;
                 Users sourse2 = new Users();
                 if (PROV1 != "")
                 {

@@ -23,6 +23,8 @@ namespace KSHG
         public INFOFILM()
         {
             InitializeComponent();
+
+
         }
 
         private void Backf(object sender, RoutedEventArgs e)

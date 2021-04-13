@@ -13,7 +13,7 @@
         <TextBox x:Name="COMOFF" materialDesign:HintAssist.Hint="Комментарий к фильму" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="525,294,50,121"/>
         <TextBox x:Name="OCENKA" materialDesign:HintAssist.Hint="ВВЕДИТЕ ОЦЕНКУ ФИЛЬМУ" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="525,340,50,77"/>
         <TextBlock Margin="525,-3,123,400" Foreground="#FF1CE01C" FontSize="36">Рейтинг :</TextBlock>
-        <TextBlock Margin="677,0,5,399" Foreground="#FFE01C1C" FontSize="36"></TextBlock>
+        <TextBlock x:Name="TESTRATE" Margin="677,0,5,399" Foreground="#FFE01C1C" FontSize="36"></TextBlock>
         <Image Source="C:\Users\shgust\Pictures\kisspng-computer-icons-user-profile-login-clip-art-my-account-icon-5adc5dd8d9ca10.9425519815243913848921.jpg" Height="Auto" Margin="234,60,295,100" RenderTransformOrigin="0.501,0.624" Style="{DynamicResource ZXC}">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -39,8 +39,17 @@
             </TextBlock.RenderTransform>Дата создания :</TextBlock>
         <Button Margin="551,390,91,30" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="PUTTHEBALL" >Оценить</Button>
-        <TextBlock Margin="108,41,574,380" Foreground="#FFE01C1C" FontSize="36"></TextBlock>
-        <TextBlock Margin="226,0,310,414" Foreground="#FFE01C1C" FontSize="36"></TextBlock>
-        <DataGrid HorizontalAlignment="Left" Height="184" Margin="525,105,0,0" VerticalAlignment="Top" Width="225" Background="Black"/>
+        <TextBlock x:Name="TESTDATEF" Margin="108,41,574,380" Foreground="#FFE01C1C" FontSize="36"></TextBlock>
+        <TextBlock x:Name="TESTNAMEF" Margin="226,0,310,414" Foreground="#FFE01C1C" FontSize="36"></TextBlock>
+        <DataGrid HorizontalAlignment="Left" Height="184" Margin="525,105,0,0" VerticalAlignment="Top" Width="225" Background="Black">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF9C142C"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
     </Grid>
 </Page>

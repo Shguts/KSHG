@@ -10,8 +10,31 @@
       Title="POISK">
 
     <Grid>
-        <TextBox x:Name="VODPOISK" materialDesign:HintAssist.Hint="Введите фильм" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="10,38,560,369"/>
-        <Button Margin="545,38,27,358" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+        <TextBox x:Name="VODPOISK" materialDesign:HintAssist.Hint="Введите фильм" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="29,75,541,332"/>
+        <Button Margin="343,75,229,332" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="Poisk_click" FontSize="20">Поиск</Button>
+        <Button Margin="392,383,246,24" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="BackPoisk" FontSize="12">Перейти в меню</Button>
+        <DataGrid AutoGenerateColumns="False" x:Name="SPISOKPOISK" Margin="29,147,490,24">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF9C142C"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="   NameofFilm " Binding="{Binding NameofFilm}"/>
+                <DataGridTextColumn Header="   DateofCreate " Binding="{Binding DateofCreate}"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="PEREXOD" Header="Перейти к фильму" Click="MenuItem_Click"/>
+                    <MenuItem Header="Удалить" Click="MenuItem_Click1"/>
+                    <MenuItem Header="Копировать" Click="MenuItem_Click2"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
     </Grid>
 </Page>
