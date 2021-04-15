@@ -37,7 +37,7 @@ namespace KSHG
                 SPISOKPOISK.ItemsSource = spisfilms;
             }
         }
-
+            
         private void Poisk_click(object sender, RoutedEventArgs e)
         {
             string PROV1 = VODPOISK.Text.Trim();
@@ -63,13 +63,19 @@ namespace KSHG
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
+            //var menuItem = (MenuItem)sender;
+           
+            //var contextMenu = (ContextMenu)menuItem.Parent;
+            //var row = (DataGridRow)contextMenu.Parent;
+            //var item = (Films)row.Item;
+            //MessageBox.Show(item.NameofFilm);
             //string qqq = PEREXOD.DataContext.ToString();
-            string PROV1 = VODPOISK.Text.Trim();
-            using (kursRabEntities db = new kursRabEntities())
-            {
-                PEREDPOISK = db.Films.Where(X => X.NameofFilm == PROV1).Select(x => x.IDFilm).FirstOrDefault();
-                NavigationService.Navigate(new INFOFILM());
-            }
+           // string PROV1 = VODPOISK.Text.Trim();
+           // using (kursRabEntities db = new kursRabEntities())
+           // {
+            //    PEREDPOISK = db.Films.Where(X => X.NameofFilm == PROV1).Select(x => x.IDFilm).FirstOrDefault();
+            //    NavigationService.Navigate(new INFOFILM());
+           // }
         }
         private void MenuItem_Click1(object sender, RoutedEventArgs e)
         {

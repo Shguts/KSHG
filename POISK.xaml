@@ -24,7 +24,7 @@
                     <Setter Property="BorderBrush" Value="Black"/>
                 </Style>
                 <ContextMenu x:Key="RowMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
-                    <MenuItem Header="Перейти к фильму" Command="{Binding PEREXOD}"/>
+                    <MenuItem Header="Перейти к фильму" Command="{Binding MenuItem_Click}"/>
                     <MenuItem Header="Удалить" Click="MenuItem_Click1"/>
                     <MenuItem Header="Копировать" Click="MenuItem_Click2"/>
                 </ContextMenu>

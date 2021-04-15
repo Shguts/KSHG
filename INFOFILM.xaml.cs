@@ -23,7 +23,16 @@ namespace KSHG
         public INFOFILM()
         {
             InitializeComponent();
-
+            using (kursRabEntities db = new kursRabEntities())
+            {
+                TESTNAMEF.Text = db.Films.Select(x => x.NameofFilm).FirstOrDefault();
+                TESTDATEF.Text = db.Films.Select(x => x.DateofCreate).FirstOrDefault().ToString();
+                TESTRATE.Text = db.Films.Select(x => x.rating).FirstOrDefault().ToString();
+                var spisact = db.roleofactor.Select(x => x).ToList();
+                DataofRole.ItemsSource = spisact;
+                var spisdataact= db.CREATORSOFFILMS.Select(x => x).ToList();
+                DataofRole.ItemsSource = spisdataact;
+            }
 
         }
 
@@ -34,7 +43,19 @@ namespace KSHG
 
         private void PUTTHEBALL(object sender, RoutedEventArgs e)
         {
-
+            int r = 0;
+            int r2 = 0;
+            using (kursRabEntities db = new kursRabEntities())
+            {
+                BALLS setball = db.BALLS.Where(X => X.IDUser == r && X.IDFilm == r2).Select(x => x).FirstOrDefault();
+                int getidofball = Convert.ToInt32(OCENKA.Text.Trim());
+                setball.IDFilm = r2;
+                setball.IDUser = r;
+                setball.Mark = getidofball;
+                setball.Comment = COMOFF.Text.Trim();
+                db.BALLS.Add(setball);
+                db.SaveChanges();
+            }
         }
     }
 }
