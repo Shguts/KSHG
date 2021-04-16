@@ -43,16 +43,21 @@ namespace KSHG
 
         private void PUTTHEBALL(object sender, RoutedEventArgs e)
         {
-            int r = 0;
-            int r2 = 0;
+
             using (kursRabEntities db = new kursRabEntities())
             {
+                //int r = db.Films.Where(x=>x.NameofFilm==);
+                int r = 0;
+                int r2 = 0;
                 BALLS setball = db.BALLS.Where(X => X.IDUser == r && X.IDFilm == r2).Select(x => x).FirstOrDefault();
+                Films setrate = db.Films.Where(X => X.IDFilm == r2).Select(x => x).FirstOrDefault();
+                double checkcountofBALLS = db.BALLS.Where(x => x.IDFilm == r2).Average(p=>p.Mark);
                 int getidofball = Convert.ToInt32(OCENKA.Text.Trim());
                 setball.IDFilm = r2;
                 setball.IDUser = r;
                 setball.Mark = getidofball;
                 setball.Comment = COMOFF.Text.Trim();
+
                 db.BALLS.Add(setball);
                 db.SaveChanges();
             }
