@@ -20,7 +20,7 @@ namespace KSHG
     /// </summary>
     public partial class POISK : Page
     {
-        public string MEGATEST;
+        public static string MEGATEST;
         public interface ICommand
         {
             event EventHandler CanExecuteChanged;
@@ -66,6 +66,7 @@ namespace KSHG
         {
             string PROV1 = VODPOISK.Text.Trim();
             MEGATEST = PROV1;
+            NavigationService.Navigate(new INFOFILM());
             //var menuItem = (MenuItem)sender;
 
             //var contextMenu = (ContextMenu)menuItem.Parent;
