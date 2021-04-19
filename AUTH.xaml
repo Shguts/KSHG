@@ -11,13 +11,11 @@
 
     <Grid Visibility="Visible" RenderTransformOrigin="0.5,0.5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="37*"/>
-            <RowDefinition Height="62*"/>
-            <RowDefinition Height="65*"/>
-            <RowDefinition Height="76*"/>
-            <RowDefinition Height="72*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="66*"/>
+            <RowDefinition Height="140*"/>
             <RowDefinition Height="63*"/>
-            <RowDefinition Height="74*"/>
+            <RowDefinition Height="135*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="55*"/>
@@ -40,7 +38,7 @@
                 <GradientStop Color="#FFFE04BA" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="395" VerticalAlignment="Top" CornerRadius="90 90 90 90" Background="#FF594299" Margin="13,-5,23,0" RenderTransformOrigin="0.527,0.429" Grid.ColumnSpan="5" Grid.RowSpan="7">
+        <Border Height="397" VerticalAlignment="Top" CornerRadius="90 90 90 90" Background="#FF594299" Margin="6,18,11,0" RenderTransformOrigin="0.527,0.429" Grid.ColumnSpan="5" Grid.RowSpan="5">
             <Border.Effect>
                 <BlurEffect KernelType="Box" Radius="10"/>
             </Border.Effect>
@@ -53,7 +51,7 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <StackPanel Margin="30,17.2,35.2,3" RenderTransformOrigin="0.5,0.5" Grid.Column="3" Grid.RowSpan="3" Grid.Row="1">
+        <StackPanel Margin="37,3,28,12" RenderTransformOrigin="0.5,0.5" Grid.Column="3" Grid.RowSpan="2" Grid.Row="2">
             <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -73,7 +71,7 @@
                 </Image.RenderTransform>
             </Image>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="0,3.8,0,15" Grid.Column="2" Grid.Row="2">
+        <StackPanel Orientation="Horizontal" Margin="0,4,0,82" Grid.Column="2" Grid.Row="2">
             <materialDesign:PackIcon Kind="User" Width="36" Height="52" Foreground="#FF1EE41E" Margin="0,0,0,-2" RenderTransformOrigin="0.5,0.5">
                 <materialDesign:PackIcon.RenderTransform>
                     <TransformGroup>
@@ -86,8 +84,8 @@
             </materialDesign:PackIcon>
             <TextBox x:Name="LOG" materialDesign:HintAssist.Hint="User Login" Foreground="Orange" Width="256" RenderTransformOrigin="0.597,0.616"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="0,58.8,0,31" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2">
-            <materialDesign:PackIcon Kind="Key" Width="28" Height="52" Foreground="#FF1EE41E" Margin="0,0,0,-2" RenderTransformOrigin="0.5,0.5">
+        <StackPanel Orientation="Horizontal" Margin="0,59,0,24" Grid.Column="2" Grid.Row="2">
+            <materialDesign:PackIcon Kind="Key" Width="27" Height="52" Foreground="#FF1EE41E" RenderTransformOrigin="0.5,0.5">
                 <materialDesign:PackIcon.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -97,22 +95,22 @@
                     </TransformGroup>
                 </materialDesign:PackIcon.RenderTransform>
             </materialDesign:PackIcon>
-            <PasswordBox x:Name="PASSW" Margin="10,0" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Foreground="Orange" Width="251" RenderTransformOrigin="0.472,0.659"/>
+            <PasswordBox x:Name="PASSW" Margin="10,0" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Foreground="Orange" Width="257" RenderTransformOrigin="0.472,0.659"/>
         </StackPanel>
-        <Button Margin="10,10,5,17" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnLogin_Click" Grid.Column="2" Grid.Row="4">Вход</Button>
-        <Button Margin="10,10,5,10.148" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="BtgRegistr_Click" Grid.Column="2" Grid.Row="5">Регистрация</Button>
-        <Button Margin="9.8,10.2,10,10.2" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" ToolTip="Close" x:Name="btnExit" Click="btnExit_Click" Height="Auto" Width="Auto" Grid.Column="1" Grid.Row="1">
+        <Button Margin="5,6,10,10" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnLogin_Click" Grid.Column="2" Grid.Row="3">Вход</Button>
+        <Button Margin="5,0,10,90" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="BtgRegistr_Click" Grid.Column="2" Grid.Row="4">Регистрация</Button>
+        <Button Margin="10" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" ToolTip="Close" x:Name="btnExit" Click="btnExit_Click" Height="Auto" Width="Auto" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="0.448,0.756">
             <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30" />
         </Button>
-        <TextBlock Text="Authorization" Margin="38,7.2,73,7.2" Foreground="Yellow" TextAlignment="Center" FontSize="38" FontFamily="Brush Script MT" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Grid.Row="1">
+        <TextBlock Text="Authorization" Margin="51,7,60,11" Foreground="Yellow" TextAlignment="Center" FontSize="38" FontFamily="Brush Script MT" RenderTransformOrigin="0.497,0.915" Grid.Column="2" Grid.Row="1">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1" ScaleY="-1"/>
                     <SkewTransform/>
                     <RotateTransform Angle="180.264"/>
-                    <TranslateTransform/>
+                    <TranslateTransform X="-0.108" Y="-0.003"/>
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>

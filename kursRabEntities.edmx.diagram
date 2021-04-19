@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0e0c01bf6ee2429888ce74605b460a84" Name="Diagram1">
+      <Diagram DiagramId="f49ebbd2e9ef42968161f39a6ec7871c" Name="Diagram1">
         <EntityTypeShape EntityType="kursRabModel.Administrators" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="kursRabModel.BALLS" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="kursRabModel.Countries" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />

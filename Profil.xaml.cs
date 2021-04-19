@@ -32,6 +32,7 @@ namespace KSHG
                 Name1.Text = db.Users.Where(X => X.IDUser == SPISUS).Select(x => x.ULastName).FirstOrDefault(); 
                 Name2.Text = db.Users.Where(X => X.IDUser == SPISUS).Select(x => x.USecondName).FirstOrDefault();
                 dATE.Text = db.Users.Where(X => X.IDUser == SPISUS).Select(x => x.DateofBirth).FirstOrDefault().ToString();
+                log.Text = db.DataUsers.Where(X => X.IDUser == SPISUS).Select(x => x.LoginUs).FirstOrDefault().ToString();
             }
         }
 
@@ -39,22 +40,38 @@ namespace KSHG
         {
             using (kursRabEntities db = new kursRabEntities()) 
             {
+                bool logbul = true;
                 string locstr = AUTH.test;
                 int SPISUS = db.DataUsers.Where(x => x.LoginUs == locstr).Select(X => X.IDUser).FirstOrDefault();
                 Users REP = db.Users.Where(x => x.IDUser == SPISUS).Select(X => X).FirstOrDefault();
+                DataUsers REP1 = db.DataUsers.Where(x => x.IDUser == SPISUS).Select(X => X).FirstOrDefault();
                 string PROV = Name.Text.Trim();
                 string PROV1 = Name1.Text.Trim();
                 string PROV2 = Name2.Text.Trim();
                 string PROV3 = dATE.Text.Trim();
+                string PROV4 = log.Text.Trim();
+                string PROV5 = db.DataUsers.Where(x => x.IDUser == SPISUS).Select(X => X.PasswordUs).FirstOrDefault();
                 REP.UName = PROV;
                 REP.ULastName = PROV1;
                 REP.USecondName = PROV2;
                 REP.DateofBirth = Convert.ToDateTime(PROV3);
-                db.SaveChanges();
-                MessageBox.Show(AUTH.test);
-
-
-
+                if (par.Text!="")
+                {
+                    if (provpar.Text == db.DataUsers.Where(x => x.IDUser == SPISUS).Select(X => X.PasswordUs).FirstOrDefault())
+                    {
+                        if (par.Text != provpar.Text)
+                        {
+                            REP1.PasswordUs = par.Text.Trim();
+                        }
+                        else { MessageBox.Show("Такой пароль уже существует"); logbul = false; }
+                    }
+                    else { MessageBox.Show("Вы ввели неверный пароль"); logbul = false; }
+                }
+                if (logbul)
+                {
+                    db.SaveChanges();
+                    MessageBox.Show(AUTH.test);
+                } else MessageBox.Show("Были введены некорректные данные");
             }
 
         }

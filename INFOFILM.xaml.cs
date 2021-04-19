@@ -26,9 +26,12 @@ namespace KSHG
             using (kursRabEntities db = new kursRabEntities())
             {
                 int r = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.IDFilm).FirstOrDefault();
+                int r2 = db.DataUsers.Where(x => x.LoginUs == AUTH.test).Select(X => X.IDUser).FirstOrDefault();
                 TESTNAMEF.Text = db.Films.Where(y=>y.NameofFilm==POISK.MEGATEST).Select(x => x.NameofFilm).FirstOrDefault();
                 TESTDATEF.Text = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.DateofCreate).FirstOrDefault().ToString();
                 TESTRATE.Text = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.rating).FirstOrDefault().ToString();
+                OCENKA.Text = db.BALLS.Where(y => y.IDFilm == r && y.IDUser==r2).Select(x => x.Mark).FirstOrDefault().ToString();
+                COMOFF.Text = db.BALLS.Where(y => y.IDFilm == r && y.IDUser == r2).Select(x => x.Comment).FirstOrDefault();
                 var spisact = db.roleofactor.Where(y=>y.IDFilm==r).Select(x => x).ToList();
                 DataofRole.ItemsSource = spisact;
                 var spisdataact= db.CREATORSOFFILMS.Select(x => x).ToList();
@@ -46,20 +49,32 @@ namespace KSHG
         {
             using (kursRabEntities db = new kursRabEntities())
             {
+                BALLS newsetball = new BALLS();
                 string kostyl = POISK.MEGATEST;
                 int r = db.Films.Where(x => x.NameofFilm == kostyl).Select(X => X.IDFilm).FirstOrDefault();
                 int r2 = db.DataUsers.Where(x => x.LoginUs == AUTH.test).Select(X => X.IDUser).FirstOrDefault();
-                BALLS setball = db.BALLS.Where(X => X.IDUser == r2 && X.IDFilm == r).Select(x => x).FirstOrDefault();
+                BALLS PROVball = db.BALLS.Where(X => X.IDUser == r2 && X.IDFilm == r).Select(x => x).FirstOrDefault();
                 Films setrate = db.Films.Where(X => X.IDFilm == r).Select(x => x).FirstOrDefault();
                 int getidofball = Convert.ToInt32(OCENKA.Text.Trim());
-                setball.IDFilm = r;
-                setball.IDUser = r2;
-                setball.Mark = getidofball;
-                setball.Comment = COMOFF.Text.Trim();
-                db.BALLS.Add(setball);
-                db.SaveChanges();
+                if (PROVball == null)
+                {
+                    newsetball.IDFilm = r;
+                    newsetball.IDUser = r2;
+                    newsetball.Mark = getidofball;
+                    newsetball.Comment = COMOFF.Text.Trim();
+                    db.BALLS.Add(newsetball);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    PROVball.Mark = getidofball;
+                    PROVball.Comment = COMOFF.Text.Trim();
+                    db.SaveChanges();
+                }
                 double checkcountofBALLS = db.BALLS.Where(x => x.IDFilm == r).Average(p => p.Mark);
-                TESTRATE.Text = getidofball.ToString();
+                setrate.rating = (float)checkcountofBALLS;
+                TESTRATE.Text = checkcountofBALLS.ToString();
+                db.SaveChanges();
 
 
             }

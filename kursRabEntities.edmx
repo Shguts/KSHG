@@ -61,9 +61,10 @@
           <Property Name="NameofFilm" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IDCountry" Type="int" Nullable="false" />
           <Property Name="AgeRestriction" Type="int" Nullable="false" />
-          <Property Name="rating" Type="int" Nullable="false" />
+          <Property Name="rating" Type="real" Nullable="false" />
           <Property Name="IDgenre" Type="int" Nullable="false" />
           <Property Name="DateofCreate" Type="date" Nullable="false" />
+          <Property Name="Baner" Type="varbinary" MaxLength="1000" />
         </EntityType>
         <EntityType Name="GENRES">
           <Key>
@@ -322,9 +323,10 @@
           <Property Name="NameofFilm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IDCountry" Type="Int32" Nullable="false" />
           <Property Name="AgeRestriction" Type="Int32" Nullable="false" />
-          <Property Name="rating" Type="Int32" Nullable="false" />
+          <Property Name="rating" Type="Single" Nullable="false" />
           <Property Name="IDgenre" Type="Int32" Nullable="false" />
           <Property Name="DateofCreate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Baner" Type="Binary" MaxLength="1000" FixedLength="false" />
           <NavigationProperty Name="BALLS" Relationship="Self.FK__BALLS__IDFilm__76A18A26" FromRole="Films" ToRole="BALLS" />
           <NavigationProperty Name="Countries" Relationship="Self.FK__Films__IDCountry__6A3BB341" FromRole="Films" ToRole="Countries" />
           <NavigationProperty Name="GENRES" Relationship="Self.FK__Films__IDgenre__69478F08" FromRole="Films" ToRole="GENRES" />
@@ -455,7 +457,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="kursRabEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="kursRabEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Administrators" EntityType="Self.Administrators" />
           <EntitySet Name="BALLS" EntityType="Self.BALLS" />
           <EntitySet Name="Countries" EntityType="Self.Countries" />
@@ -541,7 +543,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище kursRabModelContainer" CdmEntityContainer="kursRabEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище kursRabModelContainer" CdmEntityContainer="kursRabEntities">
           <EntitySetMapping Name="Administrators">
             <EntityTypeMapping TypeName="kursRabModel.Administrators">
               <MappingFragment StoreEntitySet="Administrators">
@@ -604,6 +606,7 @@
                 <ScalarProperty Name="rating" ColumnName="rating" />
                 <ScalarProperty Name="IDgenre" ColumnName="IDgenre" />
                 <ScalarProperty Name="DateofCreate" ColumnName="DateofCreate" />
+                <ScalarProperty Name="Baner" ColumnName="Baner" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

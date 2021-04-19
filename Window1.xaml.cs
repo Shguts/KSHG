@@ -56,14 +56,6 @@ namespace KSHG
                                 MessageBox.Show("Вы не верно ввели дату");
                                 necro = false;
                             }
-                            if (necro)
-                            {
-                                sourse2.UName = PROV1;
-                                sourse2.USecondName = PROV3;
-                                sourse2.ULastName = PROV2;
-                                db.Users.Add(sourse2);
-                                db.SaveChanges();
-                            }
                         }
                         else
                         {
@@ -92,19 +84,36 @@ namespace KSHG
                     }
                     else
                     {
-                        if ((PROV6 == null))
+                        var proverkaloginov = db.DataUsers;
+                        foreach (DataUsers d in proverkaloginov)
+                        {
+                            if (PROV5==d.LoginUs)
+                            {
+                                necro = false;
+                                MessageBox.Show("Такой логин уже существует");
+                            }
+                        }
+                        if ((PROV6 == null)&&necro)
                         {
                             MessageBox.Show("Вы не ввели пароль");
                             necro = false;
                         }
                         else
                         {
-                            sourse1.LoginUs = PROV5;
-                            sourse1.PasswordUs = PROV6;
-                            int TEST1 = db.Users.OrderByDescending(x => x.IDUser).Select(X => X.IDUser).FirstOrDefault();
-                            sourse1.IDUser = TEST1;
-                            db.DataUsers.Add(sourse1);
-                            db.SaveChanges();
+                            if (necro)
+                            {
+                                sourse1.LoginUs = PROV5;
+                                sourse1.PasswordUs = PROV6;
+                                int TEST1 = db.Users.OrderByDescending(x => x.IDUser).Select(X => X.IDUser).FirstOrDefault();
+                                sourse1.IDUser = TEST1;
+                                sourse2.UName = PROV1;
+                                sourse2.USecondName = PROV3;
+                                sourse2.ULastName = PROV2;
+                                db.Users.Add(sourse2);
+                                db.DataUsers.Add(sourse1);
+                                db.SaveChanges();
+                            }
+                            else MessageBox.Show("Вы ввели некорректные данные");
                         }
                     }
                 }          

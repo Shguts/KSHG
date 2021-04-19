@@ -59,6 +59,10 @@ namespace KSHG
             string PROV3 = COMBOBOXGENRE.Text.Trim();
             string PROV4 = COMBOBOXCOUNTRY.Text.Trim();
             string PROV5 = AGE.Text.Trim();
+            if (PROV5=="")
+            {
+                PROV5 = "0";
+            }
             using (kursRabEntities DB = new kursRabEntities())
             {
                 try

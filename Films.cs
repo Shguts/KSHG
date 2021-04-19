@@ -25,9 +25,10 @@ namespace KSHG
         public string NameofFilm { get; set; }
         public int IDCountry { get; set; }
         public int AgeRestriction { get; set; }
-        public int rating { get; set; }
+        public float rating { get; set; }
         public int IDgenre { get; set; }
         public System.DateTime DateofCreate { get; set; }
+        public byte[] Baner { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BALLS> BALLS { get; set; }

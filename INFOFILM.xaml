@@ -10,10 +10,10 @@
       Title="INFOFILM">
 
     <Grid>
-        <TextBox x:Name="COMOFF" materialDesign:HintAssist.Hint="Комментарий к фильму" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="398,294,10,120.6"/>
+        <TextBox x:Name="COMOFF" materialDesign:HintAssist.Hint="Комментарий к фильму" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="398,294,10,115"/>
         <TextBox x:Name="OCENKA" materialDesign:HintAssist.Hint="ВВЕДИТЕ ОЦЕНКУ ФИЛЬМУ" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="398,349,5,67.6"/>
-        <TextBlock Margin="398,0,250,396.6" Foreground="#FF1CE01C" FontSize="36">Рейтинг :</TextBlock>
-        <TextBlock x:Name="TESTRATE" Margin="555,0,127,398.6" Foreground="#FFE01C1C"/>
+        <TextBlock Margin="398,0,250,396.6" Foreground="Black" FontSize="36">Рейтинг :</TextBlock>
+        <TextBlock x:Name="TESTRATE" Margin="555,0,127,398.6" Foreground="#FF935454" FontSize="36"/>
         <Image Source="C:\Users\shgust\Pictures\kisspng-computer-icons-user-profile-login-clip-art-my-account-icon-5adc5dd8d9ca10.9425519815243913848921.jpg" Height="Auto" Margin="59,123,500,122.6" RenderTransformOrigin="0.501,0.624" Style="{DynamicResource ZXC}">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -24,11 +24,11 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <TextBlock Margin="10,0,574,414" Foreground="#FF1CE040" FontSize="24">Название фильма :</TextBlock>
-        <TextBlock Margin="398,69,177,344.6" Foreground="#FF1CE02E" FontSize="24">Создатели фильма</TextBlock>
-        <Button Margin="23,366,574,30" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+        <TextBlock Margin="10,0,574,414" Foreground="Black" FontSize="24">Название фильма :</TextBlock>
+        <TextBlock Margin="398,69,177,344.6" Foreground="Black" FontSize="24">Создатели фильма</TextBlock>
+        <Button Margin="80,366,517,30" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="Backf" >Перейти в меню</Button>
-        <TextBlock Margin="13,42,699,381" Foreground="#FF1CE02E" RenderTransformOrigin="0.5,0.5">
+        <TextBlock Margin="13,42,699,381" Foreground="Black" RenderTransformOrigin="0.5,0.5">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -37,11 +37,11 @@
                     <TranslateTransform Y="-0.464"/>
                 </TransformGroup>
             </TextBlock.RenderTransform>Дата создания :</TextBlock>
-        <Button Margin="551,390,91,30" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+        <Button Margin="432,399,177,10" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="PUTTHEBALL" >Оценить</Button>
-        <TextBlock x:Name="TESTDATEF" Margin="108,41,574,380" Foreground="#FFE01C1C"/>
-        <TextBlock x:Name="TESTNAMEF" Margin="221,0,407,413.6" Foreground="#FFE01C1C" FontSize="26"></TextBlock>
-        <DataGrid x:Name="DataofRole" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="184" Margin="398,105,0,0" VerticalAlignment="Top" Foreground="Aqua" Width="332" Background="Black">
+        <TextBlock x:Name="TESTDATEF" Margin="108,41,574,380" Foreground="#FFE01C1C" FontSize="24"/>
+        <TextBlock x:Name="TESTNAMEF" Margin="221,0,407,413" Foreground="#FFE01C1C" FontSize="26"></TextBlock>
+        <DataGrid x:Name="DataofRole" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="184" Margin="398,105,0,0" VerticalAlignment="Top" Foreground="Aqua" Width="332" Background="Black" RenderTransformOrigin="0.5,0.5">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF9C142C"/>
@@ -50,6 +50,14 @@
                     <Setter Property="BorderBrush" Value="Black"/>
                 </Style>
             </DataGrid.Resources>
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.171"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.497"/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="  Роль в фильме" Binding="{Binding RoleofActor}"/>
                 <DataGridTextColumn Header="  Имя актера" Binding="{Binding AcName}"/>

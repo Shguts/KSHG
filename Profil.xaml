@@ -37,10 +37,16 @@
         <StackPanel>
 
         </StackPanel>
-        <TextBox x:Name="Name" materialDesign:HintAssist.Hint="Имя" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,68,455,349"/>
-        <TextBox x:Name="Name1" materialDesign:HintAssist.Hint="Фамилия" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,197,455,220"/>
-        <TextBox x:Name="Name2" materialDesign:HintAssist.Hint="Отчество" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,130,455,288"/>
-        <TextBox x:Name="dATE" materialDesign:HintAssist.Hint="Дата рождения" Foreground="Orange" Width="270" RenderTransformOrigin="0.597,0.616" Margin="75,262,455,156"/>
+        <TextBox x:Name="Name" materialDesign:HintAssist.Hint="Имя" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="75,68,543,349"/>
+        <TextBox x:Name="Name1" materialDesign:HintAssist.Hint="Фамилия" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="75,197,543,220"/>
+        <TextBox x:Name="Name2" materialDesign:HintAssist.Hint="Отчество" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="75,130,543,288"/>
+        <TextBox x:Name="dATE" materialDesign:HintAssist.Hint="Дата рождения" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="75,262,543,156"/>
+        <TextBlock Foreground="Orange" RenderTransformOrigin="1.725,-3.125" Margin="313,72,444,345">
+            Логин :
+        </TextBlock>
+        <TextBlock x:Name="log" Foreground="Orange" RenderTransformOrigin="1.725,-3.125" Margin="361,72,305,346"/>
+        <TextBox x:Name="par" materialDesign:HintAssist.Hint="Новый пароль" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="313,197,305,221"/>
+        <TextBox x:Name="provpar" materialDesign:HintAssist.Hint="Повторите старый пароль" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="313,130,305,288"/>
         <Image Source="C:\Users\Shguts\Documents\kisspng-computer-icons-portable-network-graphics-user-icon-my-b-tab-svg-png-icon-free-download-8-584-onl-5bfa376045bc20.3622044515431248322856.jpg" Height="Auto" Margin="457,94,101,170" RenderTransformOrigin="0.501,0.624">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -51,7 +57,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Source="C:\Users\shgust\Pictures\kisspng-computer-icons-user-profile-login-clip-art-my-account-icon-5adc5dd8d9ca10.9425519815243913848921.jpg" Height="Auto" Margin="466,105,103,161" RenderTransformOrigin="0.501,0.624" Style="{DynamicResource ZXC}">
+        <Image Source="C:\Users\shgust\Pictures\kisspng-computer-icons-user-profile-login-clip-art-my-account-icon-5adc5dd8d9ca10.9425519815243913848921.jpg" Height="Auto" Margin="518,73,51,193" RenderTransformOrigin="0.501,0.624" Style="{DynamicResource ZXC}">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -61,7 +67,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button Margin="489,336,125,70" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+        <Button Margin="547,280,67,126" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="Backprofil">Перейти в меню</Button>
     </Grid>
 </Page>
