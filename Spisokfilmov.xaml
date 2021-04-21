@@ -10,7 +10,23 @@
       Title="Spisokfilmov">
 
     <Grid>
-        <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="450" AutoGenerateColumns="False" VerticalAlignment="Top" Width="561" Foreground="Aqua" Background="Black" FontWeight="Bold">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="72*"/>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="583*"/>
+            <ColumnDefinition Width="205*"/>
+            <ColumnDefinition Width="13*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="450" AutoGenerateColumns="False" VerticalAlignment="Top" Width="561" Foreground="Aqua" Background="Black" FontWeight="Bold" Grid.RowSpan="9">
             <!--НЕНУЖНАЯ ФИГНЯ ПО СУТИ-->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -29,9 +45,9 @@
                 <DataGridTextColumn Header="   DateofCreate " Binding="{Binding DateofCreate}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Перейти в меню" HorizontalAlignment="Left" Margin="615,36,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Button_Click"/>
-        <Button Content="Добавить фильм" HorizontalAlignment="Left" Margin="615,116,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Dobavlfilma"/>
-        <TextBox x:Name="Name_of_Film" materialDesign:HintAssist.Hint="Название фильма" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="615,177,30,235">
+        <Button Content="Перейти в меню" HorizontalAlignment="Left" Margin="31,24,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Button_Click" Grid.Column="1" Grid.Row="1"/>
+        <Button Content="Добавить фильм" HorizontalAlignment="Left" Margin="31,22.195,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Dobavlfilma" Grid.Column="1" Grid.Row="2"/>
+        <TextBox x:Name="Name_of_Film" materialDesign:HintAssist.Hint="Название фильма" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="31,15.195,17.5,4.805" Grid.Column="1" Grid.Row="3">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -41,7 +57,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="DATEOC" materialDesign:HintAssist.Hint="Год создания" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="613,228,32,184">
+        <TextBox x:Name="DATEOC" materialDesign:HintAssist.Hint="Год создания" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="29,7.195,19.5,9.805" Grid.Column="1" Grid.Row="4">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -51,9 +67,9 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <ComboBox SelectedValuePath="IDgenre" DisplayMemberPath="NameofGenre" x:Name="COMBOBOXGENRE" materialDesign:HintAssist.Hint="Выбор жанра" Foreground="Aqua" HorizontalAlignment="Left" Margin="615,286,0,0" VerticalAlignment="Top" Width="164" Height="30"/>
-        <ComboBox SelectedValuePath="IDCountry" DisplayMemberPath="NameofCountry" x:Name="COMBOBOXCOUNTRY" materialDesign:HintAssist.Hint="Выбор страны" Foreground="Aqua" HorizontalAlignment="Left" Margin="615,342,0,0" VerticalAlignment="Top" Width="164" Height="30"/>
-        <TextBox x:Name="AGE" materialDesign:HintAssist.Hint="Возрастное ограничение" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="614,392,25,20">
+        <ComboBox SelectedValuePath="IDgenre" DisplayMemberPath="NameofGenre" x:Name="COMBOBOXGENRE" materialDesign:HintAssist.Hint="Выбор жанра" Foreground="Aqua" HorizontalAlignment="Left" Margin="31,10.195,0,0" VerticalAlignment="Top" Width="164" Height="30" Grid.Column="1" Grid.Row="5"/>
+        <ComboBox SelectedValuePath="IDCountry" DisplayMemberPath="NameofCountry" x:Name="COMBOBOXCOUNTRY" materialDesign:HintAssist.Hint="Выбор страны" Foreground="Aqua" HorizontalAlignment="Left" Margin="31,13.195,0,0" VerticalAlignment="Top" Width="164" Height="30" Grid.Column="1" Grid.Row="6"/>
+        <TextBox x:Name="AGE" materialDesign:HintAssist.Hint="Возрастное ограничение" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="31,9.195,12.5,9.805" Grid.Column="1" Grid.Row="7">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

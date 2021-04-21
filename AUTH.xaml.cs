@@ -45,7 +45,9 @@ namespace KSHG
                 NavigationService.Navigate(new Menu());
             }
             else
+            {
                 MessageBox.Show("Вы ввели некорректные данные");
+            }
   
 
         }
