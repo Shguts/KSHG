@@ -87,7 +87,9 @@ namespace KSHG
         }
         private void MenuItem_Click2(object sender, RoutedEventArgs e)
         {
-
+            string PROV1 = VODPOISK.Text.Trim();
+            MEGATEST = PROV1;
+            NavigationService.Navigate(new CHANGEFILM());
         }
 
         private void BackPoisk(object sender, RoutedEventArgs e)

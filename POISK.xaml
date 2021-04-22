@@ -25,7 +25,7 @@
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="Poisk_click" FontSize="20" Grid.Column="1" Grid.Row="1">Поиск</Button>
         <Button Margin="10,10,29,10" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="BackPoisk" FontSize="12" Grid.Row="1" Grid.Column="2">Перейти в меню</Button>
-        <DataGrid AutoGenerateColumns="False" x:Name="SPISOKPOISK" Margin="29,27,38,24" ItemsSource="{Binding kursRabEntities}" Grid.Row="2">
+        <DataGrid AutoGenerateColumns="False" x:Name="SPISOKPOISK" Margin="29,27,25,24" ItemsSource="{Binding kursRabEntities}" Grid.Row="2">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF9C142C"/>
@@ -36,7 +36,7 @@
                 <ContextMenu x:Key="RowMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
                     <MenuItem Header="Перейти к фильму" Click="MenuItem_Click"/>
                     <MenuItem Header="Удалить" Click="MenuItem_Click1"/>
-                    <MenuItem Header="Копировать" Click="MenuItem_Click2"/>
+                    <MenuItem Header="Изменить" Click="MenuItem_Click2"/>
                 </ContextMenu>
             </DataGrid.Resources>
             <DataGrid.RowStyle>

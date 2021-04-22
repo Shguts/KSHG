@@ -30,6 +30,13 @@ namespace KSHG
                 TESTNAMEF.Text = db.Films.Where(y=>y.NameofFilm==POISK.MEGATEST).Select(x => x.NameofFilm).FirstOrDefault();
                 TESTDATEF.Text = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.DateofCreate).FirstOrDefault().ToString();
                 TESTRATE.Text = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.rating).FirstOrDefault().ToString();
+                ////
+                int helpfortextblockG = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.IDgenre).FirstOrDefault();
+                TESTgenre.Text = db.GENRES.Where(y => y.IDgenre == helpfortextblockG).Select(x => x.NameofGenre).FirstOrDefault();
+                ////
+                int helpfortextblockC = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.IDCountry).FirstOrDefault();
+                TESTcountry.Text = db.Countries.Where(y => y.IDCountry == helpfortextblockC).Select(x => x.NameofCountry).FirstOrDefault();
+                //
                 OCENKA.Text = db.BALLS.Where(y => y.IDFilm == r && y.IDUser==r2).Select(x => x.Mark).FirstOrDefault().ToString();
                 COMOFF.Text = db.BALLS.Where(y => y.IDFilm == r && y.IDUser == r2).Select(x => x.Comment).FirstOrDefault();
                 var spisact = db.roleofactor.Where(y=>y.IDFilm==r).Select(x => x).ToList();

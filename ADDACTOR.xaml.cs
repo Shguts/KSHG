@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace KSHG
 {
     /// <summary>
-    /// Логика взаимодействия для Page2.xaml
+    /// Логика взаимодействия для ADDACTOR.xaml
     /// </summary>
-    public partial class Page2 : Page
+    public partial class ADDACTOR : Page
     {
-        public Page2()
+        public ADDACTOR()
         {
             InitializeComponent();
         }

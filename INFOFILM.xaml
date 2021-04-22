@@ -18,33 +18,27 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0*"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="32*"/>
-            <RowDefinition Height="39*"/>
-            <RowDefinition Height="201*"/>
-            <RowDefinition Height="46*"/>
-            <RowDefinition Height="48*"/>
-            <RowDefinition Height="34*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="101*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="21*"/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
         <TextBox x:Name="COMOFF" materialDesign:HintAssist.Hint="Комментарий к фильму" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="10,0,33,8" Grid.Column="1" Grid.Row="5"/>
-        <TextBox x:Name="OCENKA" materialDesign:HintAssist.Hint="ВВЕДИТЕ ОЦЕНКУ ФИЛЬМУ" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="10,10,33,2" Grid.Row="6" Grid.Column="1"/>
+        <TextBox x:Name="OCENKA" materialDesign:HintAssist.Hint="ВВЕДИТЕ ОЦЕНКУ ФИЛЬМУ" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="10,0,33,5" Grid.Row="6" Grid.Column="1"/>
         <TextBlock Margin="7,0,214,1" Foreground="Black" FontSize="36" Grid.Column="1" Grid.RowSpan="2">Рейтинг :</TextBlock>
         <TextBlock x:Name="TESTRATE" Margin="164,0,81,0" Foreground="#FF935454" FontSize="36" Grid.Column="1" Grid.RowSpan="2"/>
-        <Image Source="C:\Users\shgust\Pictures\kisspng-computer-icons-user-profile-login-clip-art-my-account-icon-5adc5dd8d9ca10.9425519815243913848921.jpg" Height="Auto" Margin="60,4,90,4" RenderTransformOrigin="0.501,0.624" Style="{DynamicResource ZXC}" Grid.Row="4">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.002"/>
-                    <RotateTransform Angle="0.126"/>
-                    <TranslateTransform Y="0.005"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
+
+        <Image Source="C:\Users\shgust\Pictures\4ad921bd77f5559c2f1ae9b02b1a19.jpg" Margin="-179,0,79,0" Grid.Row="4"/>
+        <Image Source="C:\Users\shgust\Pictures\imba.jpg" Margin="141,22,343,38" Grid.Row="2" Grid.RowSpan="5" Grid.ColumnSpan="2"/>
+
         <TextBlock Margin="0,0,175,2" Foreground="Black" FontSize="24" Grid.RowSpan="2">Название фильма :</TextBlock>
         <TextBlock Margin="7,0,141,1" Foreground="Black" FontSize="24" Grid.Column="1" Grid.Row="3">Создатели фильма</TextBlock>
-        <Button Margin="80,0,108,2" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="Backf" Grid.Row="6" >Перейти в меню</Button>
+        <Button Margin="80,0,108,4" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="Backf" Grid.Row="7" >Перейти в меню</Button>
         <TextBlock Margin="1,1,302,0" Foreground="Black" RenderTransformOrigin="0.5,0.5" Grid.Row="2">
             <TextBlock.RenderTransform>
                 <TransformGroup>
@@ -54,11 +48,32 @@
                     <TranslateTransform Y="-0.464"/>
                 </TransformGroup>
             </TextBlock.RenderTransform>Дата создания :</TextBlock>
-        <Button Margin="41,3,141,4" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+        <TextBlock Margin="3,3,331,0" Foreground="Black" RenderTransformOrigin="0.5,0.5" Grid.Row="3">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.246"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.464"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>Жанр :</TextBlock>
+        <TextBlock Margin="4,3,313,3" Foreground="Black" RenderTransformOrigin="0.5,0.5" Grid.Row="5" FontSize="18">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.246"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.464"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>Страна :</TextBlock>
+        <Button Margin="84,0,98,4" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="PUTTHEBALL" Grid.Row="7" Grid.Column="1" >Оценить</Button>
-        <TextBlock x:Name="TESTDATEF" Margin="95,0,91,0" Foreground="#FFE01C1C" FontSize="24" Grid.Row="2"/>
-        <TextBlock x:Name="TESTNAMEF" Margin="221,0,9,1" Foreground="#FFE01C1C" FontSize="26" Grid.RowSpan="2"></TextBlock>
-        <DataGrid x:Name="DataofRole" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="194" Margin="7,6,0,0" VerticalAlignment="Top" Foreground="Aqua" Width="360" Background="Black" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="4">
+        <TextBlock x:Name="TESTDATEF" Margin="95,0,91,10" Foreground="#FFE01C1C" Grid.Row="2"/>
+        <TextBlock x:Name="TESTgenre" Margin="63,0,123,10" Foreground="#FFE01C1C" FontSize="18" Grid.Row="3"/>
+        <TextBlock x:Name="TESTNAMEF" Margin="221,0,9,19" Foreground="#FFE01C1C" FontSize="18" Grid.RowSpan="2"></TextBlock>
+        <TextBlock x:Name="TESTcountry" Margin="80,0,106,20" Foreground="#FFE01C1C" FontSize="18" Grid.Row="5"/>
+
+        <DataGrid x:Name="DataofRole" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="194" Margin="7,6,0,0" VerticalAlignment="Top" Foreground="Aqua" Width="362" Background="Black" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="4">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF9C142C"/>
