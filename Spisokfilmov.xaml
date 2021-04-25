@@ -11,20 +11,20 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="88*"/>
-            <RowDefinition Height="72*"/>
-            <RowDefinition Height="59*"/>
-            <RowDefinition Height="55*"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="88"/>
+            <RowDefinition Height="72"/>
+            <RowDefinition Height="59"/>
+            <RowDefinition Height="55"/>
             <RowDefinition Height="53*"/>
             <RowDefinition Height="54*"/>
             <RowDefinition Height="58*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="583*"/>
-            <ColumnDefinition Width="205*"/>
-            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="583"/>
+            <ColumnDefinition Width="205"/>
+            <ColumnDefinition Width="13"/>
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="450" AutoGenerateColumns="False" VerticalAlignment="Top" Width="561" Foreground="Aqua" Background="Black" FontWeight="Bold" Grid.RowSpan="9">
             <!--НЕНУЖНАЯ ФИГНЯ ПО СУТИ-->

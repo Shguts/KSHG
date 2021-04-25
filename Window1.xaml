@@ -9,17 +9,17 @@
         Title="Window1" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="77*"/>
-            <RowDefinition Height="91*"/>
-            <RowDefinition Height="63*"/>
-            <RowDefinition Height="59*"/>
-            <RowDefinition Height="130*"/>
+            <RowDefinition Height="77"/>
+            <RowDefinition Height="91"/>
+            <RowDefinition Height="63"/>
+            <RowDefinition Height="59"/>
+            <RowDefinition Height="130"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="44*"/>
-            <ColumnDefinition Width="263*"/>
-            <ColumnDefinition Width="370*"/>
-            <ColumnDefinition Width="115*"/>
+            <ColumnDefinition Width="44"/>
+            <ColumnDefinition Width="263"/>
+            <ColumnDefinition Width="370"/>
+            <ColumnDefinition Width="115"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">

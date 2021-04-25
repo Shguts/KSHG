@@ -11,13 +11,13 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="226*"/>
-            <ColumnDefinition Width="345*"/>
-            <ColumnDefinition Width="229*"/>
+            <ColumnDefinition Width="226"/>
+            <ColumnDefinition Width="345"/>
+            <ColumnDefinition Width="229"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="59*"/>
-            <RowDefinition Height="391*"/>
+            <RowDefinition Height="59"/>
+            <RowDefinition Height="391"/>
         </Grid.RowDefinitions>
         <TextBlock Margin="12,6,7.294,1" Foreground="Black" FontSize="36" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <TextBlock.RenderTransform>

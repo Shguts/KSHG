@@ -24,5 +24,24 @@ namespace KSHG
         {
             InitializeComponent();
         }
+
+        private void btnMenu_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Menu());
+        }
+
+        private void btnsave_Click(object sender, RoutedEventArgs e)
+        {
+            using (kursRabEntities db = new kursRabEntities())
+            {
+                CREATORSOFFILMS addactor = new CREATORSOFFILMS();
+                addactor.AcName = Name.Text;
+                addactor.AcLastName = Last_name.Text;
+                addactor.AcSecondName = Second_name.Text;
+                addactor.DateofBirth = Convert.ToDateTime(Date_of_birth.Text);
+                addactor.Dateofcareer= Convert.ToDateTime(Date_of_career.Text);
+                
+            }
+        }
     }
 }

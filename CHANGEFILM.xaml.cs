@@ -48,7 +48,7 @@ namespace KSHG
                     COMBOBOXCOUNTRY.Items.Add(sen);
                 }
                 int zaebalo = db.Films.Where(x => x.NameofFilm == POISK.MEGATEST).Select(X => X.IDCountry).FirstOrDefault();
-                COMBOBOXCOUNTRY.SelectedItem = zaebalo;
+                COMBOBOXCOUNTRY.SelectedIndex = zaebalo;
             }
         }
 
@@ -59,7 +59,18 @@ namespace KSHG
 
         private void change(object sender, RoutedEventArgs e)
         {
-           
+            using (kursRabEntities db = new kursRabEntities()) 
+            {
+                string prov1 = COMBOBOXCOUNTRY.Text;
+                string prov2 = COMBOBOXGENRE.Text;
+                var fetch = db.Films.Where(x => x.NameofFilm == POISK.MEGATEST).Select(y => y).FirstOrDefault();
+                fetch.NameofFilm = TextofF.Text;
+                fetch.DateofCreate = Convert.ToDateTime(TextofDATE.Text);
+                fetch.IDCountry = db.Countries.Where(x => x.NameofCountry == prov1).Select(y => y.IDCountry).FirstOrDefault();
+                fetch.IDgenre = db.GENRES.Where(x => x.NameofGenre == prov2).Select(y => y.IDgenre).FirstOrDefault();
+                fetch.AgeRestriction = Convert.ToInt32(Textofage.Text);
+                db.SaveChanges();
+            }
         }
 
         private void addactor(object sender, RoutedEventArgs e)

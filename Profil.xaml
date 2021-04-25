@@ -14,19 +14,19 @@
     </Page.Resources>
     <Grid Visibility="Visible">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="255*"/>
-            <ColumnDefinition Width="200*"/>
-            <ColumnDefinition Width="296*"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="255"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="296"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="51*"/>
-            <RowDefinition Height="63*"/>
-            <RowDefinition Height="65*"/>
-            <RowDefinition Height="75*"/>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="63*"/>
-            <RowDefinition Height="79*"/>
+            <RowDefinition Height="51"/>
+            <RowDefinition Height="63"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="63"/>
+            <RowDefinition Height="79"/>
         </Grid.RowDefinitions>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">

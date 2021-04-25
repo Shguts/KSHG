@@ -12,22 +12,23 @@
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="324*"/>
-                <ColumnDefinition Width="239*"/>
-                <ColumnDefinition Width="237*"/>
+                <ColumnDefinition Width="324"/>
+                <ColumnDefinition Width="239"/>
+                <ColumnDefinition Width="237"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition Height="57*"/>
-                <RowDefinition Height="40*"/>
-                <RowDefinition Height="40*"/>
-                <RowDefinition Height="54*"/>
-                <RowDefinition Height="52*"/>
-                <RowDefinition Height="127*"/>
-                <RowDefinition Height="79*"/>
+                <RowDefinition Height="57"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="54"/>
+                <RowDefinition Height="52"/>
+                <RowDefinition Height="127"/>
+                <RowDefinition Height="79"/>
             </Grid.RowDefinitions>
             <TextBlock Margin="8,5,180,6" Foreground="#FFE01C1C" FontSize="15" Grid.Row="2">Название фильма :</TextBlock>
             <TextBlock Margin="10,2,178,10" Foreground="#FFE01C1C" FontSize="15" Grid.Row="3">Дата создания :</TextBlock>
+            <TextBlock Margin="8,9.4,180,89.8" Foreground="#FFE01C1C" FontSize="15" Grid.Row="6">Рейтинг :</TextBlock>
             <ComboBox SelectedValuePath="IDgenre" DisplayMemberPath="NameofGenre" x:Name="COMBOBOXGENRE" materialDesign:HintAssist.Hint="Выбор жанра" Foreground="Aqua" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="164" Height="37" Grid.Row="5"/>
             <ComboBox SelectedValuePath="IDCountry" DisplayMemberPath="NameofCountry" x:Name="COMBOBOXCOUNTRY" materialDesign:HintAssist.Hint="Выбор страны" Foreground="Aqua" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="164" Height="38" Grid.Row="4"/>
             <Button Margin="9,6.787,0,2" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
@@ -60,6 +61,7 @@
                 </DataGrid.Columns>
             </DataGrid>
             <TextBox x:Name="TextofF" HorizontalAlignment="Left" Margin="151,1,0,10" Grid.Row="2" TextWrapping="Wrap" Width="163" Foreground="#FFFF1111"/>
+            <TextBox x:Name="Textofage" HorizontalAlignment="Left" Margin="151,8.4,0,89.8" Grid.Row="6" TextWrapping="Wrap" Width="163" Foreground="#FFFF1111"/>
             <TextBox x:Name="TextofDATE" HorizontalAlignment="Left" Height="28" Margin="151,2,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Foreground="#FFFF1111"/>
         </Grid>
     </Grid>
