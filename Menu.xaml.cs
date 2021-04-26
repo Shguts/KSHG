@@ -27,7 +27,14 @@ namespace KSHG
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Spisokfilmov());
+            using (kursRabEntities db = new kursRabEntities())
+            {
+                if (db.Administrators.Where(x => x.Alogin == AUTH.test).Select(x => x).FirstOrDefault() != null)
+                {
+                    NavigationService.Navigate(new Spisokfilmov());
+                }
+                else { MessageBox.Show("Сюда может войти только администратор"); }
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -48,6 +55,7 @@ namespace KSHG
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MMR());
+            
         }
     }
 }

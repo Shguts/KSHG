@@ -89,7 +89,14 @@ namespace KSHG
         {
             string PROV1 = VODPOISK.Text.Trim();
             MEGATEST = PROV1;
-            NavigationService.Navigate(new CHANGEFILM());
+            using (kursRabEntities db = new kursRabEntities())
+            {
+                if (db.Administrators.Where(x => x.Alogin == AUTH.test).Select(x => x).FirstOrDefault() != null)
+                {
+                    NavigationService.Navigate(new CHANGEFILM());
+                }
+                else { MessageBox.Show("Сюда может войти только администратор"); }
+            }
         }
 
         private void BackPoisk(object sender, RoutedEventArgs e)

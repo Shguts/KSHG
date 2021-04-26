@@ -40,7 +40,15 @@ namespace KSHG
                 addactor.AcSecondName = Second_name.Text;
                 addactor.DateofBirth = Convert.ToDateTime(Date_of_birth.Text);
                 addactor.Dateofcareer= Convert.ToDateTime(Date_of_career.Text);
-                
+                addactor.IDCreator = db.CREATORSOFFILMS.OrderByDescending(X => X.IDCreator).Select(x => x.IDCreator).FirstOrDefault() + 1 ;
+                roleofactor roleofactor = new roleofactor();
+                roleofactor.RoleofActor1 = role.Text;
+                roleofactor.IDFilm = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(X => X.IDFilm).FirstOrDefault();
+                roleofactor.IDCreator = db.CREATORSOFFILMS.OrderByDescending(X => X.IDCreator).Select(x => x.IDCreator).FirstOrDefault() + 1;
+                db.CREATORSOFFILMS.Add(addactor);
+                db.roleofactor.Add(roleofactor);
+                db.SaveChanges();
+                MessageBox.Show("Актер бы успешно добавлен");
             }
         }
     }

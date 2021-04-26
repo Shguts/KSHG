@@ -34,12 +34,14 @@ namespace KSHG
             string provlogin = LOG.Text.Trim();
             test = LOG.Text;
             string provpassw = PASSW.Password.Trim();
+            Administrators ad;
             DataUsers us = null;
             using (kursRabEntities context = new kursRabEntities())
             {
                 us = context.DataUsers.Where(l => l.LoginUs == provlogin && l.PasswordUs == provpassw).FirstOrDefault();
+                ad = context.Administrators.Where(l => l.Alogin == provlogin && l.Apassword == provpassw).FirstOrDefault();
             }
-            if (us != null)
+            if ((us != null) || (ad != null))
             {
                 MessageBox.Show("Вы авторизованы");
                 NavigationService.Navigate(new Menu());

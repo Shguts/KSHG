@@ -64,7 +64,7 @@
           <Property Name="rating" Type="real" Nullable="false" />
           <Property Name="IDgenre" Type="int" Nullable="false" />
           <Property Name="DateofCreate" Type="date" Nullable="false" />
-          <Property Name="Baner" Type="varbinary" MaxLength="1000" />
+          <Property Name="Baner" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="GENRES">
           <Key>
@@ -102,7 +102,7 @@
           <Property Name="USecondName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DateofBirth" Type="date" Nullable="false" />
         </EntityType>
-        <Association Name="FK__BALLS__IDFilm__76A18A26">
+        <Association Name="FK__BALLS__IDFilm__50D0E6F9">
           <End Role="Films" Type="Self.Films" Multiplicity="1" />
           <End Role="BALLS" Type="Self.BALLS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -114,7 +114,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BALLS__IDUser__75AD65ED">
+        <Association Name="FK__BALLS__IDUser__4FDCC2C0">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="BALLS" Type="Self.BALLS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -126,7 +126,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DataUsers__IDUse__6576FE24">
+        <Association Name="FK__DataUsers__IDUse__3FA65AF7">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="DataUsers" Type="Self.DataUsers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -138,7 +138,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Films__IDCountry__6A3BB341">
+        <Association Name="FK__Films__IDCountry__446B1014">
           <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
           <End Role="Films" Type="Self.Films" Multiplicity="*" />
           <ReferentialConstraint>
@@ -150,7 +150,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Films__IDgenre__69478F08">
+        <Association Name="FK__Films__IDgenre__4376EBDB">
           <End Role="GENRES" Type="Self.GENRES" Multiplicity="1" />
           <End Role="Films" Type="Self.Films" Multiplicity="*" />
           <ReferentialConstraint>
@@ -162,7 +162,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__roleofact__IDCre__6F00685E">
+        <Association Name="FK__roleofact__IDCre__492FC531">
           <End Role="CREATORSOFFILMS" Type="Self.CREATORSOFFILMS" Multiplicity="1" />
           <End Role="roleofactor" Type="Self.roleofactor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -174,7 +174,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__roleofact__IDFil__6FF48C97">
+        <Association Name="FK__roleofact__IDFil__4A23E96A">
           <End Role="Films" Type="Self.Films" Multiplicity="1" />
           <End Role="roleofactor" Type="Self.roleofactor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -228,31 +228,31 @@
           <EntitySet Name="roleofactor" EntityType="Self.roleofactor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__BALLS__IDFilm__76A18A26" Association="Self.FK__BALLS__IDFilm__76A18A26">
+          <AssociationSet Name="FK__BALLS__IDFilm__50D0E6F9" Association="Self.FK__BALLS__IDFilm__50D0E6F9">
             <End Role="Films" EntitySet="Films" />
             <End Role="BALLS" EntitySet="BALLS" />
           </AssociationSet>
-          <AssociationSet Name="FK__BALLS__IDUser__75AD65ED" Association="Self.FK__BALLS__IDUser__75AD65ED">
+          <AssociationSet Name="FK__BALLS__IDUser__4FDCC2C0" Association="Self.FK__BALLS__IDUser__4FDCC2C0">
             <End Role="Users" EntitySet="Users" />
             <End Role="BALLS" EntitySet="BALLS" />
           </AssociationSet>
-          <AssociationSet Name="FK__DataUsers__IDUse__6576FE24" Association="Self.FK__DataUsers__IDUse__6576FE24">
+          <AssociationSet Name="FK__DataUsers__IDUse__3FA65AF7" Association="Self.FK__DataUsers__IDUse__3FA65AF7">
             <End Role="Users" EntitySet="Users" />
             <End Role="DataUsers" EntitySet="DataUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Films__IDCountry__6A3BB341" Association="Self.FK__Films__IDCountry__6A3BB341">
+          <AssociationSet Name="FK__Films__IDCountry__446B1014" Association="Self.FK__Films__IDCountry__446B1014">
             <End Role="Countries" EntitySet="Countries" />
             <End Role="Films" EntitySet="Films" />
           </AssociationSet>
-          <AssociationSet Name="FK__Films__IDgenre__69478F08" Association="Self.FK__Films__IDgenre__69478F08">
+          <AssociationSet Name="FK__Films__IDgenre__4376EBDB" Association="Self.FK__Films__IDgenre__4376EBDB">
             <End Role="GENRES" EntitySet="GENRES" />
             <End Role="Films" EntitySet="Films" />
           </AssociationSet>
-          <AssociationSet Name="FK__roleofact__IDCre__6F00685E" Association="Self.FK__roleofact__IDCre__6F00685E">
+          <AssociationSet Name="FK__roleofact__IDCre__492FC531" Association="Self.FK__roleofact__IDCre__492FC531">
             <End Role="CREATORSOFFILMS" EntitySet="CREATORSOFFILMS" />
             <End Role="roleofactor" EntitySet="roleofactor" />
           </AssociationSet>
-          <AssociationSet Name="FK__roleofact__IDFil__6FF48C97" Association="Self.FK__roleofact__IDFil__6FF48C97">
+          <AssociationSet Name="FK__roleofact__IDFil__4A23E96A" Association="Self.FK__roleofact__IDFil__4A23E96A">
             <End Role="Films" EntitySet="Films" />
             <End Role="roleofactor" EntitySet="roleofactor" />
           </AssociationSet>
@@ -282,8 +282,8 @@
           <Property Name="IDFilm" Type="Int32" Nullable="false" />
           <Property Name="Mark" Type="Int32" Nullable="false" />
           <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Films" Relationship="Self.FK__BALLS__IDFilm__76A18A26" FromRole="BALLS" ToRole="Films" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__BALLS__IDUser__75AD65ED" FromRole="BALLS" ToRole="Users" />
+          <NavigationProperty Name="Films" Relationship="Self.FK__BALLS__IDFilm__50D0E6F9" FromRole="BALLS" ToRole="Films" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__BALLS__IDUser__4FDCC2C0" FromRole="BALLS" ToRole="Users" />
         </EntityType>
         <EntityType Name="Countries">
           <Key>
@@ -292,7 +292,7 @@
           <Property Name="IDCountry" Type="Int32" Nullable="false" />
           <Property Name="NameofCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CodeofCountry" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Films" Relationship="Self.FK__Films__IDCountry__6A3BB341" FromRole="Countries" ToRole="Films" />
+          <NavigationProperty Name="Films" Relationship="Self.FK__Films__IDCountry__446B1014" FromRole="Countries" ToRole="Films" />
         </EntityType>
         <EntityType Name="CREATORSOFFILMS">
           <Key>
@@ -304,7 +304,7 @@
           <Property Name="AcSecondName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DateofBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Dateofcareer" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="roleofactor" Relationship="Self.FK__roleofact__IDCre__6F00685E" FromRole="CREATORSOFFILMS" ToRole="roleofactor" />
+          <NavigationProperty Name="roleofactor" Relationship="Self.FK__roleofact__IDCre__492FC531" FromRole="CREATORSOFFILMS" ToRole="roleofactor" />
         </EntityType>
         <EntityType Name="DataUsers">
           <Key>
@@ -313,7 +313,7 @@
           <Property Name="LoginUs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PasswordUs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IDUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__DataUsers__IDUse__6576FE24" FromRole="DataUsers" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__DataUsers__IDUse__3FA65AF7" FromRole="DataUsers" ToRole="Users" />
         </EntityType>
         <EntityType Name="Films">
           <Key>
@@ -326,11 +326,11 @@
           <Property Name="rating" Type="Single" Nullable="false" />
           <Property Name="IDgenre" Type="Int32" Nullable="false" />
           <Property Name="DateofCreate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Baner" Type="Binary" MaxLength="1000" FixedLength="false" />
-          <NavigationProperty Name="BALLS" Relationship="Self.FK__BALLS__IDFilm__76A18A26" FromRole="Films" ToRole="BALLS" />
-          <NavigationProperty Name="Countries" Relationship="Self.FK__Films__IDCountry__6A3BB341" FromRole="Films" ToRole="Countries" />
-          <NavigationProperty Name="GENRES" Relationship="Self.FK__Films__IDgenre__69478F08" FromRole="Films" ToRole="GENRES" />
-          <NavigationProperty Name="roleofactor" Relationship="Self.FK__roleofact__IDFil__6FF48C97" FromRole="Films" ToRole="roleofactor" />
+          <Property Name="Baner" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="BALLS" Relationship="Self.FK__BALLS__IDFilm__50D0E6F9" FromRole="Films" ToRole="BALLS" />
+          <NavigationProperty Name="Countries" Relationship="Self.FK__Films__IDCountry__446B1014" FromRole="Films" ToRole="Countries" />
+          <NavigationProperty Name="GENRES" Relationship="Self.FK__Films__IDgenre__4376EBDB" FromRole="Films" ToRole="GENRES" />
+          <NavigationProperty Name="roleofactor" Relationship="Self.FK__roleofact__IDFil__4A23E96A" FromRole="Films" ToRole="roleofactor" />
         </EntityType>
         <EntityType Name="GENRES">
           <Key>
@@ -338,7 +338,7 @@
           </Key>
           <Property Name="IDgenre" Type="Int32" Nullable="false" />
           <Property Name="NameofGenre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Films" Relationship="Self.FK__Films__IDgenre__69478F08" FromRole="GENRES" ToRole="Films" />
+          <NavigationProperty Name="Films" Relationship="Self.FK__Films__IDgenre__4376EBDB" FromRole="GENRES" ToRole="Films" />
         </EntityType>
         <EntityType Name="roleofactor">
           <Key>
@@ -348,8 +348,8 @@
           <Property Name="IDCreator" Type="Int32" Nullable="false" />
           <Property Name="IDFilm" Type="Int32" Nullable="false" />
           <Property Name="RoleofActor1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CREATORSOFFILMS" Relationship="Self.FK__roleofact__IDCre__6F00685E" FromRole="roleofactor" ToRole="CREATORSOFFILMS" />
-          <NavigationProperty Name="Films" Relationship="Self.FK__roleofact__IDFil__6FF48C97" FromRole="roleofactor" ToRole="Films" />
+          <NavigationProperty Name="CREATORSOFFILMS" Relationship="Self.FK__roleofact__IDCre__492FC531" FromRole="roleofactor" ToRole="CREATORSOFFILMS" />
+          <NavigationProperty Name="Films" Relationship="Self.FK__roleofact__IDFil__4A23E96A" FromRole="roleofactor" ToRole="Films" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -370,10 +370,10 @@
           <Property Name="ULastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="USecondName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DateofBirth" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="BALLS" Relationship="Self.FK__BALLS__IDUser__75AD65ED" FromRole="Users" ToRole="BALLS" />
-          <NavigationProperty Name="DataUsers" Relationship="Self.FK__DataUsers__IDUse__6576FE24" FromRole="Users" ToRole="DataUsers" />
+          <NavigationProperty Name="BALLS" Relationship="Self.FK__BALLS__IDUser__4FDCC2C0" FromRole="Users" ToRole="BALLS" />
+          <NavigationProperty Name="DataUsers" Relationship="Self.FK__DataUsers__IDUse__3FA65AF7" FromRole="Users" ToRole="DataUsers" />
         </EntityType>
-        <Association Name="FK__BALLS__IDFilm__76A18A26">
+        <Association Name="FK__BALLS__IDFilm__50D0E6F9">
           <End Role="Films" Type="Self.Films" Multiplicity="1" />
           <End Role="BALLS" Type="Self.BALLS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -385,7 +385,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BALLS__IDUser__75AD65ED">
+        <Association Name="FK__BALLS__IDUser__4FDCC2C0">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="BALLS" Type="Self.BALLS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -397,7 +397,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Films__IDCountry__6A3BB341">
+        <Association Name="FK__Films__IDCountry__446B1014">
           <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
           <End Role="Films" Type="Self.Films" Multiplicity="*" />
           <ReferentialConstraint>
@@ -409,7 +409,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__roleofact__IDCre__6F00685E">
+        <Association Name="FK__roleofact__IDCre__492FC531">
           <End Role="CREATORSOFFILMS" Type="Self.CREATORSOFFILMS" Multiplicity="1" />
           <End Role="roleofactor" Type="Self.roleofactor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -421,7 +421,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DataUsers__IDUse__6576FE24">
+        <Association Name="FK__DataUsers__IDUse__3FA65AF7">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="DataUsers" Type="Self.DataUsers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -433,7 +433,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Films__IDgenre__69478F08">
+        <Association Name="FK__Films__IDgenre__4376EBDB">
           <End Role="GENRES" Type="Self.GENRES" Multiplicity="1" />
           <End Role="Films" Type="Self.Films" Multiplicity="*" />
           <ReferentialConstraint>
@@ -445,7 +445,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__roleofact__IDFil__6FF48C97">
+        <Association Name="FK__roleofact__IDFil__4A23E96A">
           <End Role="Films" Type="Self.Films" Multiplicity="1" />
           <End Role="roleofactor" Type="Self.roleofactor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -468,31 +468,31 @@
           <EntitySet Name="roleofactor" EntityType="Self.roleofactor" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <AssociationSet Name="FK__BALLS__IDFilm__76A18A26" Association="Self.FK__BALLS__IDFilm__76A18A26">
+          <AssociationSet Name="FK__BALLS__IDFilm__50D0E6F9" Association="Self.FK__BALLS__IDFilm__50D0E6F9">
             <End Role="Films" EntitySet="Films" />
             <End Role="BALLS" EntitySet="BALLS" />
           </AssociationSet>
-          <AssociationSet Name="FK__BALLS__IDUser__75AD65ED" Association="Self.FK__BALLS__IDUser__75AD65ED">
+          <AssociationSet Name="FK__BALLS__IDUser__4FDCC2C0" Association="Self.FK__BALLS__IDUser__4FDCC2C0">
             <End Role="Users" EntitySet="Users" />
             <End Role="BALLS" EntitySet="BALLS" />
           </AssociationSet>
-          <AssociationSet Name="FK__Films__IDCountry__6A3BB341" Association="Self.FK__Films__IDCountry__6A3BB341">
+          <AssociationSet Name="FK__Films__IDCountry__446B1014" Association="Self.FK__Films__IDCountry__446B1014">
             <End Role="Countries" EntitySet="Countries" />
             <End Role="Films" EntitySet="Films" />
           </AssociationSet>
-          <AssociationSet Name="FK__roleofact__IDCre__6F00685E" Association="Self.FK__roleofact__IDCre__6F00685E">
+          <AssociationSet Name="FK__roleofact__IDCre__492FC531" Association="Self.FK__roleofact__IDCre__492FC531">
             <End Role="CREATORSOFFILMS" EntitySet="CREATORSOFFILMS" />
             <End Role="roleofactor" EntitySet="roleofactor" />
           </AssociationSet>
-          <AssociationSet Name="FK__DataUsers__IDUse__6576FE24" Association="Self.FK__DataUsers__IDUse__6576FE24">
+          <AssociationSet Name="FK__DataUsers__IDUse__3FA65AF7" Association="Self.FK__DataUsers__IDUse__3FA65AF7">
             <End Role="Users" EntitySet="Users" />
             <End Role="DataUsers" EntitySet="DataUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Films__IDgenre__69478F08" Association="Self.FK__Films__IDgenre__69478F08">
+          <AssociationSet Name="FK__Films__IDgenre__4376EBDB" Association="Self.FK__Films__IDgenre__4376EBDB">
             <End Role="GENRES" EntitySet="GENRES" />
             <End Role="Films" EntitySet="Films" />
           </AssociationSet>
-          <AssociationSet Name="FK__roleofact__IDFil__6FF48C97" Association="Self.FK__roleofact__IDFil__6FF48C97">
+          <AssociationSet Name="FK__roleofact__IDFil__4A23E96A" Association="Self.FK__roleofact__IDFil__4A23E96A">
             <End Role="Films" EntitySet="Films" />
             <End Role="roleofactor" EntitySet="roleofactor" />
           </AssociationSet>

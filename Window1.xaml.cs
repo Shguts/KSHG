@@ -123,6 +123,7 @@ namespace KSHG
                 MessageBox.Show("NICE");
             } else { MessageBox.Show("so bad"); }
             Close();
-        }
+                         
+    }
     }
 }

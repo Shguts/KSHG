@@ -41,8 +41,7 @@ namespace KSHG
                 COMOFF.Text = db.BALLS.Where(y => y.IDFilm == r && y.IDUser == r2).Select(x => x.Comment).FirstOrDefault();
                 var spisact = db.roleofactor.Where(y=>y.IDFilm==r).Select(x => x).ToList();
                 DataofRole.ItemsSource = spisact;
-                var spisdataact= db.CREATORSOFFILMS.Select(x => x).ToList();
-                DataofRole.ItemsSource = spisdataact;
+                //FILMImage.Source = db.Films.Where(x => x.IDFilm == r).Select(y => y.Baner).FirstOrDefault();
             }
 
         }

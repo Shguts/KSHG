@@ -11,10 +11,10 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="391*"/>
-            <ColumnDefinition Width="373*"/>
-            <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="391"/>
+            <ColumnDefinition Width="373"/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="11"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0*"/>
@@ -32,8 +32,7 @@
         <TextBlock Margin="7,0,214,1" Foreground="Black" FontSize="36" Grid.Column="1" Grid.RowSpan="2">Рейтинг :</TextBlock>
         <TextBlock x:Name="TESTRATE" Margin="164,0,81,0" Foreground="#FF935454" FontSize="36" Grid.Column="1" Grid.RowSpan="2"/>
 
-        <Image Source="C:\Users\shgust\Pictures\4ad921bd77f5559c2f1ae9b02b1a19.jpg" Margin="-179,0,79,0" Grid.Row="4"/>
-        <Image Source="C:\Users\shgust\Pictures\imba.jpg" Margin="141,22,343,38" Grid.Row="2" Grid.RowSpan="5" Grid.ColumnSpan="2"/>
+        <Image x:Name="FILMImage" Margin="-179,0,79,0" Grid.Row="4"/>
 
         <TextBlock Margin="0,0,175,2" Foreground="Black" FontSize="24" Grid.RowSpan="2">Название фильма :</TextBlock>
         <TextBlock Margin="7,0,141,1" Foreground="Black" FontSize="24" Grid.Column="1" Grid.Row="3">Создатели фильма</TextBlock>
@@ -68,10 +67,10 @@
             </TextBlock.RenderTransform>Страна :</TextBlock>
         <Button Margin="84,0,98,4" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="PUTTHEBALL" Grid.Row="7" Grid.Column="1" >Оценить</Button>
-        <TextBlock x:Name="TESTDATEF" Margin="95,0,91,10" Foreground="#FFE01C1C" Grid.Row="2"/>
-        <TextBlock x:Name="TESTgenre" Margin="63,0,123,10" Foreground="#FFE01C1C" FontSize="18" Grid.Row="3"/>
-        <TextBlock x:Name="TESTNAMEF" Margin="221,0,9,19" Foreground="#FFE01C1C" FontSize="18" Grid.RowSpan="2"></TextBlock>
-        <TextBlock x:Name="TESTcountry" Margin="80,0,106,20" Foreground="#FFE01C1C" FontSize="18" Grid.Row="5"/>
+        <TextBlock x:Name="TESTDATEF" Margin="95,0,91,5" Foreground="#FFE01C1C" Grid.Row="2"/>
+        <TextBlock x:Name="TESTgenre" Margin="63,0,123,5" Foreground="#FFE01C1C" FontSize="18" Grid.Row="3"/>
+        <TextBlock x:Name="TESTNAMEF" Margin="221,0,9,10" Foreground="#FFE01C1C" FontSize="18" Grid.RowSpan="2"></TextBlock>
+        <TextBlock x:Name="TESTcountry" Margin="80,0,106,10" Foreground="#FFE01C1C" FontSize="18" Grid.Row="5"/>
 
         <DataGrid x:Name="DataofRole" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="194" Margin="7,6,0,0" VerticalAlignment="Top" Foreground="Aqua" Width="362" Background="Black" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="4">
             <DataGrid.Resources>
@@ -91,9 +90,9 @@
                 </TransformGroup>
             </DataGrid.RenderTransform>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="  Роль в фильме" Binding="{Binding RoleofActor}"/>
-                <DataGridTextColumn Header="  Имя актера" Binding="{Binding AcName}"/>
-                <DataGridTextColumn Header="  Фамилия актера" Binding="{Binding AcLastName}"/>
+                <DataGridTextColumn Header="  Роль в фильме" Binding="{Binding IDFilm}"/>
+                <DataGridTextColumn Header="  Имя актера" Binding="{Binding IDCreator}"/>
+                <DataGridTextColumn Header="  Фамилия актера" Binding="{Binding RoleofActor1}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

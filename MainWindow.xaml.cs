@@ -23,6 +23,7 @@ namespace KSHG
     ///  internal class ApplicationContext
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
