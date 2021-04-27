@@ -32,7 +32,12 @@
         <TextBlock Margin="7,0,214,1" Foreground="Black" FontSize="36" Grid.Column="1" Grid.RowSpan="2">Рейтинг :</TextBlock>
         <TextBlock x:Name="TESTRATE" Margin="164,0,81,0" Foreground="#FF935454" FontSize="36" Grid.Column="1" Grid.RowSpan="2"/>
 
-        <Image x:Name="FILMImage" Margin="-179,0,79,0" Grid.Row="4"/>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Left" Height="202" Grid.RowSpan="1" VerticalAlignment="Top" Width="391" Grid.Row="4">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="imba.jpg"/>
+            </StackPanel.Background>
+            <Image x:Name="fotoImage" Source="{Binding Baner}" />
+        </StackPanel>
 
         <TextBlock Margin="0,0,175,2" Foreground="Black" FontSize="24" Grid.RowSpan="2">Название фильма :</TextBlock>
         <TextBlock Margin="7,0,141,1" Foreground="Black" FontSize="24" Grid.Column="1" Grid.Row="3">Создатели фильма</TextBlock>

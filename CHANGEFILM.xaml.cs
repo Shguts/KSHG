@@ -47,8 +47,8 @@ namespace KSHG
                 {
                     COMBOBOXCOUNTRY.Items.Add(sen);
                 }
-                int zaebalo = db.Films.Where(x => x.NameofFilm == POISK.MEGATEST).Select(X => X.IDCountry).FirstOrDefault();
-                COMBOBOXCOUNTRY.SelectedIndex = zaebalo;
+                int z = db.Films.Where(x => x.NameofFilm == POISK.MEGATEST).Select(X => X.IDCountry).FirstOrDefault();
+                COMBOBOXCOUNTRY.SelectedIndex = z;
             }
         }
 
