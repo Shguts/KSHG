@@ -44,12 +44,14 @@ namespace KSHG
             {
                 var COMBOSPIS1 = db.Countries.Select(x => x).ToList<Countries>();
                 foreach (Countries sen in COMBOSPIS1)
-                {
-                    COMBOBOXCOUNTRY.Items.Add(sen);
+                { 
+                    COMBOBOXCOUNTRY.Items.Add(sen);   
                 }
                 int z = db.Films.Where(x => x.NameofFilm == POISK.MEGATEST).Select(X => X.IDCountry).FirstOrDefault();
-                COMBOBOXCOUNTRY.SelectedIndex = z;
+                string req = db.Countries.Where(x => x.IDCountry == z).Select(x => x.NameofCountry).FirstOrDefault();
+                COMBOBOXCOUNTRY.SelectedIndex= z;
             }
+            Textofcountr.Text = ;
         }
 
         private void backmanuforcechange(object sender, RoutedEventArgs e)
