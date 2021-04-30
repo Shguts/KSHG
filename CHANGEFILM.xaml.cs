@@ -22,6 +22,7 @@ namespace KSHG
     {
         public CHANGEFILM()
         {
+            string req,req1;
             InitializeComponent();
             using (kursRabEntities db = new kursRabEntities())
             {
@@ -29,7 +30,8 @@ namespace KSHG
                 int r2 = db.DataUsers.Where(x => x.LoginUs == AUTH.test).Select(X => X.IDUser).FirstOrDefault();
                 TextofF.Text = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.NameofFilm).FirstOrDefault();
                 TextofDATE.Text = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.DateofCreate).FirstOrDefault().ToString();
-
+                var spisact = db.roleofactor.Where(y => y.IDFilm == r).Select(x => x).ToList();
+                DataofRole.ItemsSource = spisact;
             }
             using (kursRabEntities db = new kursRabEntities())
             {
@@ -38,7 +40,6 @@ namespace KSHG
                 {
                     COMBOBOXGENRE.Items.Add(gen);
                 }
-                COMBOBOXGENRE.SelectedItem = db.Films.Where(x => x.NameofFilm == POISK.MEGATEST).Select(X => X.IDgenre).FirstOrDefault();
             }
             using (kursRabEntities db = new kursRabEntities())
             {
@@ -48,10 +49,12 @@ namespace KSHG
                     COMBOBOXCOUNTRY.Items.Add(sen);   
                 }
                 int z = db.Films.Where(x => x.NameofFilm == POISK.MEGATEST).Select(X => X.IDCountry).FirstOrDefault();
-                string req = db.Countries.Where(x => x.IDCountry == z).Select(x => x.NameofCountry).FirstOrDefault();
-                COMBOBOXCOUNTRY.SelectedIndex= z;
+                int z1 = db.Films.Where(x => x.NameofFilm == POISK.MEGATEST).Select(X => X.IDgenre).FirstOrDefault();
+                req = db.Countries.Where(x => x.IDCountry == z).Select(x => x.NameofCountry).FirstOrDefault();
+                req1 = db.GENRES.Where(x => x.IDgenre == z1).Select(x => x.NameofGenre).FirstOrDefault();
             }
-            Textofcountr.Text = ;
+            Textofcountr.Text = req;
+            Textofgenre.Text = req1;
         }
 
         private void backmanuforcechange(object sender, RoutedEventArgs e)
@@ -72,6 +75,8 @@ namespace KSHG
                 fetch.IDgenre = db.GENRES.Where(x => x.NameofGenre == prov2).Select(y => y.IDgenre).FirstOrDefault();
                 fetch.AgeRestriction = Convert.ToInt32(Textofage.Text);
                 db.SaveChanges();
+                Textofcountr.Text = COMBOBOXCOUNTRY.Text;
+                Textofgenre.Text = COMBOBOXGENRE.Text;
             }
         }
 

@@ -35,6 +35,8 @@
                 </Style>
                 <ContextMenu x:Key="RowMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
                     <MenuItem Header="Перейти к фильму" Click="MenuItem_Click"/>
+                    <!--<MenuItem Header="Edit" CommandParameter="{Binding}"
+              Command="{Binding ParentViewModel.DataGridActionCommand}"/>-->
                     <MenuItem Header="Удалить" Click="MenuItem_Click1"/>
                     <MenuItem Header="Изменить" Click="MenuItem_Click2"/>
                 </ContextMenu>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace KSHG
 {
@@ -88,10 +90,32 @@ namespace KSHG
                 {
                     MessageBox.Show("Вы ввели некорректные данные");
                 }
-                //MDFilm.IDCountry = DB.Films.Select(X => X.IDCountry).Where(x=>x.).FirstOrDefault(); 
             }
-            //string PROV5 = Login.Text.Trim();
-            //string PROV6 = Password.Password.Trim();
+        }
+
+        private void Loadphoto(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Please select a photo";
+            ofd.Filter = "Image Files | *.BMP; *.JPG; *.PNG";
+            ofd.Multiselect = false;
+            if (ofd.ShowDialog() == true)
+            {
+                MessageBox.Show("Выбран файл " + ofd.FileName);
+            }
+            ImageSource III1 = new BitmapImage(new Uri(ofd.FileName));
+            using (kursRabEntities db = new kursRabEntities()) {
+                var filmtest = db.Films.Where(x=>x.IDFilm == 2).Select(x=>x).FirstOrDefault();
+                //var takeabytephoto = db.Films.Where(x => x.IDFilm == 2).Select(x => x.Baner).FirstOrDefault();
+                filmtest.Baner = File.ReadAllBytes(ofd.FileName);
+                db.SaveChanges();
+                Stream streamobg = new MemoryStream(filmtest.Baner);
+                BitmapImage BitObj = new BitmapImage();
+                BitObj.BeginInit();
+                BitObj.StreamSource = streamobg;
+                BitObj.EndInit();
+                this.test123123123212.Source = BitObj;
+            }
         }
     }
 }

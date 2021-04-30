@@ -12,21 +12,32 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.TeamFoundation.Build.Controls;
 
 namespace KSHG
 {
     /// <summary>
     /// Логика взаимодействия для POISK.xaml
     /// </summary>
+    /// 
+    //public class ItemModel
+    //{
+    //    public ItemModel()
+    //    {
+    //        this.EditCommand = new SimpleCommand
+    //        {
+    //            ExecuteDelegate = _ => MessageBox.Show("Execute"),
+    //            CanExecuteDelegate = _ => this.Id == 1
+    //        };
+    //    }
+    //    public int Id { get; set; }
+    //    public string Title { get; set; }
+    //    public ICommand EditCommand { get; set; }
+    //}
     public partial class POISK : Page
     {
+
         public static string MEGATEST;
-        public interface ICommand
-        {
-            event EventHandler CanExecuteChanged;
-            void Execute(object parameter);
-            bool CanExecute(object parameter);
-        }
         public int PEREDPOISK;
         public POISK()
         {
@@ -64,22 +75,10 @@ namespace KSHG
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
+
             string PROV1 = VODPOISK.Text.Trim();
             MEGATEST = PROV1;
             NavigationService.Navigate(new INFOFILM());
-            //var menuItem = (MenuItem)sender;
-
-            //var contextMenu = (ContextMenu)menuItem.Parent;
-            //var row = (DataGridRow)contextMenu.Parent;
-            //var item = (Films)row.Item;
-            //MessageBox.Show(item.NameofFilm);
-            //string qqq = PEREXOD.DataContext.ToString();
-            // string PROV1 = VODPOISK.Text.Trim();
-            // using (kursRabEntities db = new kursRabEntities())
-            // {
-            //    PEREDPOISK = db.Films.Where(X => X.NameofFilm == PROV1).Select(x => x.IDFilm).FirstOrDefault();
-            //    NavigationService.Navigate(new INFOFILM());
-            // }
         }
         private void MenuItem_Click1(object sender, RoutedEventArgs e)
         {
@@ -104,4 +103,5 @@ namespace KSHG
             NavigationService.Navigate(new Menu());
         }
     }
+
 }

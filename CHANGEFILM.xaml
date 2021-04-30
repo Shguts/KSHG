@@ -12,9 +12,9 @@
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="324"/>
-                <ColumnDefinition Width="239"/>
-                <ColumnDefinition Width="237"/>
+                <ColumnDefinition Width="437"/>
+                <ColumnDefinition Width="246"/>
+                <ColumnDefinition Width="117"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -23,21 +23,22 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="54"/>
                 <RowDefinition Height="52"/>
-                <RowDefinition Height="127"/>
-                <RowDefinition Height="79"/>
+                <RowDefinition Height="128"/>
+                <RowDefinition Height="51"/>
+                <RowDefinition Height="27"/>
             </Grid.RowDefinitions>
             <TextBlock Margin="8,5,180,6" Foreground="#FFE01C1C" FontSize="15" Grid.Row="2">Название фильма :</TextBlock>
             <TextBlock Margin="10,2,178,10" Foreground="#FFE01C1C" FontSize="15" Grid.Row="3">Дата создания :</TextBlock>
-            <TextBlock Margin="8,9.4,129,89.8" Foreground="#FFE01C1C" FontSize="15" Grid.Row="6">Ограничение по возрасту :</TextBlock>
+            <TextBlock Margin="8,9,129,89" Foreground="#FFE01C1C" FontSize="15" Grid.Row="6">Ограничение по возрасту :</TextBlock>
             <ComboBox SelectedValuePath="IDgenre" DisplayMemberPath="NameofGenre" x:Name="COMBOBOXGENRE" materialDesign:HintAssist.Hint="Выбор жанра" Foreground="Aqua" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="164" Height="37" Grid.Row="5"/>
             <ComboBox SelectedValuePath="IDCountry" DisplayMemberPath="NameofCountry" x:Name="COMBOBOXCOUNTRY" materialDesign:HintAssist.Hint="Выбор страны" Foreground="Aqua" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="164" Height="38" Grid.Row="4"/>
-            <Button Margin="9,6.787,0,2" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="backmanuforcechange" FontSize="20" Grid.Column="2" Grid.Row="1">Меню</Button>
-            <Button Margin="45,10,41,11" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+            <Button Margin="10,0,0,9" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="backmanuforcechange" FontSize="20" Grid.Column="1" Grid.Row="1">Меню</Button>
+            <Button Margin="48,0,38,0" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="change" FontSize="20" Grid.Row="7">Изменить</Button>
-            <Button Margin="9,2,0,0" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="addactor" FontSize="20" Grid.Row="3" Grid.Column="2">Добавить создателя</Button>
-            <DataGrid x:Name="DataofRole" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="296" Margin="129,9.4,0,0" VerticalAlignment="Top" Foreground="#FF020402" Width="341" Background="#FFFFDF51" RenderTransformOrigin="0.5,0.5" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="4" Grid.Column="1">
+            <Button Margin="10,0,0,0" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="addactor" FontSize="20" Grid.Row="3" Grid.Column="1">Добавить создателя</Button>
+            <DataGrid x:Name="DataofRole" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="296" Margin="4,6,0,0" VerticalAlignment="Top" Foreground="#FF020402" Width="347" Background="#FFFFDF51" RenderTransformOrigin="0.5,0.5" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="5" Grid.Column="1">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#FFFF683C"/>
@@ -55,16 +56,16 @@
                     </TransformGroup>
                 </DataGrid.RenderTransform>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="  Роль в фильме" Binding="{Binding RoleofActor}"/>
-                    <DataGridTextColumn Header="  Имя актера" Binding="{Binding AcName}"/>
-                    <DataGridTextColumn Header="  Фамилия актера" Binding="{Binding AcLastName}"/>
+                    <DataGridTextColumn Header="  Роль в фильме" Binding="{Binding IDCreator}"/>
+                    <DataGridTextColumn Header="  Имя актера" Binding="{Binding IDFilm}"/>
+                    <DataGridTextColumn Header="  Фамилия актера" Binding="{Binding RoleofActor}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <TextBox x:Name="TextofF" HorizontalAlignment="Left" Margin="151,1,0,10" Grid.Row="2" TextWrapping="Wrap" Width="163" Foreground="#FFFF1111"/>
-            <TextBox x:Name="Textofage" HorizontalAlignment="Left" Margin="218,8.4,0,89.8" Grid.Row="6" TextWrapping="Wrap" Width="106" Foreground="#FFFF1111" RenderTransformOrigin="0.852,0.528"/>
+            <TextBox x:Name="Textofage" HorizontalAlignment="Left" Margin="208,9,0,89" Grid.Row="6" TextWrapping="Wrap" Width="106" Foreground="#FFFF1111" RenderTransformOrigin="0.852,0.528"/>
             <TextBox x:Name="TextofDATE" HorizontalAlignment="Left" Height="28" Margin="151,2,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Foreground="#FFFF1111"/>
-            <TextBox x:Name="Textofcountr" HorizontalAlignment="Left" Height="28" Margin="151,2,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Foreground="#FFFF1111"/>
-            <TextBox x:Name="Textofgenre" HorizontalAlignment="Left" Height="28" Margin="151,2,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Foreground="#FFFF1111"/>
+            <TextBlock x:Name="Textofcountr" HorizontalAlignment="Left" Height="28" Margin="179,5,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Foreground="#FFFF1111"/>
+            <TextBlock x:Name="Textofgenre" HorizontalAlignment="Left" Height="28" Margin="179,5,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Foreground="#FFFF1111"/>
         </Grid>
     </Grid>
 </Page>

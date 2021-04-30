@@ -31,6 +31,7 @@ namespace KSHG
 
         private void Reg_Click(object sender, RoutedEventArgs e)
         {
+            char[] helpmassive = new char[10] { '1','2','3','4','5','6','7','8','9','0'}; 
             string PROV1 = Name.Text.Trim();
             string PROV2 = Last_name.Text.Trim();
             string PROV3 = Second_name.Text.Trim();
@@ -43,8 +44,17 @@ namespace KSHG
                 Users sourse2 = new Users();
                 if (PROV1 != "")
                 {
+                    foreach (char i in helpmassive)
+                    {
+                        if ((PROV1.Contains(i)|| PROV2.Contains(i)||PROV3.Contains(i))&&(necro))
+                        {
+                            necro = false;
+                            MessageBox.Show("Вы ввели цифры в имени,фамилии или отчестве");
+                        }
+                    }
                     if (PROV5 != "")
                     {
+                       
                         if (PROV3 != "")
                         {
                             try
@@ -71,7 +81,7 @@ namespace KSHG
                 }
                 else
                 {
-                    MessageBox.Show("Вы не ввели имя");
+                    MessageBox.Show("Вы не ввели имя ");
                     necro = false;
                 }
                 if (necro)
@@ -84,45 +94,68 @@ namespace KSHG
                     }
                     else
                     {
-                        var proverkaloginov = db.DataUsers;
-                        foreach (DataUsers d in proverkaloginov)
+
+                        if ((PROV5.Length < 5)&&necro)
                         {
-                            if (PROV5==d.LoginUs)
-                            {
-                                necro = false;
-                                MessageBox.Show("Такой логин уже существует");
-                            }
-                        }
-                        if ((PROV6 == null)&&necro)
-                        {
-                            MessageBox.Show("Вы не ввели пароль");
+                            MessageBox.Show("Вы ввели логин меньше 5 символов");
                             necro = false;
                         }
-                        else
+                        if ((PROV5.Length > 50)&&necro)
                         {
-                            if (necro)
-                            {
-                                sourse1.LoginUs = PROV5;
-                                sourse1.PasswordUs = PROV6;
-                                int TEST1 = db.Users.OrderByDescending(x => x.IDUser).Select(X => X.IDUser).FirstOrDefault();
-                                sourse1.IDUser = TEST1;
-                                sourse2.UName = PROV1;
-                                sourse2.USecondName = PROV3;
-                                sourse2.ULastName = PROV2;
-                                db.Users.Add(sourse2);
-                                db.DataUsers.Add(sourse1);
-                                db.SaveChanges();
-                            }
-                            else MessageBox.Show("Вы ввели некорректные данные");
+                            MessageBox.Show("Вы ввели слишком длинный логин");
+                            necro = false;
                         }
+                        if (necro)
+                        {
+                            var proverkaloginov = db.DataUsers;
+                            foreach (DataUsers d in proverkaloginov)
+                            {
+                                if (PROV5 == d.LoginUs)
+                                {
+                                    necro = false;
+                                    MessageBox.Show("Такой логин уже существует");
+                                }
+                            }
+                        }
+
+                        if ((PROV6 != null) && necro)
+                        {
+                            if (PROV6.Length < 5)
+                            {
+                                MessageBox.Show("Вы ввели пароль меньше 5 символов");
+                                necro = false;
+                            }
+                            if (PROV6.Length > 50)
+                            {
+                                MessageBox.Show("Вы ввели слишком длинный пароль");
+                                necro = false;
+                            }
+                        }
+                        else { MessageBox.Show("Вы не ввели пароль"); necro = false;}
+
+                        if (necro)
+                        {
+                            sourse1.LoginUs = PROV5;
+                            sourse1.PasswordUs = PROV6;
+                            int TEST1 = db.Users.OrderByDescending(x => x.IDUser).Select(X => X.IDUser).FirstOrDefault();
+                            sourse1.IDUser = TEST1;
+                            sourse2.UName = PROV1;
+                            sourse2.USecondName = PROV3;
+                            sourse2.ULastName = PROV2;
+                            db.Users.Add(sourse2);
+                            db.DataUsers.Add(sourse1);
+                            db.SaveChanges();
+                        }
+                        else MessageBox.Show("Вы ввели некорректные данные");
+
                     }
                 }          
             }
             if (necro)
             {
                 MessageBox.Show("NICE");
+                Close();
             } else { MessageBox.Show("so bad"); }
-            Close();
                          
     }
     }
