@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
+using System.IO;
 
 
 
@@ -49,31 +50,18 @@ namespace KSHG
                 }
                 var spisact = db.roleofactor.Where(y => y.IDFilm == r).Select(x => x).ToList();
                 DataofRole.ItemsSource = spisact;
-                //фото
-                //OpenFileDialog dlg = new OpenFileDialog();
-                //dlg.InitialDirectory = "";
-                //dlg.Filter = "Image files (*.jpg,*.png,*.bmp)|*.jpg;*.png;*.bmp|All Files (*.*)|*.*";
-                //if (dlg.ShowDialog() == true)
-                //{
-                //    string selectedFileName = dlg.FileName;
-                //    helpforfilwithimg.Baner = ConvertImageToByteArray(selectedFileName);
-                //}
-
+                try
+                {
+                    Stream streamobg = new MemoryStream(helpforfilwithimg.Baner);
+                    BitmapImage BitObj = new BitmapImage();
+                    BitObj.BeginInit();
+                    BitObj.StreamSource = streamobg;
+                    BitObj.EndInit();
+                    this.fotoImage.Source = BitObj;
+                } catch { }
             }
 
         }
-        //private byte[] ConvertImageToByteArray(string fileName)
-        //{
-        //    MemoryStream
-        //    Bitmapimage bitMap = new Bitmap(fileName);
-        //    ImageFormat bmpFormat = bitMap.RawFormat;
-        //    var imageToConvert = Image.FromFile(fileName);
-        //    using (MemoryStream ms = new MemoryStream())
-        //    {
-        //        imageToConvert.Save(ms, bmpFormat);
-        //        return ms.ToArray();
-        //    }
-        //}
         private void Backf(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Menu());

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using Microsoft.Win32;
 
 namespace KSHG
 {
@@ -30,6 +32,7 @@ namespace KSHG
                 int r2 = db.DataUsers.Where(x => x.LoginUs == AUTH.test).Select(X => X.IDUser).FirstOrDefault();
                 TextofF.Text = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.NameofFilm).FirstOrDefault();
                 TextofDATE.Text = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.DateofCreate).FirstOrDefault().ToString();
+                Textofage.Text = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.AgeRestriction).FirstOrDefault().ToString();
                 var spisact = db.roleofactor.Where(y => y.IDFilm == r).Select(x => x).ToList();
                 DataofRole.ItemsSource = spisact;
             }
@@ -74,15 +77,43 @@ namespace KSHG
                 fetch.IDCountry = db.Countries.Where(x => x.NameofCountry == prov1).Select(y => y.IDCountry).FirstOrDefault();
                 fetch.IDgenre = db.GENRES.Where(x => x.NameofGenre == prov2).Select(y => y.IDgenre).FirstOrDefault();
                 fetch.AgeRestriction = Convert.ToInt32(Textofage.Text);
+                fetch.Baner = Spisokfilmov.ImagetoByte;
                 db.SaveChanges();
                 Textofcountr.Text = COMBOBOXCOUNTRY.Text;
                 Textofgenre.Text = COMBOBOXGENRE.Text;
+                Stream streamobg = new MemoryStream(fetch.Baner);
+                BitmapImage BitObj = new BitmapImage();
+                BitObj.BeginInit();
+                BitObj.StreamSource = streamobg;
+                BitObj.EndInit();
+                this.fotoImage.Source = BitObj;
             }
         }
 
         private void addactor(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ADDACTOR());
+        }
+
+        private void findimage(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Please select a photo";
+            ofd.Filter = "Image Files | *.BMP; *.JPG; *.PNG";
+            ofd.Multiselect = false;
+            if (ofd.ShowDialog() == true)
+            {
+                MessageBox.Show("Выбран файл " + ofd.FileName);
+            }
+            try
+            {
+                ImageSource III1 = new BitmapImage(new Uri(ofd.FileName));
+                Spisokfilmov.ImagetoByte = File.ReadAllBytes(ofd.FileName);
+            }
+            catch
+            {
+                MessageBox.Show("Вы не выбрали фотографию");
+            }
         }
     }
 }

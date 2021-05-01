@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:KSHG"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Opacity="0.975">
-    <Frame Name="MAINW" NavigationUIVisibility="Hidden" Background="#FF4B08C1"/>
+        Title="MainWindow" Height="535.5" Width="932" WindowStartupLocation="CenterScreen" Opacity="0.975">
+    <Frame Name="MAINW" NavigationUIVisibility="Hidden" Background="Black"/>
 
 </Window>

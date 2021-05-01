@@ -20,8 +20,11 @@ namespace KSHG
     /// <summary>
     /// Логика взаимодействия для Spisokfilmov.xaml
     /// </summary>
+    /// 
     public partial class Spisokfilmov : Page
     {
+
+        public static byte[] ImagetoByte;
         public Spisokfilmov()
         {
             InitializeComponent();
@@ -53,7 +56,6 @@ namespace KSHG
         {
             NavigationService.Navigate(new Menu());
         }
-
         private void Dobavlfilma(object sender, RoutedEventArgs e)
         {
             string PROV1 = Name_of_Film.Text.Trim();
@@ -79,11 +81,18 @@ namespace KSHG
                     MDFilm.NameofFilm = PROV1;
                     MDFilm.rating = 0;
                     MDFilm.DateofCreate = Convert.ToDateTime(PROV2);
+                    MDFilm.Baner = ImagetoByte;
                     DB.Films.Add(MDFilm);
                     DB.SaveChanges();
                     MessageBox.Show("ФИЛЬМ БЫЛ УСПЕШНО ДОБАВЛЕН");
                     var spisfilms = DB.Films.Select(x => x).ToList();
                     SPISOKF.ItemsSource = spisfilms;
+                    Stream streamobg = new MemoryStream(MDFilm.Baner);
+                    BitmapImage BitObj = new BitmapImage();
+                    BitObj.BeginInit();
+                    BitObj.StreamSource = streamobg;
+                    BitObj.EndInit();
+                    this.test123123123212.Source = BitObj;
 
                 }
                 catch
@@ -103,18 +112,14 @@ namespace KSHG
             {
                 MessageBox.Show("Выбран файл " + ofd.FileName);
             }
-            ImageSource III1 = new BitmapImage(new Uri(ofd.FileName));
-            using (kursRabEntities db = new kursRabEntities()) {
-                var filmtest = db.Films.Where(x=>x.IDFilm == 2).Select(x=>x).FirstOrDefault();
-                //var takeabytephoto = db.Films.Where(x => x.IDFilm == 2).Select(x => x.Baner).FirstOrDefault();
-                filmtest.Baner = File.ReadAllBytes(ofd.FileName);
-                db.SaveChanges();
-                Stream streamobg = new MemoryStream(filmtest.Baner);
-                BitmapImage BitObj = new BitmapImage();
-                BitObj.BeginInit();
-                BitObj.StreamSource = streamobg;
-                BitObj.EndInit();
-                this.test123123123212.Source = BitObj;
+            try
+            {
+                ImageSource III1 = new BitmapImage(new Uri(ofd.FileName));
+                ImagetoByte = File.ReadAllBytes(ofd.FileName);
+            }
+            catch
+            {
+                MessageBox.Show("Вы не выбрали фотографию");
             }
         }
     }

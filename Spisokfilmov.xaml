@@ -5,9 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:KSHG"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Spisokfilmov">
+      mc:Ignorable="d"
+      Title="Spisokfilmov" Height="499.5" Width="914">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -20,13 +19,15 @@
             <RowDefinition Height="53"/>
             <RowDefinition Height="46"/>
             <RowDefinition Height="67"/>
+            <RowDefinition Height="1"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="583"/>
-            <ColumnDefinition Width="205"/>
-            <ColumnDefinition Width="13"/>
+            <ColumnDefinition Width="331"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="450" AutoGenerateColumns="False" VerticalAlignment="Top" Width="561" Foreground="Aqua" Background="Black" FontWeight="Bold" Grid.RowSpan="9">
+        <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="500" AutoGenerateColumns="False" VerticalAlignment="Top" Width="584" Foreground="Aqua" Background="Black" FontWeight="Bold" Grid.RowSpan="10" Margin="0,0,0,-38" Grid.ColumnSpan="2">
             <!--НЕНУЖНАЯ ФИГНЯ ПО СУТИ-->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -45,9 +46,9 @@
                 <DataGridTextColumn Header="   DateofCreate " Binding="{Binding DateofCreate}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Перейти в меню" HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Button_Click" Grid.Column="1" Grid.Row="1"/>
-        <Button Content="Добавить фильм" HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Dobavlfilma" Grid.Column="1" Grid.Row="2"/>
-        <TextBox x:Name="Name_of_Film" materialDesign:HintAssist.Hint="Название фильма" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="31,15,18,5" Grid.Column="1" Grid.Row="3">
+        <Button Content="Перейти в меню" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Button_Click" Grid.Column="1" Grid.Row="1"/>
+        <Button Content="Добавить фильм" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Width="148" Height="40" Click="Dobavlfilma" Grid.Column="1" Grid.Row="2"/>
+        <TextBox x:Name="Name_of_Film" materialDesign:HintAssist.Hint="Название фильма" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="32,15,16,5" Grid.Column="1" Grid.Row="3">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -57,7 +58,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="DATEOC" materialDesign:HintAssist.Hint="Год создания" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="29,7,20,10" Grid.Column="1" Grid.Row="4">
+        <TextBox x:Name="DATEOC" materialDesign:HintAssist.Hint="Год создания" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="30,7,18,10" Grid.Column="1" Grid.Row="4">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -67,9 +68,9 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <ComboBox SelectedValuePath="IDgenre" DisplayMemberPath="NameofGenre" x:Name="COMBOBOXGENRE" materialDesign:HintAssist.Hint="Выбор жанра" Foreground="Aqua" HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top" Width="164" Height="30" Grid.Column="1" Grid.Row="5"/>
-        <ComboBox SelectedValuePath="IDCountry" DisplayMemberPath="NameofCountry" x:Name="COMBOBOXCOUNTRY" materialDesign:HintAssist.Hint="Выбор страны" Foreground="Aqua" HorizontalAlignment="Left" Margin="31,13,0,0" VerticalAlignment="Top" Width="164" Height="30" Grid.Column="1" Grid.Row="6"/>
-        <TextBox x:Name="AGE" materialDesign:HintAssist.Hint="Возрастное ограничение" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="31,9,12,10" Grid.Column="1" Grid.Row="7">
+        <ComboBox SelectedValuePath="IDgenre" DisplayMemberPath="NameofGenre" x:Name="COMBOBOXGENRE" materialDesign:HintAssist.Hint="Выбор жанра" Foreground="Aqua" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Width="247" Height="30" Grid.Column="1" Grid.Row="5"/>
+        <ComboBox SelectedValuePath="IDCountry" DisplayMemberPath="NameofCountry" x:Name="COMBOBOXCOUNTRY" materialDesign:HintAssist.Hint="Выбор страны" Foreground="Aqua" HorizontalAlignment="Left" Margin="32,13,0,0" VerticalAlignment="Top" Width="247" Height="30" Grid.Column="1" Grid.Row="6"/>
+        <TextBox x:Name="AGE" materialDesign:HintAssist.Hint="Возрастное ограничение" Foreground="Aqua" RenderTransformOrigin="0.597,0.616" Margin="32,9,145,10" Grid.Column="1" Grid.Row="7">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -79,8 +80,8 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Фотография" VerticalAlignment="Top" Grid.Column="1" Margin="31,10,0,0" Grid.Row="8" Height="26" Width="75" Foreground="Aqua"/>
-        <Button Content="Обзор..." HorizontalAlignment="Left" Margin="113,4,0,0" VerticalAlignment="Top" Width="92" Height="26" Click="Loadphoto" Grid.Row="8" Grid.Column="1"/>
-        <Image x:Name="test123123123212" HorizontalAlignment="Left" Height="254" Margin="27,10,0,0" Grid.Row="4" Grid.RowSpan="5" VerticalAlignment="Top" Width="491"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Фотография" VerticalAlignment="Top" Grid.Column="1" Margin="32,10,0,0" Grid.Row="8" Height="26" Width="75" Foreground="Aqua"/>
+        <Button Content="Обзор..." HorizontalAlignment="Left" Margin="112,10,0,0" VerticalAlignment="Top" Width="92" Height="26" Click="Loadphoto" Grid.Row="8" Grid.Column="1"/>
+        <Image x:Name="test123123123212" HorizontalAlignment="Left" Height="115" Margin="211,0,0,0" Grid.Row="7" Grid.RowSpan="2" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
     </Grid>
 </Page>

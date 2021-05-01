@@ -9,7 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AUTH">
 
-    <Grid Visibility="Visible" RenderTransformOrigin="0.5,0.5">
+    <Grid Visibility="Visible" RenderTransformOrigin="0.5,0.5" Margin="0,0,-130,-45">
         <Grid.RowDefinitions>
             <RowDefinition Height="46"/>
             <RowDefinition Height="66"/>
@@ -39,7 +39,7 @@
                 <GradientStop Color="#FFFE04BA" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="397" VerticalAlignment="Top" CornerRadius="90 90 90 90" Background="#FF594299" Margin="6,18,11,0" RenderTransformOrigin="0.527,0.429" Grid.ColumnSpan="5" Grid.RowSpan="6">
+        <Border Height="490" VerticalAlignment="Top" CornerRadius="90 90 90 90" Background="#FF994242" Margin="-8,14,-113,-48" RenderTransformOrigin="0.527,0.429" Grid.ColumnSpan="5" Grid.RowSpan="6">
             <Border.Effect>
                 <BlurEffect KernelType="Box" Radius="10"/>
             </Border.Effect>
@@ -52,7 +52,7 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <StackPanel Margin="36.6,2.8,27.8,12.4" RenderTransformOrigin="0.5,0.5" Grid.Column="3" Grid.RowSpan="2" Grid.Row="2">
+        <StackPanel Margin="3,0,1,0" RenderTransformOrigin="0.5,0.5" Grid.Column="3" Grid.RowSpan="4" Grid.Row="1">
             <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -61,7 +61,7 @@
                     <TranslateTransform X="-0.599"/>
                 </TransformGroup>
             </StackPanel.RenderTransform>
-            <Image Source="C:\Users\shgust\Pictures\mainpic.jpg" Height="181" Margin="0" RenderTransformOrigin="0.501,0.624">
+            <Image Source="pictures/mainpic.jpg" Height="327" Margin="-1,0,0,0" RenderTransformOrigin="0.501,0.624">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -83,7 +83,7 @@
                     </TransformGroup>
                 </materialDesign:PackIcon.RenderTransform>
             </materialDesign:PackIcon>
-            <TextBox x:Name="LOG" materialDesign:HintAssist.Hint="User Login" Foreground="Orange" Width="256" RenderTransformOrigin="0.597,0.616"/>
+            <TextBox x:Name="LOG" materialDesign:HintAssist.Hint="User Login" Foreground="Black" Width="256" RenderTransformOrigin="0.597,0.616"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="0,58.8,0.4,24.2" Grid.Column="2" Grid.Row="2">
             <materialDesign:PackIcon Kind="Key" Width="27" Height="52" Foreground="#FF1EE41E" RenderTransformOrigin="0.5,0.5">
@@ -96,7 +96,7 @@
                     </TransformGroup>
                 </materialDesign:PackIcon.RenderTransform>
             </materialDesign:PackIcon>
-            <PasswordBox x:Name="PASSW" Margin="10,0" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Foreground="Orange" Width="257" RenderTransformOrigin="0.472,0.659"/>
+            <PasswordBox x:Name="PASSW" Margin="10,0" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Foreground="Black" Width="257" RenderTransformOrigin="0.472,0.659"/>
         </StackPanel>
         <Button Margin="5,5.8,10.4,10.4" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnLogin_Click" Grid.Column="2" Grid.Row="3">Вход</Button>
