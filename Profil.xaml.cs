@@ -74,14 +74,15 @@ namespace KSHG
                 string PROV1 = Name1.Text.Trim();
                 string PROV2 = Name2.Text.Trim();
                 string PROV3 = dATE.Text.Trim();
-                string PROV4 = log.Text.Trim();
+                string PROV4 = "NIKOGDANEDOGODAETESDOETOGO";
+                string PROV5 = par.Text.Trim();
+                Window1.generalrule(ref PROV, ref PROV1, ref PROV2, ref PROV3, ref PROV4, ref PROV5, ref logbul); 
                 if (db.Administrators.Where(x => x.Alogin == AUTH.test).Select(x => x).FirstOrDefault() == null)
                 {
                     int SPISUS = db.DataUsers.Where(x => x.LoginUs == locstr).Select(X => X.IDUser).FirstOrDefault();
                     prolog = db.DataUsers.Where(x => x.IDUser == SPISUS).Select(X => X.PasswordUs).FirstOrDefault();
                     Users REP = db.Users.Where(x => x.IDUser == SPISUS).Select(X => X).FirstOrDefault();
                     DataUsers REP1 = db.DataUsers.Where(x => x.IDUser == SPISUS).Select(X => X).FirstOrDefault(); 
-                    string PROV5 = db.DataUsers.Where(x => x.IDUser == SPISUS).Select(X => X.PasswordUs).FirstOrDefault();
                     REP.UName = PROV;
                     REP.ULastName = PROV1;
                     REP.USecondName = PROV2;

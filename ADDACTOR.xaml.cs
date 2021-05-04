@@ -43,7 +43,7 @@ namespace KSHG
                 addactor.IDCreator = db.CREATORSOFFILMS.OrderByDescending(X => X.IDCreator).Select(x => x.IDCreator).FirstOrDefault() + 1 ;
                 roleofactor roleofactor = new roleofactor();
                 roleofactor.RoleofActor1 = role.Text;
-                roleofactor.IDFilm = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(X => X.IDFilm).FirstOrDefault();
+                roleofactor.IDFilm = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(X => X.IDFilm).FirstOrDefault();
                 roleofactor.IDCreator = db.CREATORSOFFILMS.OrderByDescending(X => X.IDCreator).Select(x => x.IDCreator).FirstOrDefault() + 1;
                 db.CREATORSOFFILMS.Add(addactor);
                 db.roleofactor.Add(roleofactor);

@@ -25,7 +25,7 @@
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="Poisk_click" FontSize="20" Grid.Column="1" Grid.Row="1">Поиск</Button>
         <Button Margin="10,10,29,10" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="BackPoisk" FontSize="12" Grid.Row="1" Grid.Column="2">Перейти в меню</Button>
-        <DataGrid AutoGenerateColumns="False" x:Name="SPISOKPOISK" ItemsSource="{Binding kursRabEntities}" Grid.Row="2">
+        <DataGrid AutoGenerateColumns="False" x:Name="SPISOKPOISK" ItemsSource="{Binding Films}" Grid.Row="2">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF9C142C"/>
@@ -34,11 +34,11 @@
                     <Setter Property="BorderBrush" Value="Black"/>
                 </Style>
                 <ContextMenu x:Key="RowMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
-                    <MenuItem Header="Перейти к фильму" Click="MenuItem_Click"/>
+                    <MenuItem Header="Перейти к фильму" Click="Come_Click"/>
                     <!--<MenuItem Header="Edit" CommandParameter="{Binding}"
               Command="{Binding ParentViewModel.DataGridActionCommand}"/>-->
-                    <MenuItem Header="Удалить" Click="MenuItem_Click1"/>
-                    <MenuItem Header="Изменить" Click="MenuItem_Click2"/>
+                    <MenuItem Header="Удалить" Click="Delete_Click"/>
+                    <MenuItem Header="Изменить" Click="Change_Click"/>
                 </ContextMenu>
             </DataGrid.Resources>
             <DataGrid.RowStyle>
@@ -47,6 +47,7 @@
                 </Style>
             </DataGrid.RowStyle>
             <DataGrid.Columns>
+                <DataGridTextColumn Header="   Номер фильма " Binding="{Binding IDFilm}" Visibility="Hidden"/>
                 <DataGridTextColumn Header="   NameofFilm " Binding="{Binding NameofFilm}"/>
                 <DataGridTextColumn Header="   DateofCreate " Binding="{Binding DateofCreate}"/>
             </DataGrid.Columns>

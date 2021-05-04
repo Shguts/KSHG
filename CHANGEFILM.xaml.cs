@@ -28,13 +28,20 @@ namespace KSHG
             InitializeComponent();
             using (kursRabEntities db = new kursRabEntities())
             {
-                int r = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.IDFilm).FirstOrDefault();
+                int r = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.IDFilm).FirstOrDefault();
                 int r2 = db.DataUsers.Where(x => x.LoginUs == AUTH.test).Select(X => X.IDUser).FirstOrDefault();
-                TextofF.Text = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.NameofFilm).FirstOrDefault();
-                TextofDATE.Text = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.DateofCreate).FirstOrDefault().ToString();
-                Textofage.Text = db.Films.Where(y => y.NameofFilm == POISK.MEGATEST).Select(x => x.AgeRestriction).FirstOrDefault().ToString();
+                TextofF.Text = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.NameofFilm).FirstOrDefault();
+                TextofDATE.Text = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.DateofCreate).FirstOrDefault().ToString();
+                Textofage.Text = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.AgeRestriction).FirstOrDefault().ToString();
                 var spisact = db.roleofactor.Where(y => y.IDFilm == r).Select(x => x).ToList();
                 DataofRole.ItemsSource = spisact;
+                var helpforimage = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x).FirstOrDefault();
+                Stream streamobg = new MemoryStream(helpforimage.Baner);
+                BitmapImage BitObj = new BitmapImage();
+                BitObj.BeginInit();
+                BitObj.StreamSource = streamobg;
+                BitObj.EndInit();
+                this.fotoImage.Source = BitObj;
             }
             using (kursRabEntities db = new kursRabEntities())
             {
@@ -51,10 +58,11 @@ namespace KSHG
                 { 
                     COMBOBOXCOUNTRY.Items.Add(sen);   
                 }
-                int z = db.Films.Where(x => x.NameofFilm == POISK.MEGATEST).Select(X => X.IDCountry).FirstOrDefault();
-                int z1 = db.Films.Where(x => x.NameofFilm == POISK.MEGATEST).Select(X => X.IDgenre).FirstOrDefault();
+                int z = db.Films.Where(x => x.IDFilm == POISK.MEGATEST).Select(X => X.IDCountry).FirstOrDefault();
+                int z1 = db.Films.Where(x => x.IDFilm == POISK.MEGATEST).Select(X => X.IDgenre).FirstOrDefault();
                 req = db.Countries.Where(x => x.IDCountry == z).Select(x => x.NameofCountry).FirstOrDefault();
                 req1 = db.GENRES.Where(x => x.IDgenre == z1).Select(x => x.NameofGenre).FirstOrDefault();
+                
             }
             Textofcountr.Text = req;
             Textofgenre.Text = req1;
@@ -70,12 +78,20 @@ namespace KSHG
             using (kursRabEntities db = new kursRabEntities()) 
             {
                 string prov1 = COMBOBOXCOUNTRY.Text;
-                string prov2 = COMBOBOXGENRE.Text;
-                var fetch = db.Films.Where(x => x.NameofFilm == POISK.MEGATEST).Select(y => y).FirstOrDefault();
+                string prov2 = COMBOBOXGENRE.Text;             
+                var fetch = db.Films.Where(x => x.IDFilm == POISK.MEGATEST).Select(y => y).FirstOrDefault();
                 fetch.NameofFilm = TextofF.Text;
                 fetch.DateofCreate = Convert.ToDateTime(TextofDATE.Text);
-                fetch.IDCountry = db.Countries.Where(x => x.NameofCountry == prov1).Select(y => y.IDCountry).FirstOrDefault();
-                fetch.IDgenre = db.GENRES.Where(x => x.NameofGenre == prov2).Select(y => y.IDgenre).FirstOrDefault();
+                if (prov1 != null)
+                {
+                    fetch.IDCountry = db.Countries.Where(x => x.NameofCountry == prov1).Select(y => y.IDCountry).FirstOrDefault();
+                }
+                else { fetch.IDCountry = db.Countries.Where(x => x.NameofCountry == Textofcountr.Text).Select(y => y.IDCountry).FirstOrDefault(); }
+                if (prov2 != null)
+                {
+                    fetch.IDgenre = db.GENRES.Where(x => x.NameofGenre == prov2).Select(y => y.IDgenre).FirstOrDefault();
+                }
+                else { fetch.IDgenre = db.GENRES.Where(x => x.NameofGenre == Textofgenre.Text).Select(y => y.IDgenre).FirstOrDefault(); }
                 fetch.AgeRestriction = Convert.ToInt32(Textofage.Text);
                 fetch.Baner = Spisokfilmov.ImagetoByte;
                 db.SaveChanges();

@@ -248,8 +248,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="pictures\kisspng-computer-icons-user-profile-login-clip-art-my-account-icon-5adc5dd8d9ca10.9425519815243913848921.jpg" />
     <Resource Include="pictures\mainpic.jpg" />
     <Resource Include="pictures\imba.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="kursRabEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>kursRabEntities.edmx</DependentUpon>
