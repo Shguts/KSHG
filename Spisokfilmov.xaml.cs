@@ -56,9 +56,43 @@ namespace KSHG
         {
             NavigationService.Navigate(new Menu());
         }
-        public static void generalfilms()
+        public static void generalfilms(ref string PROV1, ref string PROV2, ref string PROV3, ref string PROV4, ref string PROV5, ref DateTime chekdatetime, ref bool necro)
         {
+            if ((PROV1 != "") && (PROV1.Length < 50))
+            {
+                try
+                {
+                    chekdatetime = Convert.ToDateTime(PROV2);
+                }
+                catch
+                {
+                    necro = false;
+                    MessageBox.Show("Вы ввели некорректно дату");
 
+                }
+                if (PROV3 == "" && necro)
+                {
+                    necro = false;
+                    MessageBox.Show("Вы не выбрали жанр");
+                }
+                else
+                {
+                    if (PROV4 == "")
+                    {
+                        necro = false;
+                        MessageBox.Show("Вы не выбрали страну");
+                    }
+                    else
+                    {
+                        if (PROV5 == "")
+                        {
+                            PROV5 = "0";
+                        }
+                    }
+                }
+
+            }
+            else { MessageBox.Show("Вы ввели некорректное название для фильма"); necro = false; }
         }
         private void Dobavlfilma(object sender, RoutedEventArgs e)
         {
@@ -67,47 +101,9 @@ namespace KSHG
             string PROV3 = COMBOBOXGENRE.Text.Trim();
             string PROV4 = COMBOBOXCOUNTRY.Text.Trim();
             string PROV5 = AGE.Text.Trim();
-            DateTime chekdatetime;
+            DateTime chekdatetime= DateTime.Now;
             bool necro = true;
-            using (kursRabEntities db = new kursRabEntities())
-            {
-                if ((PROV1 != "") && (PROV1.Length < 50))
-                {
-                    try
-                    {
-                        chekdatetime = Convert.ToDateTime(PROV2);
-                    }
-                    catch
-                    {
-                        necro = false;
-                        MessageBox.Show("Вы ввели некорректно дату");
-
-                    }
-
-                    if (PROV3 == null&&necro)
-                    {
-                        necro = false;
-                        MessageBox.Show("Вы не выбрали жанр");
-                    }
-                    else
-                    {
-                        if (PROV4 == null)
-                        {
-                            necro = false;
-                            MessageBox.Show("Вы не выбрали страну");
-                        }
-                        else
-                        {
-                            if (PROV5 == "")
-                            {
-                                PROV5 = "0";
-                            }
-                        }
-                    }
-
-                }
-                else { MessageBox.Show("Вы ввели некорректное название для фильма"); necro = false; }
-            }
+            generalfilms(ref PROV1, ref PROV2, ref PROV3, ref PROV4, ref PROV5,ref chekdatetime,ref necro);
             if (necro)
             {
                 using (kursRabEntities DB = new kursRabEntities())
@@ -130,12 +126,15 @@ namespace KSHG
                         MessageBox.Show("ФИЛЬМ БЫЛ УСПЕШНО ДОБАВЛЕН");
                         var spisfilms = DB.Films.Select(x => x).ToList();
                         SPISOKF.ItemsSource = spisfilms;
-                        Stream streamobg = new MemoryStream(MDFilm.Baner);
-                        BitmapImage BitObj = new BitmapImage();
-                        BitObj.BeginInit();
-                        BitObj.StreamSource = streamobg;
-                        BitObj.EndInit();
-                        this.test123123123212.Source = BitObj;
+                        try
+                        {
+                            Stream streamobg = new MemoryStream(MDFilm.Baner);
+                            BitmapImage BitObj = new BitmapImage();
+                            BitObj.BeginInit();
+                            BitObj.StreamSource = streamobg;
+                            BitObj.EndInit();
+                            this.test123123123212.Source = BitObj;
+                        } catch { MessageBox.Show("Вы не добавили картинку для фильма.Ну ладно тогда будет Леонардо Ди Каприо =)) "); }
 
                     }
                     catch

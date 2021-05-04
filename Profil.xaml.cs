@@ -65,6 +65,7 @@ namespace KSHG
         {
             using (kursRabEntities db = new kursRabEntities()) 
             {
+                Window1.GENeralBool = false;
                 string locstr = AUTH.test;
                 string prolog;
                 string provpassw = par.Text;
@@ -74,7 +75,7 @@ namespace KSHG
                 string PROV1 = Name1.Text.Trim();
                 string PROV2 = Name2.Text.Trim();
                 string PROV3 = dATE.Text.Trim();
-                string PROV4 = "NIKOGDANEDOGODAETESDOETOGO";
+                string PROV4 = log.Text.Trim();
                 string PROV5 = par.Text.Trim();
                 Window1.generalrule(ref PROV, ref PROV1, ref PROV2, ref PROV3, ref PROV4, ref PROV5, ref logbul); 
                 if (db.Administrators.Where(x => x.Alogin == AUTH.test).Select(x => x).FirstOrDefault() == null)

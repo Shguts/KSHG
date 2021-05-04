@@ -70,9 +70,9 @@
                     <DataGridTextColumn Header="  Фамилия актера" Binding="{Binding RoleofActor}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <TextBox x:Name="TextofF" HorizontalAlignment="Left" Margin="156,0,0,6" Grid.Row="2" TextWrapping="Wrap" Width="174" Foreground="#FFFF1111"/>
-            <TextBox x:Name="Textofage" HorizontalAlignment="Left" Margin="202,10,0,93" Grid.Row="6" TextWrapping="Wrap" Width="106" Foreground="#FFFF1111" RenderTransformOrigin="0.852,0.528"/>
-            <TextBox x:Name="TextofDATE" HorizontalAlignment="Left" Height="38" Margin="156,2,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Foreground="#FFFF1111"/>
+            <TextBox x:Name="Name_of_Film" HorizontalAlignment="Left" Margin="156,0,0,6" Grid.Row="2" TextWrapping="Wrap" Width="174" Foreground="#FFFF1111"/>
+            <TextBox x:Name="AGE" HorizontalAlignment="Left" Margin="202,10,0,93" Grid.Row="6" TextWrapping="Wrap" Width="106" Foreground="#FFFF1111" RenderTransformOrigin="0.852,0.528"/>
+            <TextBox x:Name="DATEOC" HorizontalAlignment="Left" Height="38" Margin="156,2,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Foreground="#FFFF1111"/>
             <TextBlock x:Name="Textofcountr" HorizontalAlignment="Left" Height="38" Margin="179,5,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="151" Foreground="#FFFF1111"/>
             <TextBlock x:Name="Textofgenre" HorizontalAlignment="Left" Height="47" Margin="179,5,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="151" Foreground="#FFFF1111"/>
         </Grid>

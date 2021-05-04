@@ -53,8 +53,9 @@ namespace KSHG
         private void Poisk_click(object sender, RoutedEventArgs e)
         {
             string PROV1 = VODPOISK.Text.Trim();
+            System.Data.SqlClient.SqlParameter param = new System.Data.SqlClient.SqlParameter("@name", $"%{PROV1}%");
             using (kursRabEntities db = new kursRabEntities())
-            {
+            {               
                 if (PROV1 == "")
                 {
                     var spisfilms = db.Films.Select(x => x).ToList<Films>();
@@ -63,12 +64,12 @@ namespace KSHG
                 }
                 else
                 {
-                    var spisfilms = db.Films.Where(X => X.NameofFilm == PROV1).Select(x => x).ToList<Films>();
-                    if (spisfilms.Count != 0)
+                    var likenamefilms = db.Database.SqlQuery<Films>("SELECT * FROM Films WHERE NameofFilm LIKE @name", param);
+                    if (likenamefilms != null)
                     {
-                        SPISOKPOISK.ItemsSource = spisfilms;
+                        SPISOKPOISK.ItemsSource = likenamefilms.ToList();
                     }
-                    else MessageBox.Show("Такого фильма в базе данных не существует");
+                    else MessageBox.Show("Такого фильма в базе данных не существует");               
                 }
             }
 
@@ -97,10 +98,6 @@ namespace KSHG
                     MessageBox.Show(((Films)SPISOKPOISK.SelectedItem).NameofFilm);
                     string PROV1 = VODPOISK.Text.Trim();
                     MEGATEST = pid;
-                    //var getcollectofActor = db.roleofactor.Where(x=>x.IDFilm==POISK.MEGATEST).Select(y=>y).FirstOrDefault();
-                    //db.roleofactor.Remove(getcollectofActor);
-                    //var getcollectofBalls = db.BALLS.Where(x => x.IDFilm == POISK.MEGATEST).Select(y => y).FirstOrDefault();
-                    //db.BALLS.Remove(getcollectofBalls);
                     var getIDFILM = db.Films.Where(x => x.IDFilm == POISK.MEGATEST).Select(y => y).FirstOrDefault();
                     db.Films.Remove(getIDFILM);
                     db.SaveChanges();

@@ -23,10 +23,11 @@ namespace KSHG
     ///
     public partial class Window1 : Window
     {
+        public static bool GENeralBool;
         public Window1()
         {
             InitializeComponent();
-
+            GENeralBool = true;
         }
         public static void generalrule (ref string PROV1, ref string PROV2, ref string PROV3, ref string PROV4, ref string PROV5, ref string PROV6,ref bool necro)
         {
@@ -96,7 +97,7 @@ namespace KSHG
                             MessageBox.Show("Вы ввели слишком длинный логин");
                             necro = false;
                         }
-                        if (necro)
+                        if (necro&&Window1.GENeralBool)
                         {
                             var proverkaloginov = db.DataUsers;
                             var proverkaloginov1 = db.Administrators;
@@ -158,18 +159,22 @@ namespace KSHG
                 generalrule(ref PROV1, ref PROV2, ref PROV3, ref PROV4, ref PROV5, ref PROV6,ref necro);
                 if (necro)
                 {
-                    sourse2.UName = PROV1;
-                    sourse2.USecondName = PROV3;
-                    sourse2.ULastName = PROV2;
-                    sourse2.DateofBirth = Convert.ToDateTime(PROV4);
-                    db.Users.Add(sourse2);
-                    db.SaveChanges();
-                    sourse1.LoginUs = PROV5;
-                    sourse1.PasswordUs = PROV6;
-                    int TEST1 = db.Users.OrderByDescending(x => x.IDUser).Select(X => X.IDUser).FirstOrDefault();
-                    sourse1.IDUser = TEST1;
-                    db.DataUsers.Add(sourse1);
-                    db.SaveChanges();
+                    try
+                    {
+                        sourse2.UName = PROV1;
+                        sourse2.USecondName = PROV3;
+                        sourse2.ULastName = PROV2;
+                        sourse2.DateofBirth = Convert.ToDateTime(PROV4);
+                        db.Users.Add(sourse2);
+                        db.SaveChanges();
+                        sourse1.LoginUs = PROV5;
+                        sourse1.PasswordUs = PROV6;
+                        int TEST1 = db.Users.OrderByDescending(x => x.IDUser).Select(X => X.IDUser).FirstOrDefault();
+                        sourse1.IDUser = TEST1;
+                        db.DataUsers.Add(sourse1);
+                        db.SaveChanges();
+                    }
+                    catch { MessageBox.Show("Вы ввели некорректные данные(Логин)"); necro = false; }
                 }
                 else MessageBox.Show("Вы ввели некорректные данные");
             }

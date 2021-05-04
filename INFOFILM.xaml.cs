@@ -68,7 +68,11 @@ namespace KSHG
         }
 
         private void PUTTHEBALL(object sender, RoutedEventArgs e)
-        {                   
+        {
+            string PROV1;
+            string PROV2;
+            PROV1 = OCENKA.Text.Trim();
+            PROV2 = COMOFF.Text.Trim();
             using (kursRabEntities db = new kursRabEntities())
             {
                 Administrators ad = new Administrators();
@@ -83,24 +87,25 @@ namespace KSHG
                     int getidofball = Convert.ToInt32(OCENKA.Text.Trim());
                     if (PROVball == null)
                     {
-                        newsetball.IDFilm = r;
-                        newsetball.IDUser = r2;
-                        newsetball.Mark = getidofball;
-                        newsetball.Comment = COMOFF.Text.Trim();
-                        db.BALLS.Add(newsetball);
-                        db.SaveChanges();
+                            newsetball.IDFilm = r;
+                            newsetball.IDUser = r2;
+                            newsetball.Mark = getidofball;
+                            newsetball.Comment = COMOFF.Text.Trim();
+                            db.BALLS.Add(newsetball);
                     }
                     else
                     {
                         PROVball.Mark = getidofball;
                         PROVball.Comment = COMOFF.Text.Trim();
-                        db.SaveChanges();
                     }
                     double checkcountofBALLS = db.BALLS.Where(x => x.IDFilm == r).Average(p => p.Mark);
                     setrate.rating = (float)checkcountofBALLS;
                     TESTRATE.Text = checkcountofBALLS.ToString();
-
-                    db.SaveChanges();
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch { MessageBox.Show("Вы некорректно ввели оценку"); }
                 }
                 else MessageBox.Show("Может оценивать только Юзер");
 
