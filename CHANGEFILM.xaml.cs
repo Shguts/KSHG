@@ -33,8 +33,22 @@ namespace KSHG
                 Name_of_Film.Text = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.NameofFilm).FirstOrDefault();
                 DATEOC.Text = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.DateofCreate).FirstOrDefault().ToString();
                 AGE.Text = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.AgeRestriction).FirstOrDefault().ToString();
-                var spisact = db.roleofactor.Where(y => y.IDFilm == r).Select(x => x).ToList();
-                DataofRole.ItemsSource = spisact;
+                ////////////////
+                var result = (from actor in db.CREATORSOFFILMS
+                              join role in db.roleofactor on actor.IDCreator equals role.IDCreator
+                              where role.IDFilm == POISK.MEGATEST
+                              select new
+                              {
+                                  actor.AcName,
+                                  actor.AcLastName,
+                                  actor.AcSecondName,
+                                  actor.DateofBirth,
+                                  actor.Dateofcareer,
+                                  role.RoleofActor1
+                              });
+                
+                DataofRole.ItemsSource = result.ToList();
+                //
                 var helpforimage = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x).FirstOrDefault();
                 try
                 {
@@ -66,6 +80,7 @@ namespace KSHG
                 int z1 = db.Films.Where(x => x.IDFilm == POISK.MEGATEST).Select(X => X.IDgenre).FirstOrDefault();
                 req = db.Countries.Where(x => x.IDCountry == z).Select(x => x.NameofCountry).FirstOrDefault();
                 req1 = db.GENRES.Where(x => x.IDgenre == z1).Select(x => x.NameofGenre).FirstOrDefault();
+                ///////////////////////////////////
                 
             }
             Textofcountr.Text = req;

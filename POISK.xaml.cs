@@ -101,6 +101,8 @@ namespace KSHG
                     var getIDFILM = db.Films.Where(x => x.IDFilm == POISK.MEGATEST).Select(y => y).FirstOrDefault();
                     db.Films.Remove(getIDFILM);
                     db.SaveChanges();
+                    var spisfilms = db.Films.Select(x => x).ToList<Films>();
+                    SPISOKPOISK.ItemsSource = spisfilms;
                 }
                 else { MessageBox.Show("Сюда может войти только администратор"); }
             }

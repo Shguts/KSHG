@@ -10,7 +10,7 @@
       Title="CHANGEFILM">
 
     <Grid>
-        <Grid>
+        <Grid Margin="0,0,-134,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="437"/>
                 <ColumnDefinition Width="246"/>
@@ -47,7 +47,7 @@
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="addactor" FontSize="20" Grid.Row="3" Grid.Column="1">Добавить создателя</Button>
             <Button Margin="61,58,263,30" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="findimage" FontSize="20" Grid.Row="6">Обзор...</Button>
-            <DataGrid x:Name="DataofRole" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="296" Margin="4,6,0,0" VerticalAlignment="Top" Foreground="#FF020402" Width="347" Background="#FFFFDF51" RenderTransformOrigin="0.5,0.5" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="5" Grid.Column="1">
+            <DataGrid x:Name="DataofRole" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="296" Margin="4,6,-130,0" VerticalAlignment="Top" Foreground="#FF020402" Width="491" Background="#FFFFDF51" RenderTransformOrigin="0.5,0.5" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="5" Grid.Column="1">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#FFFF683C"/>
@@ -65,9 +65,12 @@
                     </TransformGroup>
                 </DataGrid.RenderTransform>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="  Роль в фильме" Binding="{Binding IDCreator}"/>
-                    <DataGridTextColumn Header="  Имя актера" Binding="{Binding IDFilm}"/>
-                    <DataGridTextColumn Header="  Фамилия актера" Binding="{Binding RoleofActor}"/>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding AcName}"/>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding AcLastName}"/>
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding AcSecondName}"/>
+                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateofBirth}"/>
+                    <DataGridTextColumn Header="Дата начала карьеры" Binding="{Binding Dateofcareer}"/>
+                    <DataGridTextColumn Header="Роль в фильме" Binding="{Binding RoleofActor1}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <TextBox x:Name="Name_of_Film" HorizontalAlignment="Left" Margin="156,0,0,6" Grid.Row="2" TextWrapping="Wrap" Width="174" Foreground="#FFFF1111"/>

@@ -6,7 +6,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:KSHG"
       mc:Ignorable="d"
-      Title="ADDACTOR" Height="348.872" Width="372.407">
+      Title="ADDACTOR" Height="350.872" Width="664.407">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -20,18 +20,55 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="179"/>
-            <ColumnDefinition Width="390"/>
+            <ColumnDefinition Width="183"/>
+            <ColumnDefinition Width="208"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="Name" materialDesign:HintAssist.Hint="Имя" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="24,10,13.2,12.6"/>
-        <TextBox x:Name="Last_name" materialDesign:HintAssist.Hint="Фамилия" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="24,0.4,13.2,11.4" Grid.Row="1"/>
-        <TextBox x:Name="Second_name" materialDesign:HintAssist.Hint="Отчество" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="24,14.6,13.2,12.4" Grid.Row="2"/>
-        <TextBox x:Name="Date_of_birth" Margin="24,9.6,13.2,12.2" materialDesign:HintAssist.Hint="Дата рождения" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Grid.Row="3"/>
-        <TextBox x:Name="role" Margin="24,2.8,13.2,7" materialDesign:HintAssist.Hint="Роль в фильме" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Grid.Row="4"/>
-        <TextBox x:Name="Date_of_career" Margin="24,4,13.2,7.778" materialDesign:HintAssist.Hint="Дата начала карьеры" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Grid.Row="5"/>
-        <Image Source="C:\Users\shgust\Pictures\1024451991_0_0_2000_1132_600x0_80_0_0_52a2bcc202e67f5f3602c8784e2ff107.jpg" Margin="179,0.6,206.2,0" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
-        <Button Margin="3.8,10,206.2,3.4" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnMenu_Click" Grid.Column="1">Меню</Button>
-        <Button Margin="3.8,4.2,206.2,2.8" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+        <TextBox x:Name="Name" materialDesign:HintAssist.Hint="Имя" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="24,10,13,12"/>
+        <TextBox x:Name="Last_name" materialDesign:HintAssist.Hint="Фамилия" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="24,0,13,11" Grid.Row="1"/>
+        <TextBox x:Name="Second_name" materialDesign:HintAssist.Hint="Отчество" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Margin="24,15,13,12" Grid.Row="2"/>
+        <TextBox x:Name="Date_of_birth" Margin="24,10,13,11" materialDesign:HintAssist.Hint="Дата рождения" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Grid.Row="3"/>
+        <TextBox x:Name="role" Margin="24,3,13,6" materialDesign:HintAssist.Hint="Роль в фильме" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Grid.Row="4"/>
+        <TextBox x:Name="rolefornow" Margin="3,3,-83,6" materialDesign:HintAssist.Hint="Роль для существующего актера" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Grid.Row="4" Grid.Column="2"/>
+        <TextBox x:Name="Date_of_career" Margin="24,4,13,7" materialDesign:HintAssist.Hint="Дата начала карьеры" Foreground="Orange" RenderTransformOrigin="0.597,0.616" Grid.Row="5"/>
+        <Image Source="C:\Users\shgust\Pictures\1024451991_0_0_2000_1132_600x0_80_0_0_52a2bcc202e67f5f3602c8784e2ff107.jpg" Margin="179,1,206,0" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+        <Button Margin="4,10,206,3" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnMenu_Click" Grid.Column="1" Grid.ColumnSpan="2">Меню</Button>
+        <Button Margin="4,4,0,3" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnsave_Click" Grid.Column="1" Grid.Row="5">Добавить</Button>
+        <DataGrid x:Name="DataofRole" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="229" Margin="1,2,-92,0" VerticalAlignment="Top" Foreground="#FF020402" Width="299" Background="#FFFFDF51" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="4" Grid.Column="2">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFFF683C"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+                <ContextMenu x:Key="RowMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+                    <MenuItem Header="Добавить актера" Click="addactor_Click"/>
+                    <MenuItem Header="Удалить актера" Click="deleteactor_Click"/>
+                </ContextMenu>
+            </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="ContextMenu" Value="{StaticResource RowMenu}" />
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.171"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.497"/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="" Binding="{Binding IDCreator}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding AcName}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding AcLastName}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding AcSecondName}"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateofBirth}"/>
+                <DataGridTextColumn Header="Дата начала карьеры" Binding="{Binding Dateofcareer}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
