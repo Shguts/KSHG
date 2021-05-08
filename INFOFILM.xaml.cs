@@ -73,6 +73,8 @@ namespace KSHG
             string PROV2;
             PROV1 = OCENKA.Text.Trim();
             PROV2 = COMOFF.Text.Trim();
+            bool necro = true;
+            int getidofball = 0;
             using (kursRabEntities db = new kursRabEntities())
             {
                 Administrators ad = new Administrators();
@@ -84,28 +86,35 @@ namespace KSHG
                     int r2 = db.DataUsers.Where(x => x.LoginUs == AUTH.test).Select(X => X.IDUser).FirstOrDefault();
                     BALLS PROVball = db.BALLS.Where(X => X.IDUser == r2 && X.IDFilm == r).Select(x => x).FirstOrDefault();
                     Films setrate = db.Films.Where(X => X.IDFilm == r).Select(x => x).FirstOrDefault();
-                    int getidofball = Convert.ToInt32(OCENKA.Text.Trim());
-                    if (PROVball == null)
+                    try
                     {
+                        getidofball = Convert.ToInt32(OCENKA.Text.Trim());
+                    }
+                    catch { MessageBox.Show("Вы ввели некорректно оценку "); necro = false; }
+                    if (necro)
+                    {
+                        if (PROVball == null)
+                        {
                             newsetball.IDFilm = r;
                             newsetball.IDUser = r2;
                             newsetball.Mark = getidofball;
                             newsetball.Comment = COMOFF.Text.Trim();
                             db.BALLS.Add(newsetball);
+                        }
+                        else
+                        {
+                            PROVball.Mark = getidofball;
+                            PROVball.Comment = COMOFF.Text.Trim();
+                        }
+                        double checkcountofBALLS = db.BALLS.Where(x => x.IDFilm == r).Average(p => p.Mark);
+                        setrate.rating = (float)checkcountofBALLS;
+                        TESTRATE.Text = checkcountofBALLS.ToString();
+                        try
+                        {
+                            db.SaveChanges();
+                        }
+                        catch { MessageBox.Show("Вы некорректно ввели комментарий или оценку"); }
                     }
-                    else
-                    {
-                        PROVball.Mark = getidofball;
-                        PROVball.Comment = COMOFF.Text.Trim();
-                    }
-                    double checkcountofBALLS = db.BALLS.Where(x => x.IDFilm == r).Average(p => p.Mark);
-                    setrate.rating = (float)checkcountofBALLS;
-                    TESTRATE.Text = checkcountofBALLS.ToString();
-                    try
-                    {
-                        db.SaveChanges();
-                    }
-                    catch { MessageBox.Show("Вы некорректно ввели оценку"); }
                 }
                 else MessageBox.Show("Может оценивать только Юзер");
 

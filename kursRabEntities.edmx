@@ -32,7 +32,6 @@
           </Key>
           <Property Name="IDCountry" Type="int" Nullable="false" />
           <Property Name="NameofCountry" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CodeofCountry" Type="char" MaxLength="4" Nullable="false" />
         </EntityType>
         <EntityType Name="CREATORSOFFILMS">
           <Key>
@@ -305,7 +304,6 @@
           </Key>
           <Property Name="IDCountry" Type="Int32" Nullable="false" />
           <Property Name="NameofCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CodeofCountry" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Films" Relationship="Self.FK__Films__IDCountry__76F68FE1" FromRole="Countries" ToRole="Films" />
         </EntityType>
         <EntityType Name="CREATORSOFFILMS">
@@ -599,7 +597,6 @@
               <MappingFragment StoreEntitySet="Countries">
                 <ScalarProperty Name="IDCountry" ColumnName="IDCountry" />
                 <ScalarProperty Name="NameofCountry" ColumnName="NameofCountry" />
-                <ScalarProperty Name="CodeofCountry" ColumnName="CodeofCountry" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

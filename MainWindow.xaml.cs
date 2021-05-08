@@ -21,6 +21,7 @@ namespace KSHG
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     ///  internal class ApplicationContext
+    ///  Основное окно от которого будет наследоваться другие страницы
     public partial class MainWindow : Window
     {
 

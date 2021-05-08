@@ -53,8 +53,8 @@ namespace KSHG
         {
             using (kursRabEntities db = new kursRabEntities())
             {
-                    int getidActor = ((CREATORSOFFILMS)DataofRole.SelectedItem).IDCreator;
-                    string getroleActor = rolefornow.Text.Trim();
+                int getidActor = ((CREATORSOFFILMS)DataofRole.SelectedItem).IDCreator;
+                string getroleActor = rolefornow.Text.Trim();
                 if ((getroleActor.Length > 50) || (getroleActor == ""))
                 {
                     MessageBox.Show("Вы ввели некорректную роль для создателя");

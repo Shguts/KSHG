@@ -27,7 +27,7 @@
                 <GradientStop Color="#FFFE04BA" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="441" VerticalAlignment="Top" CornerRadius="90 90 90 90" Background="#FF4B08C1" Margin="1,8,-116.4,0" RenderTransformOrigin="0.527,0.429" Grid.RowSpan="6" Grid.ColumnSpan="3">
+        <Border Height="441" VerticalAlignment="Top" CornerRadius="90 90 90 90" Background="#FF994242" Margin="1,8,-116.4,0" RenderTransformOrigin="0.527,0.429" Grid.RowSpan="6" Grid.ColumnSpan="3">
             <Border.Effect>
                 <BlurEffect KernelType="Box" Radius="10"/>
             </Border.Effect>

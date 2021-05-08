@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3063c8cb855f484c8681e779e845e41e" Name="Diagram1">
+      <Diagram DiagramId="13367318679d4f75bcb968e883ca9180" Name="Diagram1">
         <EntityTypeShape EntityType="kursRabModel.Administrators" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="kursRabModel.BALLS" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="kursRabModel.Countries" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kursRabModel.Countries" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="kursRabModel.CREATORSOFFILMS" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="kursRabModel.DataUsers" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="kursRabModel.Films" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />

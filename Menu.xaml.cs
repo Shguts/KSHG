@@ -24,7 +24,7 @@ namespace KSHG
         {
             InitializeComponent();
         }
-
+        //Переход к странице по добавлению и получению списка фильмов но в ообщем по добавлению
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             using (kursRabEntities db = new kursRabEntities())
@@ -36,22 +36,17 @@ namespace KSHG
                 else { MessageBox.Show("Сюда может войти только администратор"); }
             }
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        //Переход к странице по поиску к фильмам и также там содержатся функции удаления добавления и изменения фильма
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new POISK());
         }
-
+        //Переход к странице профилю пользователя или администратора
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Profil());
         }
-
+        //Переход к странице рейтинга фильмов
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MMR());

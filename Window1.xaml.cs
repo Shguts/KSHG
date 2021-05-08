@@ -24,11 +24,14 @@ namespace KSHG
     public partial class Window1 : Window
     {
         public static bool GENeralBool;
+        //Инициализация компонентов
         public Window1()
         {
             InitializeComponent();
             GENeralBool = true;
         }
+
+        //Функция которая проверяет на корректность при регистрации пользователей
         public static void generalrule (ref string PROV1, ref string PROV2, ref string PROV3, ref string PROV4, ref string PROV5, ref string PROV6,ref bool necro)
         {
             char[] helpmassive = new char[10] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
@@ -118,7 +121,6 @@ namespace KSHG
                                 }
                             }
                         }
-
                         if ((PROV6 != null) && necro)
                         {
                             if (PROV6.Length < 5)
@@ -142,6 +144,8 @@ namespace KSHG
                 }
             }
         }
+
+        //Функция регистрации пользователя 
         private void Reg_Click(object sender, RoutedEventArgs e)
         {
             char[] helpmassive = new char[10] { '1','2','3','4','5','6','7','8','9','0'}; 
@@ -182,8 +186,7 @@ namespace KSHG
             {
                 MessageBox.Show("NICE");
                 Close();
-            } else { MessageBox.Show("so bad"); }
-                         
-    }
+            } else { MessageBox.Show("so bad"); }                      
+        }
     }
 }
