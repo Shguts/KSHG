@@ -108,10 +108,10 @@ namespace KSHG
                         }
                         double checkcountofBALLS = db.BALLS.Where(x => x.IDFilm == r).Average(p => p.Mark);
                         setrate.rating = (float)checkcountofBALLS;
-                        TESTRATE.Text = checkcountofBALLS.ToString();
                         try
                         {
                             db.SaveChanges();
+                            TESTRATE.Text = checkcountofBALLS.ToString();
                         }
                         catch { MessageBox.Show("Вы некорректно ввели комментарий или оценку"); }
                     }
