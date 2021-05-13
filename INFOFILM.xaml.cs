@@ -62,11 +62,12 @@ namespace KSHG
             }
 
         }
+        //Возвращение к меню
         private void Backf(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Menu());
         }
-
+        //Оценить фильм пользователю
         private void PUTTHEBALL(object sender, RoutedEventArgs e)
         {
             string PROV1;

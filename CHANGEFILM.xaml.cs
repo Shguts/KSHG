@@ -86,12 +86,12 @@ namespace KSHG
             Textofcountr.Text = req;
             Textofgenre.Text = req1;
         }
-
+        //Возвращение в основное меню
         private void backmanuforcechange(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Menu());
         }
-
+        //Изменение данных фильма и сохранение
         private void change(object sender, RoutedEventArgs e)
         {
             string PROV1 = Name_of_Film.Text.Trim();
@@ -143,12 +143,12 @@ namespace KSHG
                 }
             }
         }
-
+        //Переход к странице по добавлению актёров
         private void addactor(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ADDACTOR());
         }
-
+        //нахождение фотографии и загрузка ее для фильма
         private void findimage(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();

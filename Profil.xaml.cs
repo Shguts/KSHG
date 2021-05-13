@@ -45,7 +45,7 @@ namespace KSHG
                 }
             }
         }
-
+        //Проверка на повторный пароль при изменения пароля в профиле   
         public static void shortrestriction(ref string provpassw, ref bool logbul,ref string provrestorepassw,ref string prolog)
         {
             if (provpassw != "")
@@ -61,6 +61,7 @@ namespace KSHG
                 else { MessageBox.Show("Вы ввели неверный пароль"); logbul = false; }
             }
         }
+        //Изменение данных в профиле
         private void Change_data(object sender, RoutedEventArgs e)
         {
             using (kursRabEntities db = new kursRabEntities()) 
@@ -116,6 +117,7 @@ namespace KSHG
             }
 
         }
+        //Переход к меню
         private void Backprofil(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Menu());

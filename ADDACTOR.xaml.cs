@@ -29,11 +29,12 @@ namespace KSHG
                 DataofRole.ItemsSource = result;
             }
         }
-
+        //Переход к мню
         private void btnMenu_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Menu());
         }
+        //Удаление актера через контекстное меню
         private void deleteactor_Click(object sender, RoutedEventArgs e)
         {
             using (kursRabEntities db = new kursRabEntities())
@@ -48,7 +49,7 @@ namespace KSHG
                     catch { MessageBox.Show("?"); }
             }
         }
-
+        //Добавление актера который уже существует через контекстное меню
         private void addactor_Click(object sender, RoutedEventArgs e)
         {
             using (kursRabEntities db = new kursRabEntities())
@@ -74,7 +75,7 @@ namespace KSHG
                 }
             }
         }
-
+        //Добавление нового актера в фильм
         private void btnsave_Click(object sender, RoutedEventArgs e)
         {
             char[] helpmassive = new char[11] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',' '};

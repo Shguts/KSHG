@@ -49,7 +49,7 @@ namespace KSHG
                 SPISOKPOISK.ItemsSource = spisfilms;
             }
         }
-            
+        //Поиск по фильмам    
         private void Poisk_click(object sender, RoutedEventArgs e)
         {
             string PROV1 = VODPOISK.Text.Trim();
@@ -74,6 +74,7 @@ namespace KSHG
             }
 
         }
+        //Переход к ниформации о фильме
         private void Come_Click(object sender, RoutedEventArgs e)
         {
             using (kursRabEntities db = new kursRabEntities())
@@ -86,6 +87,7 @@ namespace KSHG
                 NavigationService.Navigate(new INFOFILM());
             }
         }
+        //Удаление Фильма
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
 
@@ -107,6 +109,7 @@ namespace KSHG
                 else { MessageBox.Show("Сюда может войти только администратор"); }
             }
         }
+        //Изменение фильма 
         private void Change_Click(object sender, RoutedEventArgs e)
         {
             int pid = ((Films)SPISOKPOISK.SelectedItem).IDFilm;
@@ -123,7 +126,8 @@ namespace KSHG
                 else { MessageBox.Show("Сюда может войти только администратор"); }
             }
         }
-
+        //
+        //Возвращение к меню
         private void BackPoisk(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Menu());

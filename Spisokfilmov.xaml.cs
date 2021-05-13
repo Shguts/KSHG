@@ -51,11 +51,12 @@ namespace KSHG
                 }
             }
         }
-
+        //Переход к меню
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Menu());
         }
+        //Проверка на корректность добавления фильма
         public static void generalfilms(ref string PROV1, ref string PROV2, ref string PROV3, ref string PROV4, ref string PROV5, ref DateTime chekdatetime, ref bool necro)
         {
             if ((PROV1 != "") && (PROV1.Length < 50))
@@ -94,6 +95,7 @@ namespace KSHG
             }
             else { MessageBox.Show("Вы ввели некорректное название для фильма"); necro = false; }
         }
+        //Добавление фильма
         private void Dobavlfilma(object sender, RoutedEventArgs e)
         {
             string PROV1 = Name_of_Film.Text.Trim();
@@ -144,7 +146,7 @@ namespace KSHG
                 }
             }
         }
-
+        //Загрузка фотографии
         private void Loadphoto(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();

@@ -30,7 +30,7 @@ namespace KSHG
                 SPISOKF.ItemsSource = spisfilms;
             }
         }
-
+        //Возвращение к меню
         private void Backmenuforcemmr(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Menu());

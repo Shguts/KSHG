@@ -25,10 +25,12 @@ namespace KSHG
         {
             InitializeComponent();
         }
+        //Обработка кнопки выхода из приложения
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
+        //Авторизация пользователя или даминистратора в приложении
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string provlogin = LOG.Text.Trim();
@@ -53,6 +55,7 @@ namespace KSHG
   
 
         }
+        //Переход к онкну регистрации
         private void BtgRegistr_Click(object sender, RoutedEventArgs e)
         {
             Window1 taskWindow = new Window1();
