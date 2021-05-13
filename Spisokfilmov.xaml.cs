@@ -23,7 +23,7 @@ namespace KSHG
     /// 
     public partial class Spisokfilmov : Page
     {
-
+        public static bool FILMBoolhelp;
         public static byte[] ImagetoByte;
         public Spisokfilmov()
         {
@@ -71,14 +71,14 @@ namespace KSHG
                     MessageBox.Show("Вы ввели некорректно дату");
 
                 }
-                if (PROV3 == "" && necro)
+                if (PROV3 == "" && necro && Spisokfilmov.FILMBoolhelp)
                 {
                     necro = false;
                     MessageBox.Show("Вы не выбрали жанр");
                 }
                 else
                 {
-                    if (PROV4 == "")
+                    if (PROV4 == "" && Spisokfilmov.FILMBoolhelp)
                     {
                         necro = false;
                         MessageBox.Show("Вы не выбрали страну");
@@ -98,6 +98,7 @@ namespace KSHG
         //Добавление фильма
         private void Dobavlfilma(object sender, RoutedEventArgs e)
         {
+            Spisokfilmov.FILMBoolhelp = true;
             string PROV1 = Name_of_Film.Text.Trim();
             string PROV2 = DATEOC.Text.Trim();
             string PROV3 = COMBOBOXGENRE.Text.Trim();

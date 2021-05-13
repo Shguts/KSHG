@@ -20,7 +20,7 @@ namespace KSHG
     /// </summary>
     public partial class AUTH : Page
     {
-        public static string test;
+        public static string GenLog;
         public AUTH()
         {
             InitializeComponent();
@@ -33,17 +33,17 @@ namespace KSHG
         //Авторизация пользователя или даминистратора в приложении
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            string provlogin = LOG.Text.Trim();
-            test = LOG.Text;
-            string provpassw = PASSW.Password.Trim();
-            Administrators ad;
-            DataUsers us = null;
+            string checklogin = LOG.Text.Trim();
+            GenLog = LOG.Text;
+            string checkpassw = PASSW.Password.Trim();
+            Administrators admin;
+            DataUsers user;
             using (kursRabEntities context = new kursRabEntities())
             {
-                us = context.DataUsers.Where(l => l.LoginUs == provlogin && l.PasswordUs == provpassw).FirstOrDefault();
-                ad = context.Administrators.Where(l => l.Alogin == provlogin && l.Apassword == provpassw).FirstOrDefault();
+                user = context.DataUsers.Where(l => l.LoginUs == checklogin && l.PasswordUs == checkpassw).FirstOrDefault();
+                admin = context.Administrators.Where(l => l.Alogin == checklogin && l.Apassword == checkpassw).FirstOrDefault();
             }
-            if ((us != null) || (ad != null))
+            if ((user != null) || (admin != null))
             {
                 MessageBox.Show("Вы авторизованы");
                 NavigationService.Navigate(new Menu());
@@ -55,11 +55,12 @@ namespace KSHG
   
 
         }
-        //Переход к онкну регистрации
+        //Переход к окну регистрации
         private void BtgRegistr_Click(object sender, RoutedEventArgs e)
         {
             Window1 taskWindow = new Window1();
             taskWindow.Show();
+            
 
         }
     }

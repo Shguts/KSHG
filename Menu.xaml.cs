@@ -29,7 +29,7 @@ namespace KSHG
         {
             using (kursRabEntities db = new kursRabEntities())
             {
-                if (db.Administrators.Where(x => x.Alogin == AUTH.test).Select(x => x).FirstOrDefault() != null)
+                if (db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x).FirstOrDefault() != null)
                 {
                     NavigationService.Navigate(new Spisokfilmov());
                 }

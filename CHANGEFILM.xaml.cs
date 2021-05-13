@@ -24,19 +24,17 @@ namespace KSHG
     {
         public CHANGEFILM()
         {
-            string req,req1;
+            string TaketheNameCountr, TaketheNameGenre;
             InitializeComponent();
             using (kursRabEntities db = new kursRabEntities())
             {
-                int r = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.IDFilm).FirstOrDefault();
-                int r2 = db.DataUsers.Where(x => x.LoginUs == AUTH.test).Select(X => X.IDUser).FirstOrDefault();
-                Name_of_Film.Text = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.NameofFilm).FirstOrDefault();
-                DATEOC.Text = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.DateofCreate).FirstOrDefault().ToString();
-                AGE.Text = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.AgeRestriction).FirstOrDefault().ToString();
+                Name_of_Film.Text = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.NameofFilm).FirstOrDefault();
+                DATEOC.Text = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.DateofCreate).FirstOrDefault().ToString();
+                AGE.Text = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.AgeRestriction).FirstOrDefault().ToString();
                 ////////////////
                 var result = (from actor in db.CREATORSOFFILMS
                               join role in db.roleofactor on actor.IDCreator equals role.IDCreator
-                              where role.IDFilm == POISK.MEGATEST
+                              where role.IDFilm == POISK.GenID
                               select new
                               {
                                   actor.AcName,
@@ -49,7 +47,7 @@ namespace KSHG
                 
                 DataofRole.ItemsSource = result.ToList();
                 //
-                var helpforimage = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x).FirstOrDefault();
+                var helpforimage = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x).FirstOrDefault();
                 try
                 {
                     Stream streamobg = new MemoryStream(helpforimage.Baner);
@@ -63,28 +61,28 @@ namespace KSHG
             }
             using (kursRabEntities db = new kursRabEntities())
             {
-                var COMBOSPIS = db.GENRES.Select(x => x).ToList<GENRES>();
-                foreach (GENRES gen in COMBOSPIS)
+                var COMBOGEN= db.GENRES.Select(x => x).ToList<GENRES>();
+                foreach (GENRES gen in COMBOGEN)
                 {
                     COMBOBOXGENRE.Items.Add(gen);
                 }
             }
             using (kursRabEntities db = new kursRabEntities())
             {
-                var COMBOSPIS1 = db.Countries.Select(x => x).ToList<Countries>();
-                foreach (Countries sen in COMBOSPIS1)
+                var COMBOCOUNTRY = db.Countries.Select(x => x).ToList<Countries>();
+                foreach (Countries sen in COMBOCOUNTRY)
                 { 
                     COMBOBOXCOUNTRY.Items.Add(sen);   
                 }
-                int z = db.Films.Where(x => x.IDFilm == POISK.MEGATEST).Select(X => X.IDCountry).FirstOrDefault();
-                int z1 = db.Films.Where(x => x.IDFilm == POISK.MEGATEST).Select(X => X.IDgenre).FirstOrDefault();
-                req = db.Countries.Where(x => x.IDCountry == z).Select(x => x.NameofCountry).FirstOrDefault();
-                req1 = db.GENRES.Where(x => x.IDgenre == z1).Select(x => x.NameofGenre).FirstOrDefault();
+                int Getidcountry = db.Films.Where(x => x.IDFilm == POISK.GenID).Select(X => X.IDCountry).FirstOrDefault();
+                int GetidGenre = db.Films.Where(x => x.IDFilm == POISK.GenID).Select(X => X.IDgenre).FirstOrDefault();
+                TaketheNameCountr = db.Countries.Where(x => x.IDCountry == Getidcountry).Select(x => x.NameofCountry).FirstOrDefault();
+                TaketheNameGenre = db.GENRES.Where(x => x.IDgenre == GetidGenre).Select(x => x.NameofGenre).FirstOrDefault();
                 ///////////////////////////////////
                 
             }
-            Textofcountr.Text = req;
-            Textofgenre.Text = req1;
+            Textofcountr.Text = TaketheNameCountr;
+            Textofgenre.Text = TaketheNameGenre;
         }
         //Возвращение в основное меню
         private void backmanuforcechange(object sender, RoutedEventArgs e)
@@ -94,31 +92,30 @@ namespace KSHG
         //Изменение данных фильма и сохранение
         private void change(object sender, RoutedEventArgs e)
         {
-            string PROV1 = Name_of_Film.Text.Trim();
-            string PROV2 = DATEOC.Text.Trim();
-            string PROV3 = COMBOBOXGENRE.Text.Trim();
-            string PROV4 = COMBOBOXCOUNTRY.Text.Trim();
-            string PROV5 = AGE.Text.Trim();
+            Spisokfilmov.FILMBoolhelp = false;
+            string GetName = Name_of_Film.Text.Trim();
+            string GetDATE = DATEOC.Text.Trim();
+            string GetGENRE = COMBOBOXGENRE.Text.Trim();
+            string GetCOUNTR = COMBOBOXCOUNTRY.Text.Trim();
+            string GetAGE = AGE.Text.Trim();
             DateTime chekdatetime = DateTime.Now;
-            bool necro = true;
-            Spisokfilmov.generalfilms(ref PROV1, ref PROV2, ref PROV3, ref PROV4, ref PROV5, ref chekdatetime, ref necro);
-            if (necro)
+            bool Gencheckbool= true;
+            Spisokfilmov.generalfilms(ref GetName, ref GetDATE, ref GetGENRE, ref GetCOUNTR, ref GetAGE, ref chekdatetime, ref Gencheckbool);
+            if (Gencheckbool)
             {
                 using (kursRabEntities db = new kursRabEntities())
                 {
-                    string prov1 = COMBOBOXCOUNTRY.Text;
-                    string prov2 = COMBOBOXGENRE.Text;
-                    var fetch = db.Films.Where(x => x.IDFilm == POISK.MEGATEST).Select(y => y).FirstOrDefault();
+                    var fetch = db.Films.Where(x => x.IDFilm == POISK.GenID).Select(y => y).FirstOrDefault();
                     fetch.NameofFilm = Name_of_Film.Text;
                     fetch.DateofCreate = Convert.ToDateTime(DATEOC.Text);
-                    if (prov1 != null)
+                    if (GetCOUNTR != "")
                     {
-                        fetch.IDCountry = db.Countries.Where(x => x.NameofCountry == prov1).Select(y => y.IDCountry).FirstOrDefault();
+                        fetch.IDCountry = db.Countries.Where(x => x.NameofCountry == GetCOUNTR).Select(y => y.IDCountry).FirstOrDefault();
                     }
                     else { fetch.IDCountry = db.Countries.Where(x => x.NameofCountry == Textofcountr.Text).Select(y => y.IDCountry).FirstOrDefault(); }
-                    if (prov2 != null)
+                    if (GetGENRE != "")
                     {
-                        fetch.IDgenre = db.GENRES.Where(x => x.NameofGenre == prov2).Select(y => y.IDgenre).FirstOrDefault();
+                        fetch.IDgenre = db.GENRES.Where(x => x.NameofGenre == GetGENRE).Select(y => y.IDgenre).FirstOrDefault();
                     }
                     else { fetch.IDgenre = db.GENRES.Where(x => x.NameofGenre == Textofgenre.Text).Select(y => y.IDgenre).FirstOrDefault(); }
                     try
@@ -126,8 +123,14 @@ namespace KSHG
                         fetch.AgeRestriction = Convert.ToInt32(AGE.Text);
                         fetch.Baner = Spisokfilmov.ImagetoByte;
                         db.SaveChanges();
-                        Textofcountr.Text = COMBOBOXCOUNTRY.Text;
-                        Textofgenre.Text = COMBOBOXGENRE.Text;
+                        if (COMBOBOXCOUNTRY.Text != "")
+                        {
+                            Textofcountr.Text = COMBOBOXCOUNTRY.Text;
+                        }
+                        if (COMBOBOXGENRE.Text != "")
+                        {
+                            Textofgenre.Text = COMBOBOXGENRE.Text;
+                        }
                         try
                         {
                             Stream streamobg = new MemoryStream(fetch.Baner);

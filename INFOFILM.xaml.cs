@@ -30,26 +30,36 @@ namespace KSHG
             InitializeComponent();
             using (kursRabEntities db = new kursRabEntities())
             {
-                int r = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.IDFilm).FirstOrDefault();
-                int r2 = db.DataUsers.Where(x => x.LoginUs == AUTH.test).Select(X => X.IDUser).FirstOrDefault();
-                var helpforfilwithimg = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x).FirstOrDefault();
-                TESTNAMEF.Text = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.NameofFilm).FirstOrDefault();
-                TESTDATEF.Text = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.DateofCreate).FirstOrDefault().ToString();
-                TESTRATE.Text = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.rating).FirstOrDefault().ToString();
+                int r = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.IDFilm).FirstOrDefault();
+                int r2 = db.DataUsers.Where(x => x.LoginUs == AUTH.GenLog).Select(X => X.IDUser).FirstOrDefault();
+                var helpforfilwithimg = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x).FirstOrDefault();
+                TESTNAMEF.Text = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.NameofFilm).FirstOrDefault();
+                TESTDATEF.Text = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.DateofCreate).FirstOrDefault().ToString();
+                TESTRATE.Text = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.rating).FirstOrDefault().ToString();
                 ////
-                int helpfortextblockG = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.IDgenre).FirstOrDefault();
+                int helpfortextblockG = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.IDgenre).FirstOrDefault();
                 TESTgenre.Text = db.GENRES.Where(y => y.IDgenre == helpfortextblockG).Select(x => x.NameofGenre).FirstOrDefault();
                 ////
-                int helpfortextblockC = db.Films.Where(y => y.IDFilm == POISK.MEGATEST).Select(x => x.IDCountry).FirstOrDefault();
+                int helpfortextblockC = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.IDCountry).FirstOrDefault();
                 TESTcountry.Text = db.Countries.Where(y => y.IDCountry == helpfortextblockC).Select(x => x.NameofCountry).FirstOrDefault();
                 //
-                if (db.Administrators.Where(x => x.Alogin == AUTH.test).Select(X => X).FirstOrDefault() == null)
+                if (db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(X => X).FirstOrDefault() == null)
                 {
                     OCENKA.Text = db.BALLS.Where(y => y.IDFilm == r && y.IDUser == r2).Select(x => x.Mark).FirstOrDefault().ToString();
                     COMOFF.Text = db.BALLS.Where(y => y.IDFilm == r && y.IDUser == r2).Select(x => x.Comment).FirstOrDefault();
                 }
-                var spisact = db.roleofactor.Where(y => y.IDFilm == r).Select(x => x).ToList();
-                DataofRole.ItemsSource = spisact;
+                var spisact = (from actor in db.CREATORSOFFILMS
+                                            join role in db.roleofactor on actor.IDCreator equals role.IDCreator
+                                            where role.IDFilm == POISK.GenID
+                                            select new
+                                            {
+                                                actor.IDCreator,
+                                                actor.AcName,
+                                                actor.AcLastName,
+                                                actor.AcSecondName,
+                                                role.RoleofActor1
+                });
+                DataofRole.ItemsSource = spisact.ToList();
                 try
                 {
                     Stream streamobg = new MemoryStream(helpforfilwithimg.Baner);
@@ -79,12 +89,12 @@ namespace KSHG
             using (kursRabEntities db = new kursRabEntities())
             {
                 Administrators ad = new Administrators();
-                if (db.Administrators.Where(x => x.Alogin == AUTH.test).Select(X => X).FirstOrDefault() == null)
+                if (db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(X => X).FirstOrDefault() == null)
                 {
                     BALLS newsetball = new BALLS();
-                    int kostyl = POISK.MEGATEST;
+                    int kostyl = POISK.GenID;
                     int r = db.Films.Where(x => x.IDFilm == kostyl).Select(X => X.IDFilm).FirstOrDefault();
-                    int r2 = db.DataUsers.Where(x => x.LoginUs == AUTH.test).Select(X => X.IDUser).FirstOrDefault();
+                    int r2 = db.DataUsers.Where(x => x.LoginUs == AUTH.GenLog).Select(X => X.IDUser).FirstOrDefault();
                     BALLS PROVball = db.BALLS.Where(X => X.IDUser == r2 && X.IDFilm == r).Select(x => x).FirstOrDefault();
                     Films setrate = db.Films.Where(X => X.IDFilm == r).Select(x => x).FirstOrDefault();
                     try

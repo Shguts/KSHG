@@ -19,7 +19,7 @@
             <RowDefinition Height="59"/>
             <RowDefinition Height="391"/>
         </Grid.RowDefinitions>
-        <TextBlock Margin="12,6,7.294,1" Foreground="Black" FontSize="36" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+        <TextBlock Margin="12,6,7.294,1" FontSize="36" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Foreground="#FFFF00F3">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

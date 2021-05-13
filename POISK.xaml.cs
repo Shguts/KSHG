@@ -16,28 +16,10 @@ using Microsoft.TeamFoundation.Build.Controls;
 
 namespace KSHG
 {
-    /// <summary>
-    /// Логика взаимодействия для POISK.xaml
-    /// </summary>
-    /// 
-    //public class ItemModel
-    //{
-    //    public ItemModel()
-    //    {
-    //        this.EditCommand = new SimpleCommand
-    //        (
-    //            _ => this.Id == 1,
-    //            _ => MessageBox.Show("Execute")
-    //        );
-    //    }
-    //    public int Id { get; set; }
-    //    public string Title { get; set; }
-    //    public ICommand EditCommand { get; set; }
-    //}
     public partial class POISK : Page
     {
 
-        public static int MEGATEST;
+        public static int GenID;
         public int PEREDPOISK;
         public POISK()
         {
@@ -77,54 +59,65 @@ namespace KSHG
         //Переход к ниформации о фильме
         private void Come_Click(object sender, RoutedEventArgs e)
         {
-            using (kursRabEntities db = new kursRabEntities())
+            try
             {
-                int pid = ((Films)SPISOKPOISK.SelectedItem).IDFilm;
-                MessageBox.Show(Convert.ToString(pid));
-                MessageBox.Show(((Films)SPISOKPOISK.SelectedItem).NameofFilm);
-                string PROV1 = VODPOISK.Text.Trim();
-                MEGATEST = pid;
-                NavigationService.Navigate(new INFOFILM());
-            }
-        }
-        //Удаление Фильма
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-
-            using (kursRabEntities db = new kursRabEntities())
-            {
-                if (db.Administrators.Where(x => x.Alogin == AUTH.test).Select(x => x).FirstOrDefault() != null)
+                using (kursRabEntities db = new kursRabEntities())
                 {
                     int pid = ((Films)SPISOKPOISK.SelectedItem).IDFilm;
                     MessageBox.Show(Convert.ToString(pid));
                     MessageBox.Show(((Films)SPISOKPOISK.SelectedItem).NameofFilm);
                     string PROV1 = VODPOISK.Text.Trim();
-                    MEGATEST = pid;
-                    var getIDFILM = db.Films.Where(x => x.IDFilm == POISK.MEGATEST).Select(y => y).FirstOrDefault();
-                    db.Films.Remove(getIDFILM);
-                    db.SaveChanges();
-                    var spisfilms = db.Films.Select(x => x).ToList<Films>();
-                    SPISOKPOISK.ItemsSource = spisfilms;
+                    GenID = pid;
+                    NavigationService.Navigate(new INFOFILM());
                 }
-                else { MessageBox.Show("Сюда может войти только администратор"); }
             }
+            catch {  }
+        }
+        //Удаление Фильма
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (kursRabEntities db = new kursRabEntities())
+                {
+                    if (db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x).FirstOrDefault() != null)
+                    {
+                        int pid = ((Films)SPISOKPOISK.SelectedItem).IDFilm;
+                        MessageBox.Show(Convert.ToString(pid));
+                        MessageBox.Show(((Films)SPISOKPOISK.SelectedItem).NameofFilm);
+                        string PROV1 = VODPOISK.Text.Trim();
+                        GenID = pid;
+                        var getIDFILM = db.Films.Where(x => x.IDFilm == POISK.GenID).Select(y => y).FirstOrDefault();
+                        db.Films.Remove(getIDFILM);
+                        db.SaveChanges();
+                        var spisfilms = db.Films.Select(x => x).ToList<Films>();
+                        SPISOKPOISK.ItemsSource = spisfilms;
+                    }
+                    else { MessageBox.Show("Сюда может войти только администратор"); }
+                }
+            }
+            catch { }
         }
         //Изменение фильма 
         private void Change_Click(object sender, RoutedEventArgs e)
         {
-            int pid = ((Films)SPISOKPOISK.SelectedItem).IDFilm;
-            MessageBox.Show(Convert.ToString(pid));
-            MessageBox.Show(((Films)SPISOKPOISK.SelectedItem).NameofFilm);
-            string PROV1 = VODPOISK.Text.Trim();
-            MEGATEST = pid;
-            using (kursRabEntities db = new kursRabEntities())
+            try
             {
-                if (db.Administrators.Where(x => x.Alogin == AUTH.test).Select(x => x).FirstOrDefault() != null)
+                int pid = ((Films)SPISOKPOISK.SelectedItem).IDFilm;
+                MessageBox.Show(Convert.ToString(pid));
+                MessageBox.Show(((Films)SPISOKPOISK.SelectedItem).NameofFilm);
+                string PROV1 = VODPOISK.Text.Trim();
+                GenID = pid;
+                using (kursRabEntities db = new kursRabEntities())
                 {
-                    NavigationService.Navigate(new CHANGEFILM());
+                    if (db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x).FirstOrDefault() != null)
+                    {
+                        NavigationService.Navigate(new CHANGEFILM());
+                    }
+                    else { MessageBox.Show("Сюда может войти только администратор"); }
                 }
-                else { MessageBox.Show("Сюда может войти только администратор"); }
             }
+            catch { }
         }
         //
         //Возвращение к меню

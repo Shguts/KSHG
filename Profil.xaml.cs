@@ -25,8 +25,8 @@ namespace KSHG
             InitializeComponent();
             using (kursRabEntities db = new kursRabEntities())
             {
-                string locstr = AUTH.test;
-                if (db.Administrators.Where(x => x.Alogin == AUTH.test).Select(x => x).FirstOrDefault() == null)
+                string locstr = AUTH.GenLog;
+                if (db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x).FirstOrDefault() == null)
                 {
                     int SPISUS = db.DataUsers.Where(x => x.LoginUs == locstr).Select(X => X.IDUser).FirstOrDefault();
                     Name.Text = db.Users.Where(X => X.IDUser == SPISUS).Select(x => x.UName).FirstOrDefault();
@@ -67,7 +67,7 @@ namespace KSHG
             using (kursRabEntities db = new kursRabEntities()) 
             {
                 Window1.GENeralBool = false;
-                string locstr = AUTH.test;
+                string locstr = AUTH.GenLog;
                 string prolog;
                 string provpassw = par.Text;
                 string provrestorepassw = provpar.Text;
@@ -77,9 +77,9 @@ namespace KSHG
                 string PROV2 = Name2.Text.Trim();
                 string PROV3 = dATE.Text.Trim();
                 string PROV4 = log.Text.Trim();
-                string PROV5 = par.Text.Trim();
+                string PROV5 = par.Text;
                 Window1.generalrule(ref PROV, ref PROV1, ref PROV2, ref PROV3, ref PROV4, ref PROV5, ref logbul); 
-                if (db.Administrators.Where(x => x.Alogin == AUTH.test).Select(x => x).FirstOrDefault() == null)
+                if (db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x).FirstOrDefault() == null)
                 {
                     int SPISUS = db.DataUsers.Where(x => x.LoginUs == locstr).Select(X => X.IDUser).FirstOrDefault();
                     prolog = db.DataUsers.Where(x => x.IDUser == SPISUS).Select(X => X.PasswordUs).FirstOrDefault();
@@ -97,7 +97,7 @@ namespace KSHG
                 }
                 else
                 {
-                    prolog = db.Administrators.Where(x => x.Alogin == AUTH.test).Select(x => x.Apassword).FirstOrDefault();
+                    prolog = db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x.Apassword).FirstOrDefault();
                     Administrators ad = db.Administrators.Where(x => x.Alogin == locstr).Select(y => y).FirstOrDefault();
                     shortrestriction(ref provpassw, ref logbul, ref provrestorepassw,ref prolog);
                     if (logbul)
@@ -112,7 +112,7 @@ namespace KSHG
                 if (logbul)
                 {
                     db.SaveChanges();
-                    MessageBox.Show(AUTH.test);
+                    MessageBox.Show(AUTH.GenLog);
                 } else MessageBox.Show("Были введены некорректные данные");
             }
 
