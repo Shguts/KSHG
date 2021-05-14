@@ -68,6 +68,10 @@ namespace KSHG
                 {
                     MessageBox.Show("Вы ввели некорректную роль для создателя");
                 }
+                if (db.CREATORSOFFILMS.Where(x=>x.IDCreator == getidActor).Select(y=>y.DateofBirth).FirstOrDefault()>db.Films.Where(x => x.IDFilm == POISK.GenID).Select(y => y.DateofCreate).FirstOrDefault())
+                {
+                    MessageBox.Show("Вы некорректно добавили существубщего актера он не может учавствовать в фильме неродившись");
+                }
                 else
                 {
                     try
@@ -109,6 +113,10 @@ namespace KSHG
                     DateTime chekdatetime = Convert.ToDateTime(checkDbirth);
                     DateTime chekdatetimecareer = Convert.ToDateTime(checkDcareer);
                     if (chekdatetime > chekdatetimecareer) { necro = false; MessageBox.Show("Актер появился в животе(нет) Ошибка!"); }
+                    using (kursRabEntities db = new kursRabEntities())
+                    {
+                        if (db.Films.Where(x => x.IDFilm == POISK.GenID).Select(y => y.DateofCreate).FirstOrDefault()< chekdatetime) { necro = false; MessageBox.Show("В фильме учавствует неродившийся актер так нельзя!"); }
+                    }
                 }
                 catch
                 {
