@@ -59,19 +59,22 @@ namespace KSHG
         //Переход к ниформации о фильме
         private void Come_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
                 using (kursRabEntities db = new kursRabEntities())
                 {
+                try
+                {
                     int pid = ((Films)SPISOKPOISK.SelectedItem).IDFilm;
-                    MessageBox.Show(Convert.ToString(pid));
-                    MessageBox.Show(((Films)SPISOKPOISK.SelectedItem).NameofFilm);
-                    string PROV1 = VODPOISK.Text.Trim();
-                    GenID = pid;
-                    NavigationService.Navigate(new INFOFILM());
+                    if (pid != 0)
+                    {
+                        MessageBox.Show(Convert.ToString(pid));
+                        MessageBox.Show(((Films)SPISOKPOISK.SelectedItem).NameofFilm);
+                        string PROV1 = VODPOISK.Text.Trim();
+                        GenID = pid;
+                        NavigationService.Navigate(new INFOFILM());
+                    }
                 }
-            }
-            catch {  }
+                catch { }
+                }
         }
         //Удаление Фильма
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -83,15 +86,18 @@ namespace KSHG
                     if (db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x).FirstOrDefault() != null)
                     {
                         int pid = ((Films)SPISOKPOISK.SelectedItem).IDFilm;
-                        MessageBox.Show(Convert.ToString(pid));
-                        MessageBox.Show(((Films)SPISOKPOISK.SelectedItem).NameofFilm);
-                        string PROV1 = VODPOISK.Text.Trim();
-                        GenID = pid;
-                        var getIDFILM = db.Films.Where(x => x.IDFilm == POISK.GenID).Select(y => y).FirstOrDefault();
-                        db.Films.Remove(getIDFILM);
-                        db.SaveChanges();
-                        var spisfilms = db.Films.Select(x => x).ToList<Films>();
-                        SPISOKPOISK.ItemsSource = spisfilms;
+                        if (pid != 0)
+                        {
+                            MessageBox.Show(Convert.ToString(pid));
+                            MessageBox.Show(((Films)SPISOKPOISK.SelectedItem).NameofFilm);
+                            string PROV1 = VODPOISK.Text.Trim();
+                            GenID = pid;
+                            var getIDFILM = db.Films.Where(x => x.IDFilm == POISK.GenID).Select(y => y).FirstOrDefault();
+                            db.Films.Remove(getIDFILM);
+                            db.SaveChanges();
+                            var spisfilms = db.Films.Select(x => x).ToList<Films>();
+                            SPISOKPOISK.ItemsSource = spisfilms;
+                        } 
                     }
                     else { MessageBox.Show("Сюда может войти только администратор"); }
                 }
@@ -104,17 +110,20 @@ namespace KSHG
             try
             {
                 int pid = ((Films)SPISOKPOISK.SelectedItem).IDFilm;
-                MessageBox.Show(Convert.ToString(pid));
-                MessageBox.Show(((Films)SPISOKPOISK.SelectedItem).NameofFilm);
-                string PROV1 = VODPOISK.Text.Trim();
-                GenID = pid;
-                using (kursRabEntities db = new kursRabEntities())
+                if (pid != 0)
                 {
-                    if (db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x).FirstOrDefault() != null)
+                    MessageBox.Show(Convert.ToString(pid));
+                    MessageBox.Show(((Films)SPISOKPOISK.SelectedItem).NameofFilm);
+                    string PROV1 = VODPOISK.Text.Trim();
+                    GenID = pid;
+                    using (kursRabEntities db = new kursRabEntities())
                     {
-                        NavigationService.Navigate(new CHANGEFILM());
+                        if (db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x).FirstOrDefault() != null)
+                        {
+                            NavigationService.Navigate(new CHANGEFILM());
+                        }
+                        else { MessageBox.Show("Сюда может войти только администратор"); }
                     }
-                    else { MessageBox.Show("Сюда может войти только администратор"); }
                 }
             }
             catch { }

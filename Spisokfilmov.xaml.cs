@@ -57,13 +57,13 @@ namespace KSHG
             NavigationService.Navigate(new Menu());
         }
         //Проверка на корректность добавления фильма
-        public static void generalfilms(ref string PROV1, ref string PROV2, ref string PROV3, ref string PROV4, ref string PROV5, ref DateTime chekdatetime, ref bool necro)
+        public static void generalfilms(ref string PROV1, ref string PROV2, ref string PROV3, ref string PROV4, ref string PROV5, ref bool necro)
         {
             if ((PROV1 != "") && (PROV1.Length < 50))
             {
                 try
                 {
-                    chekdatetime = Convert.ToDateTime(PROV2);
+                   DateTime chekdatetime = Convert.ToDateTime(PROV2);
                 }
                 catch
                 {
@@ -85,9 +85,20 @@ namespace KSHG
                     }
                     else
                     {
-                        if (PROV5 == "")
+                        if ((PROV5 == ""))
                         {
                             PROV5 = "0";
+                        }
+                        else {
+                            try
+                            {
+                                if (Convert.ToInt32(PROV5) < 0 || Convert.ToInt32(PROV5) > 18)
+                                {
+                                    necro = false;
+                                    MessageBox.Show("Вы некорректно ввели возраст");
+                                }
+                            }
+                            catch { necro = false; MessageBox.Show("Вы ввели не целое число"); }
                         }
                     }
                 }
@@ -104,9 +115,8 @@ namespace KSHG
             string PROV3 = COMBOBOXGENRE.Text.Trim();
             string PROV4 = COMBOBOXCOUNTRY.Text.Trim();
             string PROV5 = AGE.Text.Trim();
-            DateTime chekdatetime= DateTime.Now;
             bool necro = true;
-            generalfilms(ref PROV1, ref PROV2, ref PROV3, ref PROV4, ref PROV5,ref chekdatetime,ref necro);
+            generalfilms(ref PROV1, ref PROV2, ref PROV3, ref PROV4, ref PROV5,ref necro);
             if (necro)
             {
                 using (kursRabEntities DB = new kursRabEntities())

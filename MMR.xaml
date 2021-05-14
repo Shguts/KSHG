@@ -28,7 +28,7 @@
                     <TranslateTransform Y="0.599"/>
                 </TransformGroup>
             </TextBlock.RenderTransform>ТОП 10 ФИЛЬМОВ</TextBlock>
-        <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="361" AutoGenerateColumns="False" VerticalAlignment="Top" Width="794" Foreground="#FFFF5D00" Background="#FFEBAEF1" FontWeight="Bold" Margin="3,20,0,0" RenderTransformOrigin="0.5,0.5" BorderBrush="#1F000000" Grid.Row="1" Grid.ColumnSpan="3">
+        <DataGrid x:Name="SPISOKF" IsReadOnly="True" HorizontalAlignment="Left" Height="361" AutoGenerateColumns="False" VerticalAlignment="Top" Width="794" Foreground="#FFFF5D00" Background="#FFEBAEF1" FontWeight="Bold" Margin="3,20,0,0" RenderTransformOrigin="0.5,0.5" BorderBrush="#1F000000" Grid.Row="1" Grid.ColumnSpan="3">
             <!--НЕНУЖНАЯ ФИГНЯ ПО СУТИ-->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">

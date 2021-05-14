@@ -60,8 +60,8 @@
             Логин :
         </TextBlock>
         <TextBlock x:Name="log" Foreground="White" RenderTransformOrigin="1.725,-3.125" Margin="56,17,9,14" Grid.Column="2" Grid.Row="1" Background="Black"/>
-        <TextBox x:Name="par" materialDesign:HintAssist.Hint="Новый пароль" Foreground="White" RenderTransformOrigin="0.597,0.616" Margin="8,19,9,23.668" Grid.Column="2" Grid.Row="3" Background="Black"/>
-        <TextBox x:Name="provpar" materialDesign:HintAssist.Hint="Повторите старый пароль" Foreground="#FFF9F9F9" RenderTransformOrigin="0.597,0.616" Margin="8,16,9,17" Grid.Column="2" Grid.Row="2" Background="Black"/>
+        <PasswordBox x:Name="par" materialDesign:HintAssist.Hint="Новый пароль" Foreground="White" RenderTransformOrigin="0.597,0.616" Margin="8,19,9,23.668" Grid.Column="2" Grid.Row="3" Background="Black"/>
+        <PasswordBox x:Name="provpar" materialDesign:HintAssist.Hint="Повторите старый пароль" Foreground="#FFF9F9F9" RenderTransformOrigin="0.597,0.616" Margin="8,16,9,17" Grid.Column="2" Grid.Row="2" Background="Black"/>
         <Image Source="C:\Users\shgust\Pictures\kisspng-computer-icons-user-profile-login-clip-art-my-account-icon-5adc5dd8d9ca10.9425519815243913848921.jpg" Height="Auto" Margin="173,0,1,2" RenderTransformOrigin="0.501,0.624" Style="{DynamicResource ZXC}" Grid.Column="2" Grid.RowSpan="3" Grid.ColumnSpan="2" Grid.Row="1">
             <Image.RenderTransform>
                 <TransformGroup>

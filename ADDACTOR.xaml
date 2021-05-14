@@ -35,7 +35,7 @@
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnMenu_Click" Grid.Column="1" Grid.ColumnSpan="2">Меню</Button>
         <Button Margin="4,4,0,3" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="btnsave_Click" Grid.Column="1" Grid.Row="5">Добавить</Button>
-        <DataGrid x:Name="DataofRole" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="229" Margin="1,2,-92,0" VerticalAlignment="Top" Foreground="#FF020402" Width="299" Background="#FFFFDF51" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="4" Grid.Column="2">
+        <DataGrid x:Name="DataofRole" IsReadOnly="True" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="229" Margin="1,2,-92,0" VerticalAlignment="Top" Foreground="#FF020402" Width="299" Background="#FFFFDF51" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="4" Grid.Column="2">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFFF683C"/>

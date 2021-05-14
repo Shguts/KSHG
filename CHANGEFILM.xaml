@@ -47,7 +47,7 @@
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="addactor" FontSize="20" Grid.Row="3" Grid.Column="1">Добавить создателя</Button>
             <Button Margin="61,58,263,30" Background="#FF4B08C1" Height="Auto" Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="25" BorderThickness="3" BorderBrush="White" Click="findimage" FontSize="20" Grid.Row="6">Обзор...</Button>
-            <DataGrid x:Name="DataofRole" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="296" Margin="4,6,-130,0" VerticalAlignment="Top" Foreground="#FF020402" Width="491" Background="#FFFFDF51" RenderTransformOrigin="0.5,0.5" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="5" Grid.Column="1">
+            <DataGrid x:Name="DataofRole" IsReadOnly="True" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="296" Margin="4,6,-130,0" VerticalAlignment="Top" Foreground="#FF020402" Width="491" Background="#FFFFDF51" RenderTransformOrigin="0.5,0.5" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="5" Grid.Column="1">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#FFFF683C"/>

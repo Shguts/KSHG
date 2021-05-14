@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace KSHG
 {
@@ -34,115 +35,124 @@ namespace KSHG
         //Функция которая проверяет на корректность при регистрации пользователей
         public static void generalrule (ref string PROV1, ref string PROV2, ref string PROV3, ref string PROV4, ref string PROV5, ref string PROV6,ref bool necro)
         {
-            char[] helpmassive = new char[10] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
-            DateTime chekdatetime;
-            using (kursRabEntities db = new kursRabEntities())
+            try
             {
-                if ((PROV1 != "")&&(PROV1.Length<50))
+                char[] helpmassive = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '*', '"', '/', '\\', '[', ']', ':', ';', '|', '=' };
+                DateTime chekdatetime;
+                using (kursRabEntities db = new kursRabEntities())
                 {
-                    foreach (char i in helpmassive)
+                    if ((PROV1 != "") && (PROV1.Length < 50))
                     {
-                        if ((PROV1.Contains(i) || PROV2.Contains(i) || PROV3.Contains(i)) && (necro))
+                        foreach (char i in helpmassive)
+                        {
+                            if ((PROV1.Contains(i) || PROV2.Contains(i) || PROV3.Contains(i) || PROV5.Contains(i)) && (necro))
+                            {
+                                necro = false;
+                                MessageBox.Show("Вы ввели цифры в имени,фамилии или отчестве");
+                            }
+                        }
+                        if (!Regex.IsMatch(PROV5, @"^[\da-z]+$", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace))
                         {
                             necro = false;
-                            MessageBox.Show("Вы ввели цифры в имени,фамилии или отчестве");
+                            MessageBox.Show("Можно вводить только символы латинницы");
                         }
-                    }
-                    if ((PROV2 != "") && (PROV2.Length < 50))
-                    {
-
-                        if ((PROV3 != "") && (PROV3.Length < 50))
+                        if ((PROV2 != "") && (PROV2.Length < 50))
                         {
-                            try
+
+                            if ((PROV3 != "") && (PROV3.Length < 50))
                             {
-                                chekdatetime = Convert.ToDateTime(PROV4);
+                                try
+                                {
+                                    chekdatetime = Convert.ToDateTime(PROV4);
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("Вы не верно ввели дату");
+                                    necro = false;
+                                }
                             }
-                            catch
+                            else
                             {
-                                MessageBox.Show("Вы не верно ввели дату");
+                                MessageBox.Show("Вы не ввели Отчество");
                                 necro = false;
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Вы не ввели Отчество");
+                            MessageBox.Show("Вы не ввели фамилию");
                             necro = false;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Вы не ввели фамилию");
+                        MessageBox.Show("Вы не ввели имя ");
                         necro = false;
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Вы не ввели имя ");
-                    necro = false;
-                }
-                if (necro)
-                {
-                    if (PROV5 == null)
+                    if (necro)
                     {
-                        MessageBox.Show("Вы не ввели логин");
-                        necro = false;
-                    }
-                    else
-                    {
+                        if (PROV5 == null)
+                        {
+                            MessageBox.Show("Вы не ввели логин");
+                            necro = false;
+                        }
+                        else
+                        {
 
-                        if ((PROV5.Length < 5) && necro)
-                        {
-                            MessageBox.Show("Вы ввели логин меньше 5 символов");
-                            necro = false;
-                        }
-                        if ((PROV5.Length > 50) && necro)
-                        {
-                            MessageBox.Show("Вы ввели слишком длинный логин");
-                            necro = false;
-                        }
-                        if (necro&&Window1.GENeralBool)
-                        {
-                            var proverkaloginov = db.DataUsers;
-                            var proverkaloginov1 = db.Administrators;
-                            foreach (DataUsers d in proverkaloginov)
+                            if ((PROV5.Length < 5) && necro)
                             {
-                                if (PROV5 == d.LoginUs)
+                                MessageBox.Show("Вы ввели логин меньше 5 символов");
+                                necro = false;
+                            }
+                            if ((PROV5.Length > 50) && necro)
+                            {
+                                MessageBox.Show("Вы ввели слишком длинный логин");
+                                necro = false;
+                            }
+                            if (necro && Window1.GENeralBool)
+                            {
+                                var proverkaloginov = db.DataUsers;
+                                var proverkaloginov1 = db.Administrators;
+                                foreach (DataUsers d in proverkaloginov)
                                 {
-                                    necro = false;
-                                    MessageBox.Show("Такой логин уже существует");
+                                    if (PROV5 == d.LoginUs)
+                                    {
+                                        necro = false;
+                                        MessageBox.Show("Такой логин уже существует");
+                                    }
+                                }
+                                foreach (Administrators d in proverkaloginov1)
+                                {
+                                    if (PROV5 == d.Alogin)
+                                    {
+                                        necro = false;
+                                        MessageBox.Show("Такой логин уже существует");
+                                    }
                                 }
                             }
-                            foreach (Administrators d in proverkaloginov1)
+                            if ((PROV6 != null) && necro)
                             {
-                                if (PROV5 == d.Alogin)
+                                if (PROV6.Length < 5)
                                 {
+                                    MessageBox.Show("Вы ввели пароль меньше 5 символов");
                                     necro = false;
-                                    MessageBox.Show("Такой логин уже существует");
+                                }
+                                if (PROV6.Length > 50)
+                                {
+                                    MessageBox.Show("Вы ввели слишком длинный пароль");
+                                    necro = false;
+                                }
+                                if (PROV6.Contains(" ") || PROV5.Contains(" "))
+                                {
+                                    MessageBox.Show("Нельзя вводить пробелы в логине или паролле");
+                                    necro = false;
                                 }
                             }
+                            else { MessageBox.Show("Вы не ввели пароль"); necro = false; }
                         }
-                        if ((PROV6 != null) && necro)
-                        {
-                            if (PROV6.Length < 5)
-                            {
-                                MessageBox.Show("Вы ввели пароль меньше 5 символов");
-                                necro = false;
-                            }
-                            if (PROV6.Length > 50)
-                            {
-                                MessageBox.Show("Вы ввели слишком длинный пароль");
-                                necro = false;
-                            }
-                            if (PROV6.Contains(" ")|| PROV5.Contains(" "))
-                            {
-                                MessageBox.Show("Нельзя вводить пробелы в логине или паролле");
-                                necro = false;
-                            }
-                        }
-                        else { MessageBox.Show("Вы не ввели пароль"); necro = false; }
                     }
                 }
             }
+            catch { MessageBox.Show("Проверьте подключение к серверу"); necro = false; }
         }
 
         //Функция регистрации пользователя 

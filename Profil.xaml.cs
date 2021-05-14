@@ -32,15 +32,15 @@ namespace KSHG
                     Name.Text = db.Users.Where(X => X.IDUser == SPISUS).Select(x => x.UName).FirstOrDefault();
                     Name1.Text = db.Users.Where(X => X.IDUser == SPISUS).Select(x => x.ULastName).FirstOrDefault();
                     Name2.Text = db.Users.Where(X => X.IDUser == SPISUS).Select(x => x.USecondName).FirstOrDefault();
-                    dATE.Text = db.Users.Where(X => X.IDUser == SPISUS).Select(x => x.DateofBirth).FirstOrDefault().ToString();
+                    dATE.Text = db.Users.Where(X => X.IDUser == SPISUS).Select(x => x.DateofBirth).FirstOrDefault().ToString("d");
                     log.Text = db.DataUsers.Where(X => X.IDUser == SPISUS).Select(x => x.LoginUs).FirstOrDefault().ToString();
                 }
                 else
                 {
                     Name.Text = db.Administrators.Where(X => X.Alogin == locstr).Select(x => x.AName).FirstOrDefault();
                     Name1.Text = db.Administrators.Where(X => X.Alogin == locstr).Select(x => x.ALastName).FirstOrDefault();
-                    Name2.Text = db.Administrators.Where(X => X.Alogin == locstr).Select(x => x.ASecondName).FirstOrDefault();
-                    dATE.Text = db.Administrators.Where(X => X.Alogin == locstr).Select(x => x.DateofBirth).FirstOrDefault().ToString();
+                    Name2.Text = db.Administrators.Where(X => X.Alogin == locstr).Select(x => x.ASecondName).FirstOrDefault();                 
+                    dATE.Text = db.Administrators.Where(X => X.Alogin == locstr).Select(x => x.DateofBirth).FirstOrDefault().ToString("d");
                     log.Text = db.Administrators.Where(X => X.Alogin == locstr).Select(x => x.Alogin).FirstOrDefault();
                 }
             }
@@ -69,51 +69,55 @@ namespace KSHG
                 Window1.GENeralBool = false;
                 string locstr = AUTH.GenLog;
                 string prolog;
-                string provpassw = par.Text;
-                string provrestorepassw = provpar.Text;
+                string provpassw = par.Password;
+                string provrestorepassw = provpar.Password;
                 bool logbul = true;
                 string PROV = Name.Text.Trim();
                 string PROV1 = Name1.Text.Trim();
                 string PROV2 = Name2.Text.Trim();
                 string PROV3 = dATE.Text.Trim();
                 string PROV4 = log.Text.Trim();
-                string PROV5 = par.Text;
-                Window1.generalrule(ref PROV, ref PROV1, ref PROV2, ref PROV3, ref PROV4, ref PROV5, ref logbul); 
-                if (db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x).FirstOrDefault() == null)
-                {
-                    int SPISUS = db.DataUsers.Where(x => x.LoginUs == locstr).Select(X => X.IDUser).FirstOrDefault();
-                    prolog = db.DataUsers.Where(x => x.IDUser == SPISUS).Select(X => X.PasswordUs).FirstOrDefault();
-                    Users REP = db.Users.Where(x => x.IDUser == SPISUS).Select(X => X).FirstOrDefault();
-                    DataUsers REP1 = db.DataUsers.Where(x => x.IDUser == SPISUS).Select(X => X).FirstOrDefault(); 
-                    REP.UName = PROV;
-                    REP.ULastName = PROV1;
-                    REP.USecondName = PROV2;
-                    REP.DateofBirth = Convert.ToDateTime(PROV3);
-                    shortrestriction(ref provpassw,ref logbul,ref provrestorepassw,ref prolog);
-                    if (logbul)
-                    {
-                        REP1.PasswordUs = prolog;
-                    }
-                }
-                else
-                {
-                    prolog = db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x.Apassword).FirstOrDefault();
-                    Administrators ad = db.Administrators.Where(x => x.Alogin == locstr).Select(y => y).FirstOrDefault();
-                    shortrestriction(ref provpassw, ref logbul, ref provrestorepassw,ref prolog);
-                    if (logbul)
-                    {
-                        ad.AName = PROV;
-                        ad.ALastName = PROV1;
-                        ad.ASecondName = PROV2;
-                        ad.DateofBirth = Convert.ToDateTime(PROV3);
-                        ad.Apassword = prolog;
-                    }
-                }
+                string PROV5 = par.Password;
+                Window1.generalrule(ref PROV, ref PROV1, ref PROV2, ref PROV3, ref PROV4, ref PROV5, ref logbul);
                 if (logbul)
                 {
-                    db.SaveChanges();
-                    MessageBox.Show(AUTH.GenLog);
-                } else MessageBox.Show("Были введены некорректные данные");
+                    if (db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x).FirstOrDefault() == null)
+                    {
+                        int SPISUS = db.DataUsers.Where(x => x.LoginUs == locstr).Select(X => X.IDUser).FirstOrDefault();
+                        prolog = db.DataUsers.Where(x => x.IDUser == SPISUS).Select(X => X.PasswordUs).FirstOrDefault();
+                        Users REP = db.Users.Where(x => x.IDUser == SPISUS).Select(X => X).FirstOrDefault();
+                        DataUsers REP1 = db.DataUsers.Where(x => x.IDUser == SPISUS).Select(X => X).FirstOrDefault();
+                        REP.UName = PROV;
+                        REP.ULastName = PROV1;
+                        REP.USecondName = PROV2;
+                        REP.DateofBirth = Convert.ToDateTime(PROV3);
+                        shortrestriction(ref provpassw, ref logbul, ref provrestorepassw, ref prolog);
+                        if (logbul)
+                        {
+                            REP1.PasswordUs = prolog;
+                        }
+                    }
+                    else
+                    {
+                        prolog = db.Administrators.Where(x => x.Alogin == AUTH.GenLog).Select(x => x.Apassword).FirstOrDefault();
+                        Administrators ad = db.Administrators.Where(x => x.Alogin == locstr).Select(y => y).FirstOrDefault();
+                        shortrestriction(ref provpassw, ref logbul, ref provrestorepassw, ref prolog);
+                        if (logbul)
+                        {
+                            ad.AName = PROV;
+                            ad.ALastName = PROV1;
+                            ad.ASecondName = PROV2;
+                            ad.DateofBirth = Convert.ToDateTime(PROV3);
+                            ad.Apassword = prolog;
+                        }
+                    }
+                    if (logbul)
+                    {
+                        db.SaveChanges();
+                        MessageBox.Show(AUTH.GenLog);
+                    }
+                    else MessageBox.Show("Были введены некорректные данные");
+                }
             }
 
         }

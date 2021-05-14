@@ -86,15 +86,13 @@ namespace KSHG
         //Добавление нового актера в фильм
         private void btnsave_Click(object sender, RoutedEventArgs e)
         {
-            char[] helpmassive = new char[11] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',' '};
+            char[] helpmassive = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '*', '"', '/', '\\', '[', ']', ':', ';', '|', '=' };
             string checkName = Name.Text.Trim();
             string checkLName = Last_name.Text.Trim();
             string checkSName = Second_name.Text.Trim();
             string checkDbirth = Date_of_birth.Text.Trim();
             string checkrole = role.Text.Trim();
             string checkDcareer = Date_of_career.Text.Trim();
-            DateTime chekdatetime = DateTime.Now;
-            DateTime chekdatetimecareer = DateTime.Now;
             bool necro = true;
             if ((checkName != "") && (checkName.Length < 50)&&(checkLName != "") && (checkLName.Length < 50)&&(checkSName != "") && (checkSName.Length < 50))
             {
@@ -108,8 +106,9 @@ namespace KSHG
                 }
                 try
                 {
-                    chekdatetime = Convert.ToDateTime(checkDbirth);
-                    chekdatetimecareer = Convert.ToDateTime(checkDcareer);
+                    DateTime chekdatetime = Convert.ToDateTime(checkDbirth);
+                    DateTime chekdatetimecareer = Convert.ToDateTime(checkDcareer);
+                    if (chekdatetime > chekdatetimecareer) { necro = false; MessageBox.Show("Актер появился в животе(нет) Ошибка!"); }
                 }
                 catch
                 {

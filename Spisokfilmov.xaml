@@ -27,7 +27,7 @@
             <ColumnDefinition Width="0"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="SPISOKF" HorizontalAlignment="Left" Height="500" AutoGenerateColumns="False" VerticalAlignment="Top" Width="584" Foreground="Aqua" Background="Black" FontWeight="Bold" Grid.RowSpan="10" Margin="0,0,0,-38" Grid.ColumnSpan="2">
+        <DataGrid x:Name="SPISOKF" IsReadOnly="True" HorizontalAlignment="Left" Height="500" AutoGenerateColumns="False" VerticalAlignment="Top" Width="584" Foreground="Aqua" Background="Black" FontWeight="Bold" Grid.RowSpan="10" Margin="0,0,0,-38" Grid.ColumnSpan="2">
             <!--НЕНУЖНАЯ ФИГНЯ ПО СУТИ-->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">

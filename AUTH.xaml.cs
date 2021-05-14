@@ -36,12 +36,16 @@ namespace KSHG
             string checklogin = LOG.Text.Trim();
             GenLog = LOG.Text;
             string checkpassw = PASSW.Password.Trim();
-            Administrators admin;
-            DataUsers user;
+            Administrators admin = null;
+            DataUsers user = null;
             using (kursRabEntities context = new kursRabEntities())
             {
-                user = context.DataUsers.Where(l => l.LoginUs == checklogin && l.PasswordUs == checkpassw).FirstOrDefault();
-                admin = context.Administrators.Where(l => l.Alogin == checklogin && l.Apassword == checkpassw).FirstOrDefault();
+                try
+                {
+                    user = context.DataUsers.Where(l => l.LoginUs == checklogin && l.PasswordUs == checkpassw).FirstOrDefault();
+                    admin = context.Administrators.Where(l => l.Alogin == checklogin && l.Apassword == checkpassw).FirstOrDefault();
+                }
+                catch { MessageBox.Show("Проверьте подключение к серверу"); }
             }
             if ((user != null) || (admin != null))
             {
@@ -59,7 +63,7 @@ namespace KSHG
         private void BtgRegistr_Click(object sender, RoutedEventArgs e)
         {
             Window1 taskWindow = new Window1();
-            taskWindow.Show();
+            taskWindow.ShowDialog();
             
 
         }

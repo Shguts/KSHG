@@ -98,9 +98,8 @@ namespace KSHG
             string GetGENRE = COMBOBOXGENRE.Text.Trim();
             string GetCOUNTR = COMBOBOXCOUNTRY.Text.Trim();
             string GetAGE = AGE.Text.Trim();
-            DateTime chekdatetime = DateTime.Now;
             bool Gencheckbool= true;
-            Spisokfilmov.generalfilms(ref GetName, ref GetDATE, ref GetGENRE, ref GetCOUNTR, ref GetAGE, ref chekdatetime, ref Gencheckbool);
+            Spisokfilmov.generalfilms(ref GetName, ref GetDATE, ref GetGENRE, ref GetCOUNTR, ref GetAGE,ref Gencheckbool);
             if (Gencheckbool)
             {
                 using (kursRabEntities db = new kursRabEntities())
