@@ -63,7 +63,12 @@ namespace KSHG
             {
                 try
                 {
-                   DateTime chekdatetime = Convert.ToDateTime(PROV2);
+                    if (!PROV2.Contains(":"))
+                    {
+                        DateTime chekdatetime = Convert.ToDateTime(PROV2);
+                        chekdatetime = Convert.ToDateTime(PROV2);
+                    }
+                    else { MessageBox.Show("вы некорректно ввели дату"); necro = false; }
                 }
                 catch
                 {

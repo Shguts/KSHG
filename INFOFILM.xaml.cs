@@ -117,8 +117,13 @@ namespace KSHG
                             PROVball.Mark = getidofball;
                             PROVball.Comment = COMOFF.Text.Trim();
                         }
-                        double checkcountofBALLS = db.BALLS.Where(x => x.IDFilm == r).Average(p => p.Mark);
-                        setrate.rating = (float)checkcountofBALLS;
+                        double checkcountofBALLS = 0;
+                        try
+                        {
+                            checkcountofBALLS = db.BALLS.Where(x => x.IDFilm == r).Average(p => p.Mark);
+                            setrate.rating = (float)checkcountofBALLS;
+                        }
+                        catch { setrate.rating = getidofball; }
                         try
                         {
                             db.SaveChanges();

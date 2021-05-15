@@ -63,7 +63,11 @@ namespace KSHG
                             {
                                 try
                                 {
-                                    chekdatetime = Convert.ToDateTime(PROV4);
+                                    if (!PROV4.Contains(":"))
+                                    {
+                                        chekdatetime = Convert.ToDateTime(PROV4);
+                                    }
+                                    else { MessageBox.Show("вы некорректно ввели дату");necro = false; }
                                 }
                                 catch
                                 {
@@ -73,7 +77,7 @@ namespace KSHG
                             }
                             else
                             {
-                                MessageBox.Show("Вы не ввели Отчество");
+                                MessageBox.Show("Вы некорректно ввели отчество");
                                 necro = false;
                             }
                         }
@@ -163,8 +167,8 @@ namespace KSHG
             string PROV2 = Last_name.Text.Trim();
             string PROV3 = Second_name.Text.Trim();
             string PROV4 = Date_of_birth.Text.Trim();
-            string PROV5 = Login.Text.Trim();
-            string PROV6 = Password.Password.Trim();
+            string PROV5 = Login.Text;
+            string PROV6 = Password.Password;
             bool necro = true;
             using (kursRabEntities db = new kursRabEntities())
             {

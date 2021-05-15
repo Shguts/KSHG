@@ -115,11 +115,15 @@ namespace KSHG
                 {
                     DateTime chekdatetime = Convert.ToDateTime(checkDbirth);
                     DateTime chekdatetimecareer = Convert.ToDateTime(checkDcareer);
-                    if (chekdatetime > chekdatetimecareer) { necro = false; MessageBox.Show("Актер появился в животе(нет) Ошибка!"); }
-                    using (kursRabEntities db = new kursRabEntities())
+                    if (!checkDbirth.Contains(":")&&(!checkDcareer.Contains(":")))
                     {
-                        if (db.Films.Where(x => x.IDFilm == POISK.GenID).Select(y => y.DateofCreate).FirstOrDefault()< chekdatetime) { necro = false; MessageBox.Show("В фильме учавствует неродившийся актер так нельзя!"); }
+                        if (chekdatetime > chekdatetimecareer) { necro = false; MessageBox.Show("Актер появился в животе(нет) Ошибка!"); }
+                        using (kursRabEntities db = new kursRabEntities())
+                        {
+                            if (db.Films.Where(x => x.IDFilm == POISK.GenID).Select(y => y.DateofCreate).FirstOrDefault() < chekdatetime) { necro = false; MessageBox.Show("В фильме учавствует неродившийся актер так нельзя!"); }
+                        }
                     }
+                    else { MessageBox.Show("вы некорректно ввели дату"); necro = false; }
                 }
                 catch
                 {
