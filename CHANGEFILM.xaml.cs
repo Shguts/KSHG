@@ -29,7 +29,7 @@ namespace KSHG
             using (kursRabEntities db = new kursRabEntities())
             {
                 Name_of_Film.Text = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.NameofFilm).FirstOrDefault();
-                DATEOC.Text = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.DateofCreate).FirstOrDefault().ToString();
+                DATEOC.Text = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.DateofCreate).FirstOrDefault().ToString("d");
                 AGE.Text = db.Films.Where(y => y.IDFilm == POISK.GenID).Select(x => x.AgeRestriction).FirstOrDefault().ToString();
                 ////////////////
                 var result = (from actor in db.CREATORSOFFILMS
@@ -106,6 +106,31 @@ namespace KSHG
                 {
                     var fetch = db.Films.Where(x => x.IDFilm == POISK.GenID).Select(y => y).FirstOrDefault();
                     fetch.NameofFilm = Name_of_Film.Text;
+                    var helpfordate = db.roleofactor.Where(x => x.IDFilm == POISK.GenID).Select(y => y).ToList();
+                    foreach (var i in helpfordate) 
+                    {
+                        DateTime candate = db.CREATORSOFFILMS.Where(x => x.IDCreator == i.IDCreator).Select(y => y.Dateofcareer).FirstOrDefault();
+                        if (candate>Convert.ToDateTime(GetDATE))
+                        {
+                            var deleteactorinfilm = db.roleofactor.Where(x => x.IDCreator == i.IDCreator && x.IDFilm == POISK.GenID).Select(x => x).FirstOrDefault();
+                            MessageBox.Show("Актер удален из данного фильма так как дата начло его карьеры некорректно для него");
+                            db.roleofactor.Remove(deleteactorinfilm);
+                        }
+                    }
+                    var result = (from actor in db.CREATORSOFFILMS
+                                  join role in db.roleofactor on actor.IDCreator equals role.IDCreator
+                                  where role.IDFilm == POISK.GenID
+                                  select new
+                                  {
+                                      actor.AcName,
+                                      actor.AcLastName,
+                                      actor.AcSecondName,
+                                      actor.DateofBirth,
+                                      actor.Dateofcareer,
+                                      role.RoleofActor1
+                                  });
+
+                    DataofRole.ItemsSource = result.ToList();
                     fetch.DateofCreate = Convert.ToDateTime(DATEOC.Text);
                     if (GetCOUNTR != "")
                     {

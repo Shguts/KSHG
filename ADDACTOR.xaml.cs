@@ -68,22 +68,25 @@ namespace KSHG
                 {
                     MessageBox.Show("Вы ввели некорректную роль для создателя");
                 }
-                if (db.CREATORSOFFILMS.Where(x=>x.IDCreator == getidActor).Select(y=>y.DateofBirth).FirstOrDefault()>db.Films.Where(x => x.IDFilm == POISK.GenID).Select(y => y.DateofCreate).FirstOrDefault())
-                {
-                    MessageBox.Show("Вы некорректно добавили существубщего актера он не может учавствовать в фильме неродившись");
-                }
                 else
                 {
-                    try
+                    if (db.CREATORSOFFILMS.Where(x => x.IDCreator == getidActor).Select(y => y.DateofBirth).FirstOrDefault() > db.Films.Where(x => x.IDFilm == POISK.GenID).Select(y => y.DateofCreate).FirstOrDefault())
                     {
-                        roleofactor addroleofac = new roleofactor();
-                        addroleofac.IDFilm = POISK.GenID;
-                        addroleofac.IDCreator = getidActor;
-                        addroleofac.RoleofActor1 = getroleActor;
-                        db.roleofactor.Add(addroleofac);
-                        db.SaveChanges();
+                        MessageBox.Show("Вы некорректно добавили существубщего актера он не может учавствовать в фильме неродившись");
                     }
-                    catch { MessageBox.Show("Этот актер на этот фильм уже добавлен"); }
+                    else
+                    {
+                        try
+                        {
+                            roleofactor addroleofac = new roleofactor();
+                            addroleofac.IDFilm = POISK.GenID;
+                            addroleofac.IDCreator = getidActor;
+                            addroleofac.RoleofActor1 = getroleActor;
+                            db.roleofactor.Add(addroleofac);
+                            db.SaveChanges();
+                        }
+                        catch { MessageBox.Show("Этот актер на этот фильм уже добавлен"); }
+                    }
                 }
             }
         }
